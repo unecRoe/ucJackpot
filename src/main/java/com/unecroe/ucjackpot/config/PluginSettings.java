@@ -11,7 +11,6 @@ public record PluginSettings(
         boolean saveActiveEntries,
         List<String> commandAliases,
         boolean metricsEnabled,
-        int bstatsPluginId,
         boolean vaultEnabled,
         String currencySymbol,
         int currencyDecimals,

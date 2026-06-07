@@ -22,7 +22,7 @@
         <mariadb.version>3.5.8</mariadb.version>
         <placeholderapi.version>2.12.2</placeholderapi.version>
         <vault.version>1.7</vault.version>
-        <bstats.version>3.1.0</bstats.version>
+        <bstats.version>3.2.1</bstats.version>
         <junit.version>6.1.0</junit.version>
     </properties>
 
@@ -88,6 +88,7 @@
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit</artifactId>
             <version>${bstats.version}</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>

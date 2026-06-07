@@ -93,7 +93,6 @@ public final class ConfigService {
                 config.getBoolean("settings.save-active-entries", true),
                 readCommandAliases(config),
                 config.getBoolean("metrics.enabled", true),
-                Math.max(0, config.getInt("metrics.bstats-plugin-id", 0)),
                 config.getBoolean("economy.vault.enabled", true),
                 config.getString("economy.formatting.symbol", "$"),
                 config.getInt("economy.formatting.decimals", 2),

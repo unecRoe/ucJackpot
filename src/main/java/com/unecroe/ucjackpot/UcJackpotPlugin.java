@@ -28,6 +28,8 @@ import java.util.Locale;
 import java.util.Map;
 
 public final class UcJackpotPlugin extends JavaPlugin {
+    private static final int BSTATS_PLUGIN_ID = 31851;
+
     private ConfigService configService;
     private MessageService messageService;
     private DebugLogger debugLogger;
@@ -56,7 +58,6 @@ public final class UcJackpotPlugin extends JavaPlugin {
         registerCommands();
         registerListeners();
         registerPlaceholders();
-        registerMetrics();
         getLogger().info("ucJackpot enabled.");
     }
 
@@ -118,15 +119,11 @@ public final class UcJackpotPlugin extends JavaPlugin {
             getLogger().info("bStats metrics disabled in config.yml.");
             return;
         }
-        int pluginId = configService.settings().bstatsPluginId();
-        if (pluginId <= 0) {
-            return;
-        }
-        metrics = new Metrics(this, pluginId);
+        metrics = new Metrics(this, BSTATS_PLUGIN_ID);
         metrics.addCustomChart(new SimplePie("storage_type", () -> configService.settings().storage().type().toLowerCase(Locale.ROOT)));
         metrics.addCustomChart(new SimplePie("default_locale", () -> configService.settings().defaultLocale()));
         metrics.addCustomChart(new SingleLineChart("jackpot_rooms", () -> configService.jackpots().size()));
-        getLogger().info("bStats metrics enabled with plugin id " + pluginId + ".");
+        getLogger().info("bStats metrics enabled.");
     }
 
     private void registerConfiguredCommandAliases() {

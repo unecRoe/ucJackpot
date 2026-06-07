@@ -32,8 +32,7 @@ commands:
 
 metrics:
   # Anonymous usage metrics. Set enabled to false if you do not want metrics.
-  enabled: false
-  bstats-plugin-id: 0
+  enabled: true
 
 storage:
   # sqlite is recommended for small/medium servers.
