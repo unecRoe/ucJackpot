@@ -11,7 +11,7 @@ items:
     lore:
       - '<dark_gray>Sélection dans l''inventaire'
       - ''
-      - '<#ffcc33>Limite <dark_gray>| <white>%min_items%-%max_items% objets</white>'
+      - '<#ffcc33>Limite <dark_gray>| <white>%min_items%-%max_items% piles d''objets</white>'
       - '<gray>Clique sur les objets acceptés dans ton inventaire.'
       - '<gray>Les objets refusés ne sont pas ajoutés.'
     action: none

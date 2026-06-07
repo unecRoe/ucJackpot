@@ -15,6 +15,7 @@ public enum AuditEventType {
     TICKET_GIVE,
     SEASON_REWARD,
     FAVORITE_AMOUNT,
+    TITLE_TOGGLE,
     ADMIN_ACTION,
     CONFIG_RELOAD,
     DATABASE,

@@ -11,7 +11,7 @@ items:
     lore:
       - '<dark_gray>인벤토리 선택'
       - ''
-      - '<#ffcc33>제한 <dark_gray>| <white>%min_items%-%max_items%개</white>'
+      - '<#ffcc33>제한 <dark_gray>| <white>%min_items%-%max_items% 아이템 스택</white>'
       - '<gray>인벤토리에서 허용된 아이템을 클릭하세요.'
       - '<gray>허용되지 않은 아이템은 선택되지 않습니다.'
     action: none

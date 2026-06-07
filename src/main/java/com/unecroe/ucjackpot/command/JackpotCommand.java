@@ -32,6 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.UUID;
 
 public final class JackpotCommand implements CommandExecutor, TabCompleter {
     private final JavaPlugin plugin;
@@ -81,6 +82,7 @@ public final class JackpotCommand implements CommandExecutor, TabCompleter {
             case "history" -> history(sender);
             case "top" -> top(sender);
             case "mailbox" -> player(sender, this::mailbox);
+            case "title" -> player(sender, this::toggleTitleNotifications);
             case "reload" -> admin(sender, "ucjackpot.reload", () -> {
                 reloadCallback.run();
                 audit.log(AuditEventType.CONFIG_RELOAD, null, sender.getName(), "all", "Reload command", "");
@@ -91,13 +93,21 @@ public final class JackpotCommand implements CommandExecutor, TabCompleter {
             case "cancel" -> admin(sender, "ucjackpot.cancel", () -> sendAdmin(sender, jackpot.cancel(roomId(args, 1))));
             case "selftest" -> admin(sender, "ucjackpot.selftest", () -> selftest(sender));
             case "draw" -> admin(sender, "ucjackpot.draw", () -> {
-                DrawResult result = jackpot.draw(roomId(args, 1), true);
+                String targetRoom = roomId(args, 1);
+                JackpotRound round = jackpot.round(targetRoom);
+                if (round == null) {
+                    messages.send(sender, "jackpot-not-found", new PlaceholderBag().put("jackpot", targetRoom));
+                    return;
+                }
+                if (round.drawing()) {
+                    messages.send(sender, "draw-in-progress");
+                    return;
+                }
+                DrawResult result = jackpot.draw(targetRoom, true);
                 if (result == null) {
                     messages.send(sender, "not-enough-players");
                 } else {
-                    messages.send(sender, "draw-winner", new PlaceholderBag()
-                            .put("player", result.winnerName())
-                            .put("value", economy.provider().format(result.moneyPrize()) + " + " + result.itemCount() + " item"));
+                    messages.send(sender, "draw-started");
                 }
             });
             case "admin", "help" -> help(sender, label);
@@ -272,6 +282,27 @@ public final class JackpotCommand implements CommandExecutor, TabCompleter {
             } else {
                 messages.send(player, "mailbox-delivered", new PlaceholderBag().put("count", count));
             }
+        });
+    }
+
+    private void toggleTitleNotifications(Player player) {
+        if (!config.settings().drawTitlesEnabled() || !config.settings().drawTitlesPlayerToggle()) {
+            messages.send(player, "title-toggle-unavailable");
+            return;
+        }
+        UUID playerUuid = player.getUniqueId();
+        String playerName = player.getName();
+        storage.titleNotifications(playerUuid).thenAccept(enabled -> {
+            boolean next = !enabled;
+            storage.saveTitleNotifications(playerUuid, playerName, next).thenRun(() -> Bukkit.getScheduler().runTask(plugin, () -> {
+                audit.log(AuditEventType.TITLE_TOGGLE, playerUuid, playerName, null,
+                        "Draw title notifications toggled", "enabled=" + next);
+                debug.log("commands", "Title notifications toggled player=" + playerName + " enabled=" + next);
+                Player target = Bukkit.getPlayer(playerUuid);
+                if (target != null && target.isOnline()) {
+                    messages.send(target, next ? "title-toggle-enabled" : "title-toggle-disabled");
+                }
+            }));
         });
     }
 
@@ -611,7 +642,7 @@ public final class JackpotCommand implements CommandExecutor, TabCompleter {
     private List<String> rootOptions(CommandSender sender) {
         List<String> options = new ArrayList<>(List.of("help"));
         if (sender.hasPermission("ucjackpot.use")) {
-            options.addAll(List.of("open", "rooms"));
+            options.addAll(List.of("open", "rooms", "title"));
         }
         if (sender.hasPermission("ucjackpot.join.money")) {
             options.add("join");

@@ -11,6 +11,7 @@ messages:
   insufficient-money: '%prefix%<#ff5555>لا تملك مالاً كافياً للمشاركة في هذا الجاكبوت.'
   money-entry-success: '%prefix%<#55ff99>أودعت %amount%. فرصتك: <white>%chance%%</white>'
   item-entry-success: '%prefix%<#55ff99>تمت إضافة العناصر المحددة إلى الجائزة. فرصتك: <white>%chance%%</white>'
+  chance-update: '%prefix%<#ffcc33>فرصتك الحالية في %jackpot%: <white>%chance%%</white>'
   money-manual-prompt: '%prefix%<#ffcc33>اكتب في الدردشة المبلغ الذي تريد إيداعه.'
   favorite-prompt: '%prefix%<#ffcc33>اكتب في الدردشة مبلغك المفضل.'
   favorite-saved: '%prefix%<#55ff99>تم حفظ المبلغ المفضل: <white>%amount%</white>'
@@ -34,11 +35,12 @@ messages:
   entry-limit: '%prefix%<#ff5555>وصلت إلى حد المشاركات لهذه الجولة.'
   min-entry: '%prefix%<#ff5555>الحد الأدنى للمشاركة: <white>%amount%</white>'
   max-entry: '%prefix%<#ff5555>الحد الأقصى للمشاركة: <white>%amount%</white>'
-  min-items: '%prefix%<#ff5555>الحد الأدنى للعناصر: <white>%amount%</white>'
-  max-items: '%prefix%<#ff5555>الحد الأقصى للعناصر: <white>%amount%</white>'
+  min-items: '%prefix%<#ff5555>الحد الأدنى لحزم العناصر: <white>%amount%</white>'
+  max-items: '%prefix%<#ff5555>الحد الأقصى لحزم العناصر: <white>%amount%</white>'
   item-not-allowed: '%prefix%<#ff5555>هذا العنصر غير مقبول.'
   item-no-value: '%prefix%<#ff5555>هذا العنصر غير صالح للجاكبوت.'
   draw-started: '%prefix%<#ffcc33>بدأ سحب الجاكبوت!'
+  draw-in-progress: '%prefix%<#ffcc33>يتم سحب هذا الجاكبوت الآن. انتظر النتيجة.'
   draw-winner: '%prefix%<#55ff99>الفائز: <white>%player%</white> | الجائزة: <white>%value%</white>'
   draw-winner-broadcast: '%prefix%<#55ff99>الفائز: <white>%player%</white> | المال: <white>%money%</white> | العناصر: <white>%items%</white> | السحب: <gray>%draw%</gray>'
   draw-animation-title: '<#ffcc33><bold>ucJackpot</bold>'
@@ -70,6 +72,9 @@ messages:
   selftest-issue: '<gray>- المشكلة: <white>%issue%</white>'
   debug-on: '%prefix%<#55ff99>تم تفعيل وضع التصحيح.'
   debug-off: '%prefix%<#ffcc33>تم تعطيل وضع التصحيح.'
+  title-toggle-enabled: '%prefix%<#55ff99>تم تفعيل عناوين السحب.'
+  title-toggle-disabled: '%prefix%<#ffcc33>تم تعطيل عناوين السحب.'
+  title-toggle-unavailable: '%prefix%<#ff5555>عناوين السحب معطلة من إعدادات الخادم.'
   help:
     - '<#ffcc33><bold>أوامر ucJackpot</bold>'
     - '<gray>%command% open [room] <dark_gray>- <white>فتح القائمة'
@@ -82,6 +87,7 @@ messages:
     - '<gray>%command% top <dark_gray>- <white>عرض الترتيب'
     - '<gray>%command% history <dark_gray>- <white>عرض آخر الفائزين'
     - '<gray>%command% mailbox <dark_gray>- <white>استلام مكافآت البريد'
+    - '<gray>%command% title <dark_gray>- <white>تبديل عناوين السحب'
 
 
 

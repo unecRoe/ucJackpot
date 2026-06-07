@@ -2,11 +2,14 @@ package com.unecroe.ucjackpot.lang;
 
 import com.unecroe.ucjackpot.text.PlaceholderBag;
 import com.unecroe.ucjackpot.text.TextFormatter;
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.configuration.InvalidConfigurationException;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -45,6 +48,10 @@ public final class MessageService {
 
     public void send(CommandSender sender, String key) {
         send(sender, key, new PlaceholderBag());
+    }
+
+    public void actionBar(Player player, String key, PlaceholderBag placeholders) {
+        player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(format(key, placeholders)));
     }
 
     public void broadcast(String key, PlaceholderBag placeholders, String permission) {

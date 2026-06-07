@@ -108,6 +108,11 @@ public final class StorageService {
                 statement.executeUpdate("CREATE TABLE IF NOT EXISTS ucjackpot_player_settings ("
                         + "player_uuid VARCHAR(36) PRIMARY KEY, player_name VARCHAR(64), favorite_amount DOUBLE,"
                         + "updated_at BIGINT)");
+                try {
+                    statement.executeUpdate("ALTER TABLE ucjackpot_player_settings ADD COLUMN title_enabled BOOLEAN DEFAULT 1");
+                } catch (SQLException ignored) {
+                    // Existing installations may already have the column.
+                }
                 statement.executeUpdate("CREATE TABLE IF NOT EXISTS ucjackpot_draws ("
                         + "draw_id VARCHAR(36) PRIMARY KEY, jackpot_id VARCHAR(64), winner_uuid VARCHAR(36),"
                         + "winner_name VARCHAR(64), seed VARCHAR(128), hash VARCHAR(128), money_prize DOUBLE,"
@@ -237,10 +242,104 @@ public final class StorageService {
         });
     }
 
+    public CompletableFuture<Void> saveTitleNotifications(UUID playerUuid, String playerName, boolean enabled) {
+        return runAsync(connection -> {
+            long now = System.currentTimeMillis();
+            try (PreparedStatement update = connection.prepareStatement(
+                    "UPDATE ucjackpot_player_settings SET player_name = ?, title_enabled = ?, updated_at = ?"
+                            + " WHERE player_uuid = ?")) {
+                update.setString(1, playerName);
+                update.setBoolean(2, enabled);
+                update.setLong(3, now);
+                update.setString(4, playerUuid.toString());
+                if (update.executeUpdate() > 0) {
+                    debug.log("database", "Title notifications updated player=" + playerName + " enabled=" + enabled);
+                    return;
+                }
+            }
+            try (PreparedStatement insert = connection.prepareStatement(
+                    "INSERT INTO ucjackpot_player_settings(player_uuid, player_name, favorite_amount, title_enabled, updated_at)"
+                            + " VALUES(?,?,?,?,?)")) {
+                insert.setString(1, playerUuid.toString());
+                insert.setString(2, playerName);
+                insert.setDouble(3, 0.0);
+                insert.setBoolean(4, enabled);
+                insert.setLong(5, now);
+                insert.executeUpdate();
+                debug.log("database", "Title notifications inserted player=" + playerName + " enabled=" + enabled);
+            }
+        });
+    }
+
+    public CompletableFuture<Boolean> titleNotifications(UUID playerUuid) {
+        return supplyAsync(() -> {
+            final boolean[] enabled = {true};
+            executeSync(connection -> {
+                try (PreparedStatement statement = connection.prepareStatement(
+                        "SELECT title_enabled FROM ucjackpot_player_settings WHERE player_uuid = ?")) {
+                    statement.setString(1, playerUuid.toString());
+                    try (ResultSet result = statement.executeQuery()) {
+                        if (result.next()) {
+                            enabled[0] = result.getBoolean("title_enabled");
+                        }
+                    }
+                }
+            });
+            debug.log("database", "Title notifications loaded player=" + playerUuid + " enabled=" + enabled[0]);
+            return enabled[0];
+        });
+    }
+
+    public CompletableFuture<Map<UUID, Boolean>> titleNotifications(List<UUID> playerUuids) {
+        return supplyAsync(() -> {
+            Map<UUID, Boolean> settings = new LinkedHashMap<>();
+            if (playerUuids.isEmpty()) {
+                return settings;
+            }
+            executeSync(connection -> {
+                String placeholders = String.join(",", java.util.Collections.nCopies(playerUuids.size(), "?"));
+                try (PreparedStatement statement = connection.prepareStatement(
+                        "SELECT player_uuid, title_enabled FROM ucjackpot_player_settings"
+                                + " WHERE player_uuid IN (" + placeholders + ")")) {
+                    for (int index = 0; index < playerUuids.size(); index++) {
+                        statement.setString(index + 1, playerUuids.get(index).toString());
+                    }
+                    try (ResultSet result = statement.executeQuery()) {
+                        while (result.next()) {
+                            settings.put(UUID.fromString(result.getString("player_uuid")),
+                                    result.getBoolean("title_enabled"));
+                        }
+                    }
+                }
+            });
+            debug.log("database", "Title notification settings loaded count=" + settings.size());
+            return settings;
+        });
+    }
+
     public CompletableFuture<List<HistoryRecord>> recentHistory(int limit) {
         return supplyAsync(() -> {
             List<HistoryRecord> records = new ArrayList<>();
             executeSync(connection -> {
+                try (PreparedStatement statement = connection.prepareStatement(
+                        "SELECT draw_id, jackpot_id, winner_name, total_value, created_at FROM ucjackpot_draws"
+                                + " ORDER BY created_at DESC LIMIT ?")) {
+                    statement.setInt(1, Math.max(1, limit));
+                    try (ResultSet result = statement.executeQuery()) {
+                        while (result.next()) {
+                            records.add(new HistoryRecord(
+                                    result.getString("draw_id"),
+                                    result.getString("jackpot_id"),
+                                    result.getString("winner_name"),
+                                    result.getDouble("total_value"),
+                                    result.getLong("created_at")
+                            ));
+                        }
+                    }
+                }
+                if (!records.isEmpty()) {
+                    return;
+                }
                 try (PreparedStatement statement = connection.prepareStatement(
                         "SELECT jackpot_id, winner_name, entry_value, created_at FROM ucjackpot_history"
                                 + " ORDER BY created_at DESC LIMIT ?")) {
@@ -248,6 +347,7 @@ public final class StorageService {
                     try (ResultSet result = statement.executeQuery()) {
                         while (result.next()) {
                             records.add(new HistoryRecord(
+                                    "",
                                     result.getString("jackpot_id"),
                                     result.getString("winner_name"),
                                     result.getDouble("entry_value"),
@@ -258,6 +358,41 @@ public final class StorageService {
                 }
             });
             debug.log("database", "Recent history loaded count=" + records.size() + " limit=" + limit);
+            return records;
+        });
+    }
+
+    public CompletableFuture<List<DrawEntryRecord>> drawEntries(String drawId) {
+        return supplyAsync(() -> {
+            List<DrawEntryRecord> records = new ArrayList<>();
+            if (drawId == null || drawId.isBlank()) {
+                return records;
+            }
+            executeSync(connection -> {
+                try (PreparedStatement statement = connection.prepareStatement(
+                        "SELECT entry_id, draw_id, jackpot_id, player_uuid, player_name, entry_type,"
+                                + "entry_value, money_amount, encoded_item, created_at"
+                                + " FROM ucjackpot_entry_history WHERE draw_id = ? ORDER BY created_at ASC")) {
+                    statement.setString(1, drawId);
+                    try (ResultSet result = statement.executeQuery()) {
+                        while (result.next()) {
+                            records.add(new DrawEntryRecord(
+                                    result.getString("entry_id"),
+                                    result.getString("draw_id"),
+                                    result.getString("jackpot_id"),
+                                    result.getString("player_uuid"),
+                                    result.getString("player_name"),
+                                    result.getString("entry_type"),
+                                    result.getDouble("entry_value"),
+                                    result.getDouble("money_amount"),
+                                    result.getString("encoded_item"),
+                                    result.getLong("created_at")
+                            ));
+                        }
+                    }
+                }
+            });
+            debug.log("database", "Draw entry history loaded draw=" + drawId + " count=" + records.size());
             return records;
         });
     }

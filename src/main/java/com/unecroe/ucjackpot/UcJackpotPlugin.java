@@ -53,6 +53,7 @@ public final class UcJackpotPlugin extends JavaPlugin {
         this.jackpotService = new JackpotService(this, configService, economyService, storageService, auditService, debugLogger, messageService);
         this.guiService = new GuiService(this, configService, economyService, storageService, messageService);
         this.guiService.jackpotService(jackpotService);
+        this.jackpotService.guiService(guiService);
 
         reloadAll();
         registerCommands();
@@ -192,7 +193,7 @@ public final class UcJackpotPlugin extends JavaPlugin {
         private ConfiguredJackpotCommand(String name) {
             super(name);
             setDescription("Configurable ucJackpot command alias.");
-            setUsage("/" + name + " [rooms|open|join|item|ticket|season|stats|top|history|mailbox|admin|reload]");
+            setUsage("/" + name + " [rooms|open|join|item|ticket|season|stats|top|history|mailbox|title|admin|reload]");
         }
 
         @Override

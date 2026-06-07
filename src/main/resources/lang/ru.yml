@@ -11,6 +11,7 @@ messages:
   insufficient-money: '%prefix%<#ff5555>У тебя недостаточно денег для участия в этом джекпоте.'
   money-entry-success: '%prefix%<#55ff99>Ты внёс %amount%. Твой шанс: <white>%chance%%</white>'
   item-entry-success: '%prefix%<#55ff99>Выбранные предметы добавлены в банк. Твой шанс: <white>%chance%%</white>'
+  chance-update: '%prefix%<#ffcc33>Твой текущий шанс в %jackpot%: <white>%chance%%</white>'
   money-manual-prompt: '%prefix%<#ffcc33>Напиши в чат сумму, которую хочешь внести.'
   favorite-prompt: '%prefix%<#ffcc33>Напиши в чат избранную сумму.'
   favorite-saved: '%prefix%<#55ff99>Избранная сумма сохранена: <white>%amount%</white>'
@@ -34,11 +35,12 @@ messages:
   entry-limit: '%prefix%<#ff5555>Ты достиг лимита участий в этом раунде.'
   min-entry: '%prefix%<#ff5555>Минимальная ставка: <white>%amount%</white>'
   max-entry: '%prefix%<#ff5555>Максимальная ставка: <white>%amount%</white>'
-  min-items: '%prefix%<#ff5555>Минимум предметов: <white>%amount%</white>'
-  max-items: '%prefix%<#ff5555>Максимум предметов: <white>%amount%</white>'
+  min-items: '%prefix%<#ff5555>Минимум стаков предметов: <white>%amount%</white>'
+  max-items: '%prefix%<#ff5555>Максимум стаков предметов: <white>%amount%</white>'
   item-not-allowed: '%prefix%<#ff5555>Этот предмет не принимается.'
   item-no-value: '%prefix%<#ff5555>Этот предмет недействителен для джекпота.'
   draw-started: '%prefix%<#ffcc33>Розыгрыш джекпота начался!'
+  draw-in-progress: '%prefix%<#ffcc33>Этот джекпот сейчас разыгрывается. Дождись результата.'
   draw-winner: '%prefix%<#55ff99>Победитель: <white>%player%</white> | Приз: <white>%value%</white>'
   draw-winner-broadcast: '%prefix%<#55ff99>Победитель: <white>%player%</white> | Деньги: <white>%money%</white> | Предметы: <white>%items%</white> | Розыгрыш: <gray>%draw%</gray>'
   draw-animation-title: '<#ffcc33><bold>ucJackpot</bold>'
@@ -70,6 +72,9 @@ messages:
   selftest-issue: '<gray>- Проблема: <white>%issue%</white>'
   debug-on: '%prefix%<#55ff99>Режим отладки включён.'
   debug-off: '%prefix%<#ffcc33>Режим отладки выключен.'
+  title-toggle-enabled: '%prefix%<#55ff99>Титры розыгрыша включены.'
+  title-toggle-disabled: '%prefix%<#ffcc33>Титры розыгрыша отключены.'
+  title-toggle-unavailable: '%prefix%<#ff5555>Титры розыгрыша отключены в настройках сервера.'
   help:
     - '<#ffcc33><bold>Команды ucJackpot</bold>'
     - '<gray>%command% open [room] <dark_gray>- <white>Открыть меню'
@@ -82,6 +87,7 @@ messages:
     - '<gray>%command% top <dark_gray>- <white>Показать рейтинг'
     - '<gray>%command% history <dark_gray>- <white>Показать последних победителей'
     - '<gray>%command% mailbox <dark_gray>- <white>Забрать награды из почты'
+    - '<gray>%command% title <dark_gray>- <white>Переключить титры розыгрыша'
 
 
 

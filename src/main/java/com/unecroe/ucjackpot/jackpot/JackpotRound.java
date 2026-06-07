@@ -189,6 +189,10 @@ public final class JackpotRound {
         return running;
     }
 
+    public synchronized boolean drawing() {
+        return drawing;
+    }
+
     public synchronized boolean countdownStarted() {
         return countdownStarted;
     }

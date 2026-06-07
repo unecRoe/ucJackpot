@@ -1,5 +1,5 @@
 title: '<#cc99ff><bold>Watch Screen</bold> <dark_gray>| <white>%jackpot_name%</white>'
-size: 54
+size: 45
 filler:
   material: PURPLE_STAINED_GLASS_PANE
   name: ' '
@@ -16,14 +16,24 @@ items:
       - '<gray>Participants move through the screen as the round runs.'
     action: none
   back:
-    slot: 49
+    slot: 40
     material: ARROW
     name: '<#55ff99><bold>Back</bold>'
     lore:
       - '<gray>Return to main menu.'
     action: open-main
 dynamic:
-  entry-slots: [10, 11, 12, 13, 14, 15, 16]
+  entry-slots: [10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25, 28, 29, 30, 31, 32, 33, 34]
+  winner-slot: [22]
+text:
+  watch-winner-name: '<#55ff99><bold>%player%</bold>'
+  watch-winner-lore:
+    - '<dark_gray>Draw result'
+    - ''
+    - '<#55ff99>Winner selected.'
+    - '<#55ff99>Money <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>Items <dark_gray>| <white>%items%</white>'
+    - '<gray>Rewards are being delivered.'
 sounds:
   open: BLOCK_NOTE_BLOCK_PLING
   click: UI_BUTTON_CLICK

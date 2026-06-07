@@ -11,6 +11,7 @@ messages:
   insufficient-money: '%prefix%<#ff5555>你的余额不足，无法参与此 Jackpot。'
   money-entry-success: '%prefix%<#55ff99>你已投入 %amount%。中奖概率：<white>%chance%%</white>'
   item-entry-success: '%prefix%<#55ff99>已将选中的物品加入奖池。中奖概率：<white>%chance%%</white>'
+  chance-update: '%prefix%<#ffcc33>你在 %jackpot% 的当前胜率：<white>%chance%%</white>'
   money-manual-prompt: '%prefix%<#ffcc33>请在聊天中输入要投入的金额。'
   favorite-prompt: '%prefix%<#ffcc33>请在聊天中输入你的常用金额。'
   favorite-saved: '%prefix%<#55ff99>常用金额已保存：<white>%amount%</white>'
@@ -34,11 +35,12 @@ messages:
   entry-limit: '%prefix%<#ff5555>你已达到本轮参与上限。'
   min-entry: '%prefix%<#ff5555>最低投入：<white>%amount%</white>'
   max-entry: '%prefix%<#ff5555>最高投入：<white>%amount%</white>'
-  min-items: '%prefix%<#ff5555>最少物品数：<white>%amount%</white>'
-  max-items: '%prefix%<#ff5555>最多物品数：<white>%amount%</white>'
+  min-items: '%prefix%<#ff5555>最少物品堆数：<white>%amount%</white>'
+  max-items: '%prefix%<#ff5555>最多物品堆数：<white>%amount%</white>'
   item-not-allowed: '%prefix%<#ff5555>此物品不被接受。'
   item-no-value: '%prefix%<#ff5555>此物品不能用于 Jackpot。'
   draw-started: '%prefix%<#ffcc33>Jackpot 抽奖开始！'
+  draw-in-progress: '%prefix%<#ffcc33>该 Jackpot 正在抽奖中，请等待结果。'
   draw-winner: '%prefix%<#55ff99>获胜者：<white>%player%</white> | 奖励：<white>%value%</white>'
   draw-winner-broadcast: '%prefix%<#55ff99>获胜者：<white>%player%</white> | 金钱：<white>%money%</white> | 物品：<white>%items%</white> | 抽奖：<gray>%draw%</gray>'
   draw-animation-title: '<#ffcc33><bold>ucJackpot</bold>'
@@ -70,6 +72,9 @@ messages:
   selftest-issue: '<gray>- 问题：<white>%issue%</white>'
   debug-on: '%prefix%<#55ff99>调试模式已开启。'
   debug-off: '%prefix%<#ffcc33>调试模式已关闭。'
+  title-toggle-enabled: '%prefix%<#55ff99>抽奖标题通知已开启。'
+  title-toggle-disabled: '%prefix%<#ffcc33>抽奖标题通知已关闭。'
+  title-toggle-unavailable: '%prefix%<#ff5555>抽奖标题通知已被服务器设置禁用。'
   help:
     - '<#ffcc33><bold>ucJackpot 命令</bold>'
     - '<gray>%command% open [room] <dark_gray>- <white>打开菜单'
@@ -82,6 +87,7 @@ messages:
     - '<gray>%command% top <dark_gray>- <white>查看排行榜'
     - '<gray>%command% history <dark_gray>- <white>查看最近获胜者'
     - '<gray>%command% mailbox <dark_gray>- <white>领取邮箱奖励'
+    - '<gray>%command% title <dark_gray>- <white>切换抽奖标题通知'
 
 
 

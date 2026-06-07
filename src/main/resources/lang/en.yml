@@ -11,6 +11,7 @@ messages:
   insufficient-money: '%prefix%<#ff5555>You do not have enough money to enter this jackpot.'
   money-entry-success: '%prefix%<#55ff99>You entered %amount%. Your chance: <white>%chance%%</white>'
   item-entry-success: '%prefix%<#55ff99>Selected item deposit added. Your chance: <white>%chance%%</white>'
+  chance-update: '%prefix%<#ffcc33>Your current chance in %jackpot%: <white>%chance%%</white>'
   money-manual-prompt: '%prefix%<#ffcc33>Type the money amount you want to deposit in chat.'
   favorite-prompt: '%prefix%<#ffcc33>Type your favorite money amount in chat.'
   favorite-saved: '%prefix%<#55ff99>Favorite amount saved: <white>%amount%</white>'
@@ -34,11 +35,12 @@ messages:
   entry-limit: '%prefix%<#ff5555>You reached the entry limit for this round.'
   min-entry: '%prefix%<#ff5555>Minimum entry: <white>%amount%</white>'
   max-entry: '%prefix%<#ff5555>Maximum entry: <white>%amount%</white>'
-  min-items: '%prefix%<#ff5555>Minimum items: <white>%amount%</white>'
-  max-items: '%prefix%<#ff5555>Maximum items: <white>%amount%</white>'
+  min-items: '%prefix%<#ff5555>Minimum item stacks: <white>%amount%</white>'
+  max-items: '%prefix%<#ff5555>Maximum item stacks: <white>%amount%</white>'
   item-not-allowed: '%prefix%<#ff5555>This item is not accepted.'
   item-no-value: '%prefix%<#ff5555>This item is not valid for jackpot.'
   draw-started: '%prefix%<#ffcc33>Jackpot drawing started!'
+  draw-in-progress: '%prefix%<#ffcc33>This jackpot is drawing now. Please wait for the result.'
   draw-winner: '%prefix%<#55ff99>Winner: <white>%player%</white> | Prize: <white>%value%</white>'
   draw-winner-broadcast: '%prefix%<#55ff99>Winner: <white>%player%</white> | Money: <white>%money%</white> | Items: <white>%items%</white> | Draw: <gray>%draw%</gray>'
   draw-animation-title: '<#ffcc33><bold>ucJackpot</bold>'
@@ -70,6 +72,9 @@ messages:
   selftest-issue: '<gray>- Issue: <white>%issue%</white>'
   debug-on: '%prefix%<#55ff99>Debug mode enabled.'
   debug-off: '%prefix%<#ffcc33>Debug mode disabled.'
+  title-toggle-enabled: '%prefix%<#55ff99>Draw title notifications enabled.'
+  title-toggle-disabled: '%prefix%<#ffcc33>Draw title notifications disabled.'
+  title-toggle-unavailable: '%prefix%<#ff5555>Draw title notifications are disabled by server settings.'
   help:
     - '<#ffcc33><bold>ucJackpot Commands</bold>'
     - '<gray>%command% open [room] <dark_gray>- <white>Open the menu'
@@ -82,6 +87,7 @@ messages:
     - '<gray>%command% top <dark_gray>- <white>Show leaderboard'
     - '<gray>%command% history <dark_gray>- <white>Show recent winners'
     - '<gray>%command% mailbox <dark_gray>- <white>Claim mailbox rewards'
+    - '<gray>%command% title <dark_gray>- <white>Toggle draw title notifications'
 
 
 

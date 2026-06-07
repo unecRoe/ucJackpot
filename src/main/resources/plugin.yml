@@ -16,7 +16,7 @@ libraries:
 commands:
   ucjackpot:
     description: Main ucJackpot command.
-    usage: /<command> [rooms|open|join|item|ticket|season|stats|top|history|mailbox|admin|reload]
+    usage: /<command> [rooms|open|join|item|ticket|season|stats|top|history|mailbox|title|admin|reload]
 permissions:
   ucjackpot.use:
     default: true

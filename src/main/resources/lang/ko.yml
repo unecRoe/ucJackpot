@@ -11,6 +11,7 @@ messages:
   insufficient-money: '%prefix%<#ff5555>이 Jackpot에 참여할 돈이 부족합니다.'
   money-entry-success: '%prefix%<#55ff99>%amount%을(를) 넣었습니다. 당첨 확률: <white>%chance%%</white>'
   item-entry-success: '%prefix%<#55ff99>선택한 아이템이 상금 풀에 추가되었습니다. 당첨 확률: <white>%chance%%</white>'
+  chance-update: '%prefix%<#ffcc33>%jackpot%에서 현재 당첨 확률: <white>%chance%%</white>'
   money-manual-prompt: '%prefix%<#ffcc33>넣을 금액을 채팅에 입력하세요.'
   favorite-prompt: '%prefix%<#ffcc33>즐겨찾기 금액을 채팅에 입력하세요.'
   favorite-saved: '%prefix%<#55ff99>즐겨찾기 금액 저장됨: <white>%amount%</white>'
@@ -34,11 +35,12 @@ messages:
   entry-limit: '%prefix%<#ff5555>이번 라운드의 참여 한도에 도달했습니다.'
   min-entry: '%prefix%<#ff5555>최소 투입액: <white>%amount%</white>'
   max-entry: '%prefix%<#ff5555>최대 투입액: <white>%amount%</white>'
-  min-items: '%prefix%<#ff5555>최소 아이템 수: <white>%amount%</white>'
-  max-items: '%prefix%<#ff5555>최대 아이템 수: <white>%amount%</white>'
+  min-items: '%prefix%<#ff5555>최소 아이템 스택 수: <white>%amount%</white>'
+  max-items: '%prefix%<#ff5555>최대 아이템 스택 수: <white>%amount%</white>'
   item-not-allowed: '%prefix%<#ff5555>이 아이템은 허용되지 않습니다.'
   item-no-value: '%prefix%<#ff5555>이 아이템은 Jackpot에 사용할 수 없습니다.'
   draw-started: '%prefix%<#ffcc33>Jackpot 추첨이 시작되었습니다!'
+  draw-in-progress: '%prefix%<#ffcc33>이 Jackpot은 현재 추첨 중입니다. 결과를 기다려 주세요.'
   draw-winner: '%prefix%<#55ff99>당첨자: <white>%player%</white> | 보상: <white>%value%</white>'
   draw-winner-broadcast: '%prefix%<#55ff99>당첨자: <white>%player%</white> | 돈: <white>%money%</white> | 아이템: <white>%items%</white> | 추첨: <gray>%draw%</gray>'
   draw-animation-title: '<#ffcc33><bold>ucJackpot</bold>'
@@ -70,6 +72,9 @@ messages:
   selftest-issue: '<gray>- 문제: <white>%issue%</white>'
   debug-on: '%prefix%<#55ff99>디버그 모드가 켜졌습니다.'
   debug-off: '%prefix%<#ffcc33>디버그 모드가 꺼졌습니다.'
+  title-toggle-enabled: '%prefix%<#55ff99>추첨 타이틀 알림을 켰습니다.'
+  title-toggle-disabled: '%prefix%<#ffcc33>추첨 타이틀 알림을 껐습니다.'
+  title-toggle-unavailable: '%prefix%<#ff5555>추첨 타이틀 알림은 서버 설정에서 비활성화되어 있습니다.'
   help:
     - '<#ffcc33><bold>ucJackpot 명령어</bold>'
     - '<gray>%command% open [room] <dark_gray>- <white>메뉴 열기'
@@ -82,6 +87,7 @@ messages:
     - '<gray>%command% top <dark_gray>- <white>순위 보기'
     - '<gray>%command% history <dark_gray>- <white>최근 당첨자 보기'
     - '<gray>%command% mailbox <dark_gray>- <white>우편함 보상 받기'
+    - '<gray>%command% title <dark_gray>- <white>추첨 타이틀 알림 전환'
 
 
 

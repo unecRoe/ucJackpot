@@ -11,7 +11,7 @@ items:
     lore:
       - '<dark_gray>Envanterden seçim'
       - ''
-      - '<#ffcc33>Limit <dark_gray>| <white>%min_items%-%max_items% eşya</white>'
+      - '<#ffcc33>Limit <dark_gray>| <white>%min_items%-%max_items% eşya yığını</white>'
       - '<gray>Alt envanterindeki uygun eşyalara tıkla.'
       - '<gray>Uygun olmayan eşyalar seçime alınmaz.'
     action: none

@@ -24,6 +24,7 @@ Help output uses the label the player typed. For example, `/jp` shows `/jp rooms
 | `/ucjackpot top` | `ucjackpot.top` | Show leaderboard |
 | `/ucjackpot history` | `ucjackpot.history` | Show recent winners |
 | `/ucjackpot mailbox` | `ucjackpot.mailbox` | Claim queued item rewards |
+| `/ucjackpot title` | `ucjackpot.use` | Toggle personal draw title notifications |
 | `/ucjackpot season [top] [season]` | `ucjackpot.season` | Show season leaderboard |
 
 ## Admin Commands

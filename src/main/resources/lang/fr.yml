@@ -11,6 +11,7 @@ messages:
   insufficient-money: '%prefix%<#ff5555>Tu n''as pas assez d''argent pour participer à ce jackpot.'
   money-entry-success: '%prefix%<#55ff99>Tu as misé %amount%. Tes chances : <white>%chance%%</white>'
   item-entry-success: '%prefix%<#55ff99>Les objets sélectionnés ont été ajoutés au pot. Tes chances : <white>%chance%%</white>'
+  chance-update: '%prefix%<#ffcc33>Ta chance actuelle dans %jackpot% : <white>%chance%%</white>'
   money-manual-prompt: '%prefix%<#ffcc33>Écris dans le chat le montant que tu veux miser.'
   favorite-prompt: '%prefix%<#ffcc33>Écris dans le chat ton montant favori.'
   favorite-saved: '%prefix%<#55ff99>Montant favori enregistré : <white>%amount%</white>'
@@ -34,11 +35,12 @@ messages:
   entry-limit: '%prefix%<#ff5555>Tu as atteint la limite de participations pour cette manche.'
   min-entry: '%prefix%<#ff5555>Mise minimale : <white>%amount%</white>'
   max-entry: '%prefix%<#ff5555>Mise maximale : <white>%amount%</white>'
-  min-items: '%prefix%<#ff5555>Nombre minimal d''objets : <white>%amount%</white>'
-  max-items: '%prefix%<#ff5555>Nombre maximal d''objets : <white>%amount%</white>'
+  min-items: '%prefix%<#ff5555>Nombre minimal de piles d''objets : <white>%amount%</white>'
+  max-items: '%prefix%<#ff5555>Nombre maximal de piles d''objets : <white>%amount%</white>'
   item-not-allowed: '%prefix%<#ff5555>Cet objet n''est pas accepté.'
   item-no-value: '%prefix%<#ff5555>Cet objet n''est pas valide pour le jackpot.'
   draw-started: '%prefix%<#ffcc33>Le tirage du jackpot a commencé !'
+  draw-in-progress: '%prefix%<#ffcc33>Ce jackpot est en cours de tirage. Attends le résultat.'
   draw-winner: '%prefix%<#55ff99>Gagnant : <white>%player%</white> | Prix : <white>%value%</white>'
   draw-winner-broadcast: '%prefix%<#55ff99>Gagnant : <white>%player%</white> | Argent : <white>%money%</white> | Objets : <white>%items%</white> | Tirage : <gray>%draw%</gray>'
   draw-animation-title: '<#ffcc33><bold>ucJackpot</bold>'
@@ -70,6 +72,9 @@ messages:
   selftest-issue: '<gray>- Problème : <white>%issue%</white>'
   debug-on: '%prefix%<#55ff99>Mode debug activé.'
   debug-off: '%prefix%<#ffcc33>Mode debug désactivé.'
+  title-toggle-enabled: '%prefix%<#55ff99>Notifications de titre de tirage activées.'
+  title-toggle-disabled: '%prefix%<#ffcc33>Notifications de titre de tirage désactivées.'
+  title-toggle-unavailable: '%prefix%<#ff5555>Les notifications de titre de tirage sont désactivées par les paramètres du serveur.'
   help:
     - '<#ffcc33><bold>Commandes ucJackpot</bold>'
     - '<gray>%command% open [room] <dark_gray>- <white>Ouvrir le menu'
@@ -82,6 +87,7 @@ messages:
     - '<gray>%command% top <dark_gray>- <white>Afficher le classement'
     - '<gray>%command% history <dark_gray>- <white>Afficher les derniers gagnants'
     - '<gray>%command% mailbox <dark_gray>- <white>Récupérer les récompenses de boîte aux lettres'
+    - '<gray>%command% title <dark_gray>- <white>Activer/désactiver les titres de tirage'
 
 
 

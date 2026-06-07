@@ -11,7 +11,7 @@ items:
     lore:
       - '<dark_gray>Выбор из инвентаря'
       - ''
-      - '<#ffcc33>Лимит <dark_gray>| <white>%min_items%-%max_items% предметов</white>'
+      - '<#ffcc33>Лимит <dark_gray>| <white>%min_items%-%max_items% стаков предметов</white>'
       - '<gray>Нажимай на разрешённые предметы в своём инвентаре.'
       - '<gray>Запрещённые предметы не добавляются в выбор.'
     action: none

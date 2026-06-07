@@ -11,6 +11,7 @@ messages:
   insufficient-money: '%prefix%<#ff5555>Jackpota katılmak için yeterli paran yok.'
   money-entry-success: '%prefix%<#55ff99>%amount% yatırdın. Kazanma şansın: <white>%chance%%</white>'
   item-entry-success: '%prefix%<#55ff99>Seçilen eşya havuza eklendi. Kazanma şansın: <white>%chance%%</white>'
+  chance-update: '%prefix%<#ffcc33>%jackpot% odasında güncel şansın: <white>%chance%%</white>'
   money-manual-prompt: '%prefix%<#ffcc33>Yatırmak istediğin para miktarını chate yaz.'
   favorite-prompt: '%prefix%<#ffcc33>Favori para miktarını chate yaz.'
   favorite-saved: '%prefix%<#55ff99>Favori miktarın kaydedildi: <white>%amount%</white>'
@@ -34,11 +35,12 @@ messages:
   entry-limit: '%prefix%<#ff5555>Bu tur için giriş limitine ulaştın.'
   min-entry: '%prefix%<#ff5555>Minimum giriş: <white>%amount%</white>'
   max-entry: '%prefix%<#ff5555>Maksimum giriş: <white>%amount%</white>'
-  min-items: '%prefix%<#ff5555>Minimum eşya: <white>%amount%</white>'
-  max-items: '%prefix%<#ff5555>Maksimum eşya: <white>%amount%</white>'
+  min-items: '%prefix%<#ff5555>Minimum eşya yığını: <white>%amount%</white>'
+  max-items: '%prefix%<#ff5555>Maksimum eşya yığını: <white>%amount%</white>'
   item-not-allowed: '%prefix%<#ff5555>Bu eşya jackpot için kabul edilmiyor.'
   item-no-value: '%prefix%<#ff5555>Bu eşya jackpot için uygun değil.'
   draw-started: '%prefix%<#ffcc33>Jackpot çekilişi başladı!'
+  draw-in-progress: '%prefix%<#ffcc33>Bu jackpotta çekiliş yapılıyor. Sonucu bekle.'
   draw-winner: '%prefix%<#55ff99>Kazanan: <white>%player%</white> | Ödül: <white>%value%</white>'
   draw-winner-broadcast: '%prefix%<#55ff99>Kazanan: <white>%player%</white> | Para: <white>%money%</white> | Eşya: <white>%items%</white> | Çekiliş: <gray>%draw%</gray>'
   draw-animation-title: '<#ffcc33><bold>ucJackpot</bold>'
@@ -70,6 +72,9 @@ messages:
   selftest-issue: '<gray>- Sorun: <white>%issue%</white>'
   debug-on: '%prefix%<#55ff99>Debug modu açıldı.'
   debug-off: '%prefix%<#ffcc33>Debug modu kapatıldı.'
+  title-toggle-enabled: '%prefix%<#55ff99>Çekiliş ekran bildirimi açıldı.'
+  title-toggle-disabled: '%prefix%<#ffcc33>Çekiliş ekran bildirimi kapatıldı.'
+  title-toggle-unavailable: '%prefix%<#ff5555>Çekiliş ekran bildirimi sunucu ayarlarından kapalı.'
   help:
     - '<#ffcc33><bold>ucJackpot Komutları</bold>'
     - '<gray>%command% open [oda] <dark_gray>- <white>Menüyü açar'
@@ -82,6 +87,7 @@ messages:
     - '<gray>%command% top <dark_gray>- <white>Liderliği gösterir'
     - '<gray>%command% history <dark_gray>- <white>Son kazananları gösterir'
     - '<gray>%command% mailbox <dark_gray>- <white>Posta kutundaki ödülleri alır'
+    - '<gray>%command% title <dark_gray>- <white>Çekiliş ekran bildirimini aç/kapat'
 
 
 

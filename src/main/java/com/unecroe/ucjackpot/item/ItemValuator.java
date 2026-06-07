@@ -12,16 +12,13 @@ import java.util.Map;
 
 public final class ItemValuator {
     public ItemValue evaluate(PluginSettings settings, JackpotDefinition jackpot, ItemStack item) {
-        if (item == null || item.getType().isAir() || item.getAmount() <= 0) {
+        if (item == null || isAir(item.getType()) || item.getAmount() <= 0) {
             return ItemValue.rejected("empty");
         }
         Material material = item.getType();
         String materialName = material.name().toUpperCase(Locale.ROOT);
         if (settings.blockedMaterials().contains(materialName)) {
             return ItemValue.rejected("blocked-material");
-        }
-        if (item.getAmount() < jackpot.minItemsPerEntry()) {
-            return ItemValue.rejected("below-min-items");
         }
         if (!jackpot.acceptCustomModelData() && item.hasItemMeta() && item.getItemMeta().hasCustomModelData()) {
             return ItemValue.rejected("custom-model-data");
@@ -37,7 +34,6 @@ public final class ItemValuator {
             baseValue = fallbackValue(material);
         }
         ItemStack normalized = item.clone();
-        normalized.setAmount(Math.min(item.getAmount(), jackpot.maxItemsPerEntry()));
         double value = baseValue * normalized.getAmount();
         value += enchantmentBonus(item, baseValue);
         value += displayBonus(item, baseValue);
@@ -67,6 +63,10 @@ public final class ItemValuator {
         return Math.max(1.0, material.getMaxDurability() > 0 ? 15.0 : 5.0);
     }
 
+    private boolean isAir(Material material) {
+        return material == Material.AIR || material.name().endsWith("_AIR");
+    }
+
     private double enchantmentBonus(ItemStack item, double baseValue) {
         double bonus = 0.0;
         for (Map.Entry<Enchantment, Integer> enchantment : item.getEnchantments().entrySet()) {
@@ -76,7 +76,15 @@ public final class ItemValuator {
     }
 
     private double displayBonus(ItemStack item, double baseValue) {
-        ItemMeta meta = item.getItemMeta();
+        ItemMeta meta;
+        try {
+            if (!item.hasItemMeta()) {
+                return 0.0;
+            }
+            meta = item.getItemMeta();
+        } catch (RuntimeException exception) {
+            return 0.0;
+        }
         if (meta == null) {
             return 0.0;
         }

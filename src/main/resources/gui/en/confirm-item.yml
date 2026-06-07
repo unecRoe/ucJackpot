@@ -11,7 +11,7 @@ items:
     lore:
       - '<dark_gray>Inventory selection'
       - ''
-      - '<#ffcc33>Limit <dark_gray>| <white>%min_items%-%max_items% item(s)</white>'
+      - '<#ffcc33>Limit <dark_gray>| <white>%min_items%-%max_items% item stack(s)</white>'
       - '<gray>Click accepted items in your lower inventory.'
       - '<gray>Rejected items are not added to selection.'
     action: none

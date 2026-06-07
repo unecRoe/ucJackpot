@@ -11,6 +11,7 @@ messages:
   insufficient-money: '%prefix%<#ff5555>この Jackpot に参加するための所持金が足りません。'
   money-entry-success: '%prefix%<#55ff99>%amount% を投入しました。勝率: <white>%chance%%</white>'
   item-entry-success: '%prefix%<#55ff99>選択したアイテムを賞品プールに追加しました。勝率: <white>%chance%%</white>'
+  chance-update: '%prefix%<#ffcc33>%jackpot% での現在の当選確率: <white>%chance%%</white>'
   money-manual-prompt: '%prefix%<#ffcc33>投入したい金額をチャットに入力してください。'
   favorite-prompt: '%prefix%<#ffcc33>お気に入りの金額をチャットに入力してください。'
   favorite-saved: '%prefix%<#55ff99>お気に入り金額を保存しました: <white>%amount%</white>'
@@ -34,11 +35,12 @@ messages:
   entry-limit: '%prefix%<#ff5555>このラウンドの参加上限に達しました。'
   min-entry: '%prefix%<#ff5555>最低投入額: <white>%amount%</white>'
   max-entry: '%prefix%<#ff5555>最高投入額: <white>%amount%</white>'
-  min-items: '%prefix%<#ff5555>最少アイテム数: <white>%amount%</white>'
-  max-items: '%prefix%<#ff5555>最多アイテム数: <white>%amount%</white>'
+  min-items: '%prefix%<#ff5555>最少スタック数: <white>%amount%</white>'
+  max-items: '%prefix%<#ff5555>最多スタック数: <white>%amount%</white>'
   item-not-allowed: '%prefix%<#ff5555>このアイテムは受け付けられません。'
   item-no-value: '%prefix%<#ff5555>このアイテムは Jackpot に使用できません。'
   draw-started: '%prefix%<#ffcc33>Jackpot の抽選が始まりました！'
+  draw-in-progress: '%prefix%<#ffcc33>この Jackpot は抽選中です。結果をお待ちください。'
   draw-winner: '%prefix%<#55ff99>当選者: <white>%player%</white> | 賞品: <white>%value%</white>'
   draw-winner-broadcast: '%prefix%<#55ff99>当選者: <white>%player%</white> | お金: <white>%money%</white> | アイテム: <white>%items%</white> | 抽選: <gray>%draw%</gray>'
   draw-animation-title: '<#ffcc33><bold>ucJackpot</bold>'
@@ -70,6 +72,9 @@ messages:
   selftest-issue: '<gray>- 問題: <white>%issue%</white>'
   debug-on: '%prefix%<#55ff99>デバッグモードを有効にしました。'
   debug-off: '%prefix%<#ffcc33>デバッグモードを無効にしました。'
+  title-toggle-enabled: '%prefix%<#55ff99>抽選タイトル通知を有効にしました。'
+  title-toggle-disabled: '%prefix%<#ffcc33>抽選タイトル通知を無効にしました。'
+  title-toggle-unavailable: '%prefix%<#ff5555>抽選タイトル通知はサーバー設定で無効です。'
   help:
     - '<#ffcc33><bold>ucJackpot コマンド</bold>'
     - '<gray>%command% open [room] <dark_gray>- <white>メニューを開く'
@@ -82,6 +87,7 @@ messages:
     - '<gray>%command% top <dark_gray>- <white>ランキングを表示'
     - '<gray>%command% history <dark_gray>- <white>最近の当選者を表示'
     - '<gray>%command% mailbox <dark_gray>- <white>メールボックス報酬を受け取る'
+    - '<gray>%command% title <dark_gray>- <white>抽選タイトル通知を切り替え'
 
 
 

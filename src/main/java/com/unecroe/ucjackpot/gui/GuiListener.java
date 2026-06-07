@@ -115,6 +115,10 @@ public final class GuiListener implements Listener {
             openDepositDetail(player, round.definition().id(), action);
             return;
         }
+        if (action.startsWith("history-draw:")) {
+            gui.openHistoryDetail(player, action.substring("history-draw:".length()));
+            return;
+        }
         if (action.startsWith("room:")) {
             gui.open(player, "main", action.substring("room:".length()));
             return;
@@ -314,9 +318,7 @@ public final class GuiListener implements Listener {
             messages.send(player, "item-deselected", new PlaceholderBag().put("count", selected.size()));
             return;
         }
-        int selectedAmount = selectedItemAmount(player, selected);
-        int addingAmount = item == null ? 0 : item.getAmount();
-        if (selectedAmount + addingAmount > round.definition().maxItemsPerEntry()) {
+        if (selected.size() + 1 > round.definition().maxItemsPerEntry()) {
             messages.send(player, "max-items", new PlaceholderBag().put("amount", round.definition().maxItemsPerEntry()));
             return;
         }
@@ -351,17 +353,6 @@ public final class GuiListener implements Listener {
             }
         }
         return false;
-    }
-
-    private int selectedItemAmount(Player player, Map<Integer, String> selected) {
-        int amount = 0;
-        for (int slot : selected.keySet()) {
-            ItemStack item = player.getInventory().getItem(slot);
-            if (item != null && !item.getType().isAir()) {
-                amount += item.getAmount();
-            }
-        }
-        return amount;
     }
 
     private String itemSummary(ItemStack item) {

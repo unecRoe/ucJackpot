@@ -20,6 +20,8 @@ Items deposited into a jackpot stay as real items. They are not converted into m
 - Dynamic command aliases from `config.yml`
 - Help output adapts to the command the player used, such as `/jackpot rooms` or `/jp rooms`
 - Persistent favorite money amount
+- Participant-only 10-second draw title animation with per-player toggle
+- Item entry limits count selected stacks, so a limit of 9 allows up to 9 full item stacks
 - Reclaim GUI for deposits before the round countdown starts
 - Mailbox system for full inventories and offline item delivery
 - Draw history with draw id, seed, hash, entry id, and detailed audit data
@@ -27,51 +29,35 @@ Items deposited into a jackpot stay as real items. They are not converted into m
 
 ---
 
-## Screenshots
-
-Create the screenshots below and place them in `docs/images/`.
+## GIF Previews
 
 ### Main Menu
 
-![Main menu screenshot placeholder](docs/images/01-main-menu.png)
-
-Place a screenshot here showing the default jackpot main GUI with the active room, money entry, item entry, deposits, rooms, preview, fairness, season, stats, history, ticket, and reclaim buttons.
+![Main menu GIF placeholder](docs/images/01-main-menu.gif)
 
 ### Rooms Menu
 
-![Rooms menu screenshot placeholder](docs/images/02-rooms-menu.png)
-
-Place a screenshot here showing the centered room layout with General Room, Low Roller, High Roller, Item Room, and Event Room.
+![Rooms menu GIF placeholder](docs/images/02-rooms-menu.gif)
 
 ### Money Deposit
 
-![Money deposit screenshot placeholder](docs/images/03-money-deposit.png)
-
-Place a screenshot here showing quick money amounts, manual amount entry, and favorite amount display.
+![Money deposit GIF placeholder](docs/images/03-money-deposit.gif)
 
 ### Item Selection
 
-![Item selection screenshot placeholder](docs/images/04-item-selection.png)
-
-Place a screenshot here showing accepted item selection, multi-item selection, and the confirm button.
+![Item selection GIF placeholder](docs/images/04-item-selection.gif)
 
 ### Deposits Viewer
 
-![Deposits viewer screenshot placeholder](docs/images/05-deposits-viewer.png)
-
-Place a screenshot here showing the GUI where players can see who joined the active jackpot and inspect each player's money, item, and ticket deposits.
+![Deposits viewer GIF placeholder](docs/images/05-deposits-viewer.gif)
 
 ### Winner Watch Animation
 
-![Watch animation screenshot placeholder](docs/images/06-watch-animation.png)
-
-Place a screenshot here showing the watch mode animation while entries are rotating.
+![Watch animation GIF placeholder](docs/images/06-watch-animation.gif)
 
 ### History and Fairness
 
-![History and fairness screenshot placeholder](docs/images/07-history-fairness.png)
-
-Place a screenshot here showing draw history, seed/hash data, or the fairness panel.
+![History and fairness GIF placeholder](docs/images/07-history-fairness.gif)
 
 ---
 
@@ -111,7 +97,7 @@ Aliases are configurable in `config.yml`.
 
 | File | Purpose |
 | --- | --- |
-| `config.yml` | Global settings, storage, economy, metrics, logging, command aliases, security |
+| `config.yml` | Global settings, storage, economy, notifications, metrics, logging, command aliases, security |
 | `jackpots/*.yml` | Jackpot room rules, limits, values, rewards, tickets, season id |
 | `lang/<locale>.yml` | Chat feedback only |
 | `gui/<locale>/<menu>.yml` | GUI titles, item names, lore, slots, materials, sounds |
@@ -134,6 +120,28 @@ The plugin extracts only the configured locale and fallback locale. Changing `se
 
 ---
 
+## Draw Title Notifications
+
+The draw process runs for 10 seconds by default. Draw titles are shown only to players who joined the jackpot room being drawn, and rewards are delivered when the draw process finishes.
+
+Server owners can disable the title system or change the animation duration in `config.yml`:
+
+```yaml
+notifications:
+  draw-titles:
+    enabled: true
+    player-toggle: true
+    animation-seconds: 10
+  chance-updates:
+    mode: actionbar
+    include-actor: false
+```
+
+Players can toggle their own draw title notifications with `/jackpot title` when `player-toggle` is enabled.
+Chance updates can be sent through `actionbar`, `chat`, or disabled with `off`.
+
+---
+
 ## Commands
 
 See [docs/COMMANDS.md](docs/COMMANDS.md) for the complete command and permission list.
@@ -148,6 +156,7 @@ Common commands:
 | `/jackpot item [room]` | Enter with the held item |
 | `/jackpot ticket [room]` | Enter with a jackpot ticket |
 | `/jackpot mailbox` | Claim mailbox rewards |
+| `/jackpot title` | Toggle personal draw title notifications |
 | `/jackpot history` | Open recent winners |
 | `/jackpot reload` | Reload config, language, GUI, and rooms |
 

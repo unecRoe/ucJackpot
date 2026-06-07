@@ -3,6 +3,7 @@ package com.unecroe.ucjackpot.gui;
 import com.unecroe.ucjackpot.config.ConfigService;
 import com.unecroe.ucjackpot.config.JackpotDefinition;
 import com.unecroe.ucjackpot.config.JackpotMode;
+import com.unecroe.ucjackpot.item.ItemSerializer;
 import com.unecroe.ucjackpot.jackpot.DrawResult;
 import com.unecroe.ucjackpot.economy.EconomyService;
 import com.unecroe.ucjackpot.jackpot.EntryType;
@@ -10,6 +11,7 @@ import com.unecroe.ucjackpot.jackpot.JackpotEntry;
 import com.unecroe.ucjackpot.jackpot.JackpotRound;
 import com.unecroe.ucjackpot.jackpot.JackpotService;
 import com.unecroe.ucjackpot.lang.MessageService;
+import com.unecroe.ucjackpot.storage.DrawEntryRecord;
 import com.unecroe.ucjackpot.storage.HistoryRecord;
 import com.unecroe.ucjackpot.storage.SeasonStatRecord;
 import com.unecroe.ucjackpot.storage.StorageService;
@@ -39,6 +41,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -49,6 +54,8 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 public final class GuiService {
+    private static final DateTimeFormatter GUI_DATE_FORMAT =
+            DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneId.systemDefault());
     private static final List<String> GUI_MENUS = List.of(
             "main", "confirm-item", "money", "deposits", "deposit-detail", "rooms",
             "preview", "fairness", "watch", "season", "stats", "history"
@@ -63,6 +70,7 @@ public final class GuiService {
     private final Map<String, String> guiText = new HashMap<>();
     private final Map<String, List<String>> guiLists = new HashMap<>();
     private final Map<UUID, Double> favoriteAmounts = new ConcurrentHashMap<>();
+    private final Map<UUID, WatchSession> watchSessions = new ConcurrentHashMap<>();
     private String locale = "en";
     private String fallbackLocale = "en";
 
@@ -306,6 +314,7 @@ public final class GuiService {
         }
         player.openInventory(inventory);
         play(player, definition, "open");
+        startLiveRefresh(player, definition, jackpotId, inventory, actions);
         if ("money".equals(definition.id())) {
             refreshFavoriteMoney(player, definition, jackpotId, inventory);
         }
@@ -353,9 +362,48 @@ public final class GuiService {
                         .put("index", index++)
                         .put("winner", record.winnerName())
                         .put("value", economy.provider().format(record.value()))
-                        .put("time", java.time.Instant.ofEpochMilli(record.createdAt()).toString())
+                        .put("time", GUI_DATE_FORMAT.format(Instant.ofEpochMilli(record.createdAt())))
                         .put("jackpot", roomName(record.jackpotId()));
                 inventory.setItem(slot, renderHistoryItem(definition, bag));
+                if (record.drawId() != null && !record.drawId().isBlank()) {
+                    actions.put(slot, "history-draw:" + record.drawId());
+                }
+            }
+        }));
+        player.openInventory(inventory);
+        play(player, definition, "open");
+    }
+
+    public void openHistoryDetail(Player player, String drawId) {
+        GuiDefinition definition = menus.get("history");
+        PlaceholderBag placeholders = placeholders(player);
+        Map<Integer, String> actions = new HashMap<>();
+        JackpotMenuHolder holder = new JackpotMenuHolder("history-detail", actions);
+        Inventory inventory = Bukkit.createInventory(holder, definition.size(),
+                TextFormatter.color(placeholders.apply(definition.title())));
+        fill(inventory, definition, placeholders);
+        for (GuiItemDefinition item : definition.items().values()) {
+            inventory.setItem(item.slot(), render(player, item, placeholders));
+            actions.put(item.slot(), item.action());
+            if ("open-main".equals(item.action())) {
+                actions.put(item.slot(), "history");
+            }
+        }
+        List<Integer> recordSlots = dynamicSlots(definition, "record-slots");
+        storage.drawEntries(drawId).thenAccept(records -> Bukkit.getScheduler().runTask(plugin, () -> {
+            if (!sameOpenInventory(player, inventory, "history-detail")) {
+                return;
+            }
+            if (records.isEmpty()) {
+                setDynamicItem(inventory, definition, "record-slots", renderHistoryEmpty());
+                return;
+            }
+            for (int slotIndex = 0; slotIndex < records.size() && slotIndex < recordSlots.size(); slotIndex++) {
+                int slot = recordSlots.get(slotIndex);
+                if (!validSlot(slot, definition)) {
+                    break;
+                }
+                inventory.setItem(slot, renderHistoryEntry(records.get(slotIndex)));
             }
         }));
         player.openInventory(inventory);
@@ -450,6 +498,14 @@ public final class GuiService {
             inventory.setItem(item.slot(), render(player, item, placeholders));
             actions.put(item.slot(), item.action());
         }
+        populateRooms(inventory, definition, actions);
+        player.openInventory(inventory);
+        play(player, definition, "open");
+        startLiveRefresh(player, definition, holder.jackpotId(), inventory, actions);
+    }
+
+    private void populateRooms(Inventory inventory, GuiDefinition definition, Map<Integer, String> actions) {
+        actions.entrySet().removeIf(entry -> entry.getValue().startsWith("room:"));
         int fallbackIndex = 0;
         List<Integer> fallbackSlots = dynamicSlots(definition, "fallback-room-slots");
         for (JackpotRound round : jackpotService.rounds()) {
@@ -475,8 +531,6 @@ public final class GuiService {
             inventory.setItem(slot, renderRoom(round, roomGui));
             actions.put(slot, "room:" + round.definition().id());
         }
-        player.openInventory(inventory);
-        play(player, definition, "open");
     }
 
     private void openPreview(Player player, String jackpotId) {
@@ -556,7 +610,9 @@ public final class GuiService {
             actions.put(item.slot(), item.action());
         }
         player.openInventory(inventory);
+        watchSessions.put(player.getUniqueId(), new WatchSession(round.definition().id(), inventory));
         animateWatch(player, inventory, definition, round);
+        startLiveRefresh(player, definition, round.definition().id(), inventory, actions);
         play(player, definition, "open");
     }
 
@@ -591,6 +647,68 @@ public final class GuiService {
         return definition.dynamicSlots().getOrDefault(key, List.of());
     }
 
+    private void startLiveRefresh(Player player, GuiDefinition definition, String jackpotId, Inventory inventory,
+                                  Map<Integer, String> actions) {
+        if (!needsLiveRefresh(definition)) {
+            return;
+        }
+        Bukkit.getScheduler().runTaskTimer(plugin, task -> {
+            if (!sameOpenInventory(player, inventory, definition.id())) {
+                task.cancel();
+                return;
+            }
+            refreshStaticItems(player, definition, jackpotId, inventory);
+            if ("rooms".equals(definition.id())) {
+                populateRooms(inventory, definition, actions);
+            }
+        }, 20L, 20L);
+    }
+
+    private boolean sameOpenInventory(Player player, Inventory inventory, String menuId) {
+        if (!player.isOnline() || player.getOpenInventory().getTopInventory() != inventory) {
+            return false;
+        }
+        return inventory.getHolder() instanceof JackpotMenuHolder holder && holder.menuId().equals(menuId);
+    }
+
+    private void refreshStaticItems(Player player, GuiDefinition definition, String jackpotId, Inventory inventory) {
+        PlaceholderBag placeholders = placeholders(player, jackpotId);
+        for (GuiItemDefinition item : definition.items().values()) {
+            inventory.setItem(item.slot(), render(player, item, placeholders));
+        }
+    }
+
+    private boolean needsLiveRefresh(GuiDefinition definition) {
+        if ("rooms".equals(definition.id())) {
+            return true;
+        }
+        if (containsTimeLeft(definition.title()) || containsTimeLeft(definition.fillerName())) {
+            return true;
+        }
+        for (GuiItemDefinition item : definition.items().values()) {
+            if (containsTimeLeft(item.name()) || containsTimeLeft(item.lore())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean containsTimeLeft(String value) {
+        return value != null && value.contains("%time_left%");
+    }
+
+    private boolean containsTimeLeft(List<String> values) {
+        if (values == null) {
+            return false;
+        }
+        for (String value : values) {
+            if (containsTimeLeft(value)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     private void setDynamicItem(Inventory inventory, GuiDefinition definition, String key, ItemStack item) {
         for (int slot : dynamicSlots(definition, key)) {
             if (validSlot(slot, definition)) {
@@ -605,6 +723,13 @@ public final class GuiService {
     }
 
     private void fill(Inventory inventory, GuiDefinition definition, PlaceholderBag placeholders) {
+        ItemStack filler = filler(definition, placeholders);
+        for (int i = 0; i < inventory.getSize(); i++) {
+            inventory.setItem(i, filler);
+        }
+    }
+
+    private ItemStack filler(GuiDefinition definition, PlaceholderBag placeholders) {
         Material material = material(definition.fillerMaterial());
         ItemStack filler = new ItemStack(material);
         ItemMeta meta = filler.getItemMeta();
@@ -612,9 +737,7 @@ public final class GuiService {
             meta.setDisplayName(TextFormatter.color(placeholders.apply(definition.fillerName())));
             filler.setItemMeta(meta);
         }
-        for (int i = 0; i < inventory.getSize(); i++) {
-            inventory.setItem(i, filler);
-        }
+        return filler;
     }
 
     private ItemStack render(Player player, GuiItemDefinition definition, PlaceholderBag placeholders) {
@@ -653,6 +776,97 @@ public final class GuiService {
             item.setItemMeta(meta);
         }
         return item;
+    }
+
+    private ItemStack renderHistoryEntry(DrawEntryRecord record) {
+        EntryType type = historyEntryType(record.type());
+        return switch (type) {
+            case MONEY -> renderHistoryMoneyEntry(record);
+            case ITEM -> renderHistoryItemEntry(record);
+            case TICKET -> renderHistoryTicketEntry(record);
+        };
+    }
+
+    private ItemStack renderHistoryMoneyEntry(DrawEntryRecord record) {
+        ItemStack item = new ItemStack(Material.GOLD_INGOT);
+        ItemMeta meta = item.getItemMeta();
+        if (meta != null) {
+            PlaceholderBag bag = historyEntryPlaceholders(record).put("money", economy.provider().format(record.moneyAmount()));
+            meta.setDisplayName(guiText("history-money-entry-name", bag));
+            meta.setLore(guiList("history-money-entry-lore", bag));
+            item.setItemMeta(meta);
+        }
+        return item;
+    }
+
+    private ItemStack renderHistoryTicketEntry(DrawEntryRecord record) {
+        ItemStack item = new ItemStack(Material.PAPER);
+        ItemMeta meta = item.getItemMeta();
+        if (meta != null) {
+            PlaceholderBag bag = historyEntryPlaceholders(record);
+            meta.setDisplayName(guiText("history-ticket-entry-name", bag));
+            meta.setLore(guiList("history-ticket-entry-lore", bag));
+            item.setItemMeta(meta);
+        }
+        return item;
+    }
+
+    private ItemStack renderHistoryItemEntry(DrawEntryRecord record) {
+        ItemStack item = decodeHistoryItem(record);
+        ItemMeta meta = item.getItemMeta();
+        if (meta != null) {
+            PlaceholderBag bag = historyEntryPlaceholders(record)
+                    .put("item", item.getType().name())
+                    .put("amount", item.getAmount());
+            meta.setDisplayName(guiText("history-item-entry-name", bag));
+            List<String> lore = new ArrayList<>();
+            if (meta.hasLore() && meta.getLore() != null) {
+                lore.addAll(meta.getLore());
+                lore.add("");
+            }
+            lore.addAll(guiList("history-item-entry-lore", bag));
+            meta.setLore(lore);
+            item.setItemMeta(meta);
+        }
+        return item;
+    }
+
+    private ItemStack renderHistoryEmpty() {
+        ItemStack item = new ItemStack(Material.BARRIER);
+        ItemMeta meta = item.getItemMeta();
+        if (meta != null) {
+            meta.setDisplayName(guiText("history-empty-name", new PlaceholderBag()));
+            meta.setLore(guiList("history-empty-lore", new PlaceholderBag()));
+            item.setItemMeta(meta);
+        }
+        return item;
+    }
+
+    private PlaceholderBag historyEntryPlaceholders(DrawEntryRecord record) {
+        return new PlaceholderBag()
+                .put("player", record.playerName())
+                .put("value", economy.provider().format(record.entryValue()))
+                .put("time", GUI_DATE_FORMAT.format(Instant.ofEpochMilli(record.createdAt())))
+                .put("type", entryTypeName(historyEntryType(record.type())));
+    }
+
+    private ItemStack decodeHistoryItem(DrawEntryRecord record) {
+        if (record.encodedItem() == null || record.encodedItem().isBlank()) {
+            return new ItemStack(Material.BARRIER);
+        }
+        try {
+            return ItemSerializer.decode(record.encodedItem()).clone();
+        } catch (RuntimeException exception) {
+            return new ItemStack(Material.BARRIER);
+        }
+    }
+
+    private EntryType historyEntryType(String raw) {
+        try {
+            return EntryType.valueOf(String.valueOf(raw).toUpperCase(Locale.ROOT));
+        } catch (IllegalArgumentException exception) {
+            return EntryType.MONEY;
+        }
     }
 
     private String guiText(String key, PlaceholderBag placeholders) {
@@ -860,32 +1074,108 @@ public final class GuiService {
         return item;
     }
 
-    private void animateWatch(Player player, Inventory inventory, GuiDefinition definition, JackpotRound round) {
-        List<JackpotEntry> entries = round.entries();
-        if (entries.isEmpty()) {
+    public void showWatchWinner(DrawResult result) {
+        GuiDefinition definition = menus.get("watch");
+        if (definition == null) {
             return;
         }
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            WatchSession session = watchSessions.get(player.getUniqueId());
+            if (session == null || !session.jackpotId().equalsIgnoreCase(result.jackpotId())) {
+                continue;
+            }
+            Inventory inventory = session.inventory();
+            if (!sameOpenInventory(player, inventory, "watch")) {
+                watchSessions.remove(player.getUniqueId(), session);
+                continue;
+            }
+            if (!(inventory.getHolder() instanceof JackpotMenuHolder holder)
+                    || !holder.jackpotId().equalsIgnoreCase(result.jackpotId())) {
+                watchSessions.remove(player.getUniqueId(), session);
+                continue;
+            }
+            watchSessions.remove(player.getUniqueId(), session);
+            PlaceholderBag placeholders = placeholders(player, result.jackpotId());
+            fill(inventory, definition, placeholders);
+            refreshStaticItems(player, definition, result.jackpotId(), inventory);
+            for (int slot : dynamicSlots(definition, "winner-slot")) {
+                if (validSlot(slot, definition)) {
+                    inventory.setItem(slot, renderWatchWinner(result));
+                    break;
+                }
+            }
+            player.playSound(player.getLocation(), Sound.UI_TOAST_CHALLENGE_COMPLETE, 0.9f, 1.1f);
+            Bukkit.getScheduler().runTaskLater(plugin, () -> {
+                if (sameOpenInventory(player, inventory, "watch")) {
+                    player.closeInventory();
+                }
+            }, 40L);
+        }
+    }
+
+    private void animateWatch(Player player, Inventory inventory, GuiDefinition definition, JackpotRound round) {
         List<Integer> slots = dynamicSlots(definition, "entry-slots");
         if (slots.isEmpty()) {
             return;
         }
-        List<ItemStack> frames = entries.stream()
-                .map(entry -> renderAnimationEntry(entry, round))
-                .toList();
+        long[] frame = {0L};
         Bukkit.getScheduler().runTaskTimer(plugin, task -> {
-            if (!player.isOnline() || player.getOpenInventory().getTopInventory() != inventory) {
+            WatchSession session = watchSessions.get(player.getUniqueId());
+            if (!sameOpenInventory(player, inventory, "watch")
+                    || session == null
+                    || session.inventory() != inventory
+                    || !session.jackpotId().equalsIgnoreCase(round.definition().id())) {
+                if (session == null) {
+                    watchSessions.remove(player.getUniqueId());
+                } else {
+                    watchSessions.remove(player.getUniqueId(), session);
+                }
                 task.cancel();
                 return;
             }
-            long tick = System.currentTimeMillis() / 350L;
+            List<JackpotEntry> entries = round.entries();
+            if (entries.isEmpty()) {
+                ItemStack filler = filler(definition, placeholders(player, round.definition().id()));
+                for (int slot : slots) {
+                    if (validSlot(slot, definition)) {
+                        inventory.setItem(slot, filler.clone());
+                    }
+                }
+                return;
+            }
+            List<ItemStack> frames = entries.stream()
+                    .map(entry -> renderAnimationEntry(entry, round))
+                    .toList();
+            boolean drawing = round.drawing();
+            long tick = drawing ? frame[0]++ : System.currentTimeMillis() / 350L;
             for (int i = 0; i < slots.size(); i++) {
-                ItemStack frame = frames.get((int) ((tick + i) % frames.size()));
+                ItemStack frameItem = frames.get((int) ((tick + i) % frames.size()));
                 int slot = slots.get(i);
                 if (validSlot(slot, definition)) {
-                    inventory.setItem(slot, frame.clone());
+                    inventory.setItem(slot, frameItem.clone());
                 }
             }
-        }, 0L, 7L);
+            if (drawing && frame[0] % 4L == 0L) {
+                player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 0.55f, 1.25f);
+            }
+        }, 0L, 5L);
+    }
+
+    private ItemStack renderWatchWinner(DrawResult result) {
+        ItemStack item = new ItemStack(Material.PLAYER_HEAD);
+        ItemMeta raw = item.getItemMeta();
+        if (raw instanceof SkullMeta meta) {
+            meta.setOwningPlayer(Bukkit.getOfflinePlayer(result.winnerUuid()));
+            PlaceholderBag bag = new PlaceholderBag()
+                    .put("player", result.winnerName())
+                    .put("money", economy.provider().format(result.moneyPrize()))
+                    .put("items", result.itemCount());
+            meta.setDisplayName(guiText("watch-winner-name", bag));
+            meta.setLore(guiList("watch-winner-lore", bag));
+            item.setItemMeta(meta);
+        }
+        glow(item);
+        return item;
     }
 
     private ItemStack renderAnimationEntry(JackpotEntry entry, JackpotRound round) {
@@ -958,6 +1248,7 @@ public final class GuiService {
                 .put("ticket_value", economy.provider().format(definition.ticketEntryValue()))
                 .put("players", round.participantCount())
                 .put("time_left", TimeUtil.compact(round.secondsLeft()))
+                .put("time", TimeUtil.compact(round.secondsLeft()))
                 .put("default_entry", economy.provider().format(definition.defaultMoneyEntry()))
                 .put("min_money", economy.provider().format(definition.minMoneyEntry()))
                 .put("max_money", economy.provider().format(definition.maxMoneyEntry()))
@@ -1108,6 +1399,9 @@ public final class GuiService {
             player.playSound(player.getLocation(), Sound.valueOf(name), 0.75f, 1.0f);
         } catch (IllegalArgumentException ignored) {
         }
+    }
+
+    private record WatchSession(String jackpotId, Inventory inventory) {
     }
 }
 

@@ -11,7 +11,7 @@ items:
     lore:
       - '<dark_gray>اختيار من المخزون'
       - ''
-      - '<#ffcc33>الحد <dark_gray>| <white>%min_items%-%max_items% عناصر</white>'
+      - '<#ffcc33>الحد <dark_gray>| <white>%min_items%-%max_items% حزم عناصر</white>'
       - '<gray>انقر العناصر المقبولة في مخزونك.'
       - '<gray>العناصر المرفوضة لا تدخل الاختيار.'
     action: none

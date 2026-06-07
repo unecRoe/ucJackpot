@@ -11,7 +11,7 @@ items:
     lore:
       - '<dark_gray>Inventarauswahl'
       - ''
-      - '<#ffcc33>Limit <dark_gray>| <white>%min_items%-%max_items% Gegenstände</white>'
+      - '<#ffcc33>Limit <dark_gray>| <white>%min_items%-%max_items% Gegenstandsstapel</white>'
       - '<gray>Klicke akzeptierte Gegenstände in deinem Inventar an.'
       - '<gray>Abgelehnte Gegenstände werden nicht ausgewählt.'
     action: none

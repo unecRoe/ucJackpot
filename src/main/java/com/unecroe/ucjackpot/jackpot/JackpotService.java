@@ -8,6 +8,7 @@ import com.unecroe.ucjackpot.config.PluginSettings;
 import com.unecroe.ucjackpot.debug.DebugLogger;
 import com.unecroe.ucjackpot.economy.EconomyProvider;
 import com.unecroe.ucjackpot.economy.EconomyService;
+import com.unecroe.ucjackpot.gui.GuiService;
 import com.unecroe.ucjackpot.item.ItemSerializer;
 import com.unecroe.ucjackpot.item.ItemValue;
 import com.unecroe.ucjackpot.item.ItemValuator;
@@ -33,9 +34,11 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ThreadLocalRandom;
@@ -52,6 +55,7 @@ public final class JackpotService {
     private final Map<String, JackpotRound> rounds = new ConcurrentHashMap<>();
     private BukkitTask task;
     private volatile DrawResult lastDraw;
+    private GuiService guiService;
 
     public JackpotService(JavaPlugin plugin, ConfigService configService, EconomyService economyService,
                           StorageService storage, AuditService audit, DebugLogger debug, MessageService messages) {
@@ -95,6 +99,10 @@ public final class JackpotService {
 
     public DrawResult lastDraw() {
         return lastDraw;
+    }
+
+    public void guiService(GuiService guiService) {
+        this.guiService = guiService;
     }
 
     private void startTicker() {
@@ -189,6 +197,7 @@ public final class JackpotService {
         round.addEntry(entry);
         persistActive(entry);
         checkMilestones(round);
+        notifyChanceUpdate(round, player.getUniqueId());
         audit.log(AuditEventType.MONEY_ENTRY, player.getUniqueId(), player.getName(), definition.id(),
                 "Money entry accepted", "amount=" + amount + ",chance=" + chance(player.getUniqueId(), definition.id()));
         debug.log("draw", "Money entry accepted jackpot=" + definition.id() + " player=" + player.getName()
@@ -241,7 +250,7 @@ public final class JackpotService {
             return gate;
         }
         Map<Integer, ItemValue> accepted = new LinkedHashMap<>();
-        int itemCount = 0;
+        int selectedStacks = 0;
         double totalValue = 0.0;
         for (Integer slot : inventorySlots.keySet()) {
             if (slot == null || slot < 0 || slot >= player.getInventory().getSize()) {
@@ -265,8 +274,8 @@ public final class JackpotService {
             if (accepted.containsKey(slot)) {
                 continue;
             }
-            itemCount += item.getAmount();
-            if (itemCount > definition.maxItemsPerEntry()) {
+            selectedStacks++;
+            if (selectedStacks > definition.maxItemsPerEntry()) {
                 return OperationResult.fail("max-items", definition.maxItemsPerEntry());
             }
             ItemValue value = itemValuator.evaluate(configService.settings(), definition, item);
@@ -286,7 +295,7 @@ public final class JackpotService {
         if (accepted.isEmpty()) {
             return OperationResult.fail("item-selection-empty");
         }
-        if (itemCount < definition.minItemsPerEntry()) {
+        if (selectedStacks < definition.minItemsPerEntry()) {
             return OperationResult.fail("min-items", definition.minItemsPerEntry());
         }
         if (!player.hasPermission("ucjackpot.bypass.limit")
@@ -328,6 +337,7 @@ public final class JackpotService {
                     + " amount=" + value.normalized().getAmount() + " value=" + value.value());
         }
         checkMilestones(round);
+        notifyChanceUpdate(round, player.getUniqueId());
         return OperationResult.ok("item-entry-success", totalValue);
     }
 
@@ -356,6 +366,12 @@ public final class JackpotService {
             }
             return value.reason().equals("no-value-rule") ? OperationResult.fail("item-no-value") : OperationResult.fail("item-not-allowed");
         }
+        if (definition.minItemsPerEntry() > 1) {
+            return OperationResult.fail("min-items", definition.minItemsPerEntry());
+        }
+        if (definition.maxItemsPerEntry() < 1) {
+            return OperationResult.fail("max-items", definition.maxItemsPerEntry());
+        }
         boolean consumed = remover.remove(value.normalized().getAmount(), source);
         if (!consumed) {
             audit.log(AuditEventType.SUSPICIOUS_ENTRY, player.getUniqueId(), player.getName(), definition.id(),
@@ -367,6 +383,7 @@ public final class JackpotService {
         round.addEntry(entry);
         persistActive(entry);
         checkMilestones(round);
+        notifyChanceUpdate(round, player.getUniqueId());
         audit.log(AuditEventType.ITEM_CONSUMED, player.getUniqueId(), player.getName(), definition.id(),
                 "Item consumed for jackpot", "entry=" + entry.id() + ",item=" + itemSummary(value.normalized())
                         + ",fingerprint=" + ItemSerializer.fingerprint(value.normalized()));
@@ -407,6 +424,7 @@ public final class JackpotService {
         round.addEntry(entry);
         persistActive(entry);
         checkMilestones(round);
+        notifyChanceUpdate(round, player.getUniqueId());
         audit.log(AuditEventType.TICKET_ENTRY, player.getUniqueId(), player.getName(), definition.id(),
                 "Ticket entry accepted", "entry=" + entry.id() + ",slot=" + slot
                         + ",value=" + definition.ticketEntryValue() + ",chance=" + chance(player.getUniqueId(), definition.id()));
@@ -436,6 +454,9 @@ public final class JackpotService {
     }
 
     private OperationResult validateEntryGate(Player player, JackpotRound round) {
+        if (round.drawing()) {
+            return OperationResult.fail("draw-in-progress");
+        }
         PluginSettings settings = configService.settings();
         if (settings.blockedWorlds().contains(player.getWorld().getName().toLowerCase(Locale.ROOT))) {
             return OperationResult.fail("blocked-world");
@@ -540,43 +561,59 @@ public final class JackpotService {
         DrawResult result = new DrawResult(drawId, round.definition().id(), winnerUuid, winnerName, seed, hash,
                 moneyPrize, itemValue, itemCount, moneyPrize + itemValue, entries.size(), createdAt);
         lastDraw = result;
-        storage.recordHistory(round.definition().id(), winnerUuid, winnerName, result.totalValue());
-        storage.recordDetailedDraw(result, entries);
-        storage.updateSeasonStats(round.definition().seasonId(), entries, result);
-        storage.clearActiveEntries(round.definition().id());
-        OfflinePlayer winner = Bukkit.getOfflinePlayer(winnerUuid);
-        EconomyProvider economy = economyService.provider();
-        if (moneyPrize > 0 && economy.available()) {
-            economy.deposit(winner, moneyPrize);
-            audit.log(AuditEventType.PAYOUT, winnerUuid, winnerName, round.definition().id(),
-                    "Money prize delivered", "draw=" + drawId + ",amount=" + moneyPrize);
+        long winnerBroadcastDelay = playDrawAnimation(entries, result);
+        if (winnerBroadcastDelay > 0L) {
+            Bukkit.getScheduler().runTaskLater(plugin, () -> finishDraw(round, entries, winningEntry, result, forced), winnerBroadcastDelay);
+        } else {
+            finishDraw(round, entries, winningEntry, result, forced);
         }
-        if (round.definition().winnerTakesItems()) {
+        return result;
+    }
+
+    private void finishDraw(JackpotRound round, List<JackpotEntry> entries, JackpotEntry winningEntry,
+                            DrawResult result, boolean forced) {
+        JackpotDefinition definition = round.definition();
+        storage.recordHistory(definition.id(), result.winnerUuid(), result.winnerName(), result.totalValue());
+        storage.recordDetailedDraw(result, entries);
+        storage.updateSeasonStats(definition.seasonId(), entries, result);
+        storage.clearActiveEntries(definition.id());
+        OfflinePlayer winner = Bukkit.getOfflinePlayer(result.winnerUuid());
+        EconomyProvider economy = economyService.provider();
+        if (result.moneyPrize() > 0 && economy.available()) {
+            economy.deposit(winner, result.moneyPrize());
+            audit.log(AuditEventType.PAYOUT, result.winnerUuid(), result.winnerName(), definition.id(),
+                    "Money prize delivered", "draw=" + result.drawId() + ",amount=" + result.moneyPrize());
+        }
+        if (definition.winnerTakesItems()) {
             for (JackpotEntry entry : entries) {
                 if (entry.type() == EntryType.ITEM && entry.item() != null) {
-                    deliverItem(winnerUuid, winnerName, round.definition().id(), entry.item(),
-                            "jackpot-win,draw=" + drawId + ",entry=" + entry.id());
+                    deliverItem(result.winnerUuid(), result.winnerName(), definition.id(), entry.item(),
+                            "jackpot-win,draw=" + result.drawId() + ",entry=" + entry.id());
                 }
             }
         }
-        audit.log(AuditEventType.DRAW, winnerUuid, winnerName, round.definition().id(),
-                "Draw completed", "draw=" + drawId + ",hash=" + hash + ",money=" + moneyPrize
-                        + ",items=" + itemValue + ",entries=" + entries.size());
-        debug.log("draw", "Draw completed jackpot=" + round.definition().id() + " draw=" + drawId
-                + " winner=" + winnerName + " hash=" + hash + " money=" + moneyPrize
-                + " itemCount=" + itemCount + " entries=" + entries.size() + " forced=" + forced);
+        audit.log(AuditEventType.DRAW, result.winnerUuid(), result.winnerName(), definition.id(),
+                "Draw completed", "draw=" + result.drawId() + ",hash=" + result.hash() + ",money=" + result.moneyPrize()
+                        + ",items=" + result.itemValue() + ",entries=" + entries.size());
+        debug.log("draw", "Draw finalized jackpot=" + definition.id() + " draw=" + result.drawId()
+                + " winner=" + result.winnerName() + " hash=" + result.hash() + " money=" + result.moneyPrize()
+                + " itemCount=" + result.itemCount() + " entries=" + entries.size() + " forced=" + forced);
         runConsolation(round, entries, winningEntry);
-        runRareBonus(result, round.definition());
-        playDrawAnimation(entries, result);
-        round.restart();
+        runRareBonus(result, definition);
+        if (guiService != null) {
+            guiService.showWatchWinner(result);
+        }
         broadcastWinner(result);
-        return result;
+        round.restart();
     }
 
     public OperationResult cancel(String jackpotId) {
         JackpotRound round = round(jackpotId);
         if (round == null) {
             return OperationResult.fail("jackpot-not-found");
+        }
+        if (round.drawing()) {
+            return OperationResult.fail("draw-in-progress");
         }
         List<JackpotEntry> entries = round.entries();
         EconomyProvider economy = economyService.provider();
@@ -700,25 +737,47 @@ public final class JackpotService {
         return builder.toString();
     }
 
-    private void playDrawAnimation(List<JackpotEntry> entries, DrawResult result) {
+    private long playDrawAnimation(List<JackpotEntry> entries, DrawResult result) {
         List<String> names = entries.stream().map(JackpotEntry::playerName).distinct().toList();
+        long durationTicks = Math.max(1L, configService.settings().drawAnimationSeconds()) * 20L;
         if (names.isEmpty()) {
-            return;
+            return durationTicks;
         }
-        int frames = Math.min(12, Math.max(6, names.size() * 2));
+        List<UUID> participantUuids = entries.stream()
+                .map(JackpotEntry::playerUuid)
+                .distinct()
+                .toList();
+        if (!configService.settings().drawTitlesEnabled()) {
+            debug.log("draw", "Draw title animation skipped draw=" + result.drawId() + " reason=disabled");
+            return durationTicks;
+        }
+        long framePeriodTicks = 10L;
+        int frames = Math.max(1, (int) (durationTicks / framePeriodTicks));
         debug.log("draw", "Draw animation scheduled draw=" + result.drawId() + " frames=" + frames
-                + " candidates=" + names.size());
-        for (int index = 0; index < frames; index++) {
-            String previewName = names.get(index % names.size());
-            float pitch = 0.8f + index * 0.05f;
-            Bukkit.getScheduler().runTaskLater(plugin, () -> broadcastDrawFrame(previewName, pitch), index * 5L);
-        }
-        Bukkit.getScheduler().runTaskLater(plugin, () -> broadcastDrawWinnerFrame(result), frames * 5L + 5L);
+                + " candidates=" + names.size() + " participants=" + participantUuids.size());
+        storage.titleNotifications(participantUuids).thenAccept(settings -> Bukkit.getScheduler().runTask(plugin, () -> {
+            List<UUID> targets = participantUuids.stream()
+                    .filter(uuid -> !configService.settings().drawTitlesPlayerToggle()
+                            || settings.getOrDefault(uuid, true))
+                    .toList();
+            if (targets.isEmpty()) {
+                debug.log("draw", "Draw animation skipped draw=" + result.drawId() + " reason=no-targets");
+                return;
+            }
+            for (int index = 0; index < frames; index++) {
+                String previewName = names.get(index % names.size());
+                float pitch = 0.8f + index * 0.03f;
+                Bukkit.getScheduler().runTaskLater(plugin, () -> sendDrawFrame(targets, previewName, pitch), index * framePeriodTicks);
+            }
+            Bukkit.getScheduler().runTaskLater(plugin, () -> sendDrawWinnerFrame(targets, result), durationTicks);
+        }));
+        return durationTicks;
     }
 
-    private void broadcastDrawFrame(String name, float pitch) {
-        for (Player player : Bukkit.getOnlinePlayers()) {
-            if (!player.hasPermission("ucjackpot.use")) {
+    private void sendDrawFrame(List<UUID> targets, String name, float pitch) {
+        for (UUID uuid : targets) {
+            Player player = Bukkit.getPlayer(uuid);
+            if (player == null || !player.isOnline()) {
                 continue;
             }
             PlaceholderBag bag = new PlaceholderBag().put("player", name);
@@ -728,9 +787,10 @@ public final class JackpotService {
         }
     }
 
-    private void broadcastDrawWinnerFrame(DrawResult result) {
-        for (Player player : Bukkit.getOnlinePlayers()) {
-            if (!player.hasPermission("ucjackpot.use")) {
+    private void sendDrawWinnerFrame(List<UUID> targets, DrawResult result) {
+        for (UUID uuid : targets) {
+            Player player = Bukkit.getPlayer(uuid);
+            if (player == null || !player.isOnline()) {
                 continue;
             }
             PlaceholderBag bag = new PlaceholderBag().put("player", result.winnerName());
@@ -745,6 +805,9 @@ public final class JackpotService {
         if (round == null) {
             return OperationResult.fail("jackpot-not-found");
         }
+        if (round.drawing()) {
+            return OperationResult.fail("draw-in-progress");
+        }
         round.restart();
         storage.clearActiveEntries(round.definition().id());
         audit.log(AuditEventType.ADMIN_ACTION, null, "console", jackpotId, "Round started", "");
@@ -756,6 +819,9 @@ public final class JackpotService {
         JackpotRound round = round(jackpotId);
         if (round == null) {
             return OperationResult.fail("jackpot-not-found");
+        }
+        if (round.drawing()) {
+            return OperationResult.fail("draw-in-progress");
         }
         round.stop();
         audit.log(AuditEventType.ADMIN_ACTION, null, "console", jackpotId, "Round stopped", "");
@@ -912,6 +978,47 @@ public final class JackpotService {
                         "ucjackpot.use");
             }
         }
+    }
+
+    private void notifyChanceUpdate(JackpotRound round, UUID actorUuid) {
+        String mode = chanceUpdateMode();
+        if ("off".equals(mode)) {
+            return;
+        }
+        Set<UUID> participants = new LinkedHashSet<>();
+        for (JackpotEntry entry : round.entries()) {
+            participants.add(entry.playerUuid());
+        }
+        boolean includeActor = configService.settings().chanceUpdateIncludeActor();
+        for (UUID uuid : participants) {
+            if (!includeActor && uuid.equals(actorUuid)) {
+                continue;
+            }
+            Player target = Bukkit.getPlayer(uuid);
+            if (target == null || !target.isOnline()) {
+                continue;
+            }
+            PlaceholderBag bag = new PlaceholderBag()
+                    .put("jackpot", round.definition().displayName())
+                    .put("chance", String.format(Locale.US, "%.2f", chance(uuid, round.definition().id())));
+            if ("chat".equals(mode)) {
+                messages.send(target, "chance-update", bag);
+            } else {
+                messages.actionBar(target, "chance-update", bag);
+            }
+            debug.log("draw", "Chance update sent jackpot=" + round.definition().id()
+                    + " target=" + target.getName() + " targetUuid=" + uuid
+                    + " actorUuid=" + actorUuid + " mode=" + mode);
+        }
+    }
+
+    private String chanceUpdateMode() {
+        String mode = configService.settings().chanceUpdateMode();
+        return switch (mode == null ? "" : mode.toLowerCase(Locale.ROOT)) {
+            case "chat" -> "chat";
+            case "off" -> "off";
+            default -> "actionbar";
+        };
     }
 
     private void runRareBonus(DrawResult result, JackpotDefinition definition) {

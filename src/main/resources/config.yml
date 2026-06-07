@@ -34,6 +34,25 @@ metrics:
   # Anonymous usage metrics. Set enabled to false if you do not want metrics.
   enabled: true
 
+notifications:
+  draw-titles:
+    # Shows the 10-second draw title animation to players who joined the drawn room.
+    enabled: true
+
+    # Allows players to toggle their own draw title notifications with /ucjackpot title.
+    player-toggle: true
+
+    # Duration of the spinning draw title animation before the winner title appears.
+    animation-seconds: 10
+
+  chance-updates:
+    # Sends each participant their own updated win chance when another player joins the same room.
+    # Options: actionbar, chat, off
+    mode: actionbar
+
+    # false means the joining player only receives the normal entry success message.
+    include-actor: false
+
 storage:
   # sqlite is recommended for small/medium servers.
   # mysql or mariadb is recommended for networks and cross-server reporting.

@@ -11,6 +11,7 @@ messages:
   insufficient-money: '%prefix%<#ff5555>Du hast nicht genug Geld, um an diesem Jackpot teilzunehmen.'
   money-entry-success: '%prefix%<#55ff99>Du hast %amount% eingesetzt. Deine Gewinnchance: <white>%chance%%</white>'
   item-entry-success: '%prefix%<#55ff99>Die ausgewählten Gegenstände wurden dem Pot hinzugefügt. Deine Gewinnchance: <white>%chance%%</white>'
+  chance-update: '%prefix%<#ffcc33>Deine aktuelle Chance in %jackpot%: <white>%chance%%</white>'
   money-manual-prompt: '%prefix%<#ffcc33>Schreibe den Geldbetrag, den du einsetzen möchtest, in den Chat.'
   favorite-prompt: '%prefix%<#ffcc33>Schreibe deinen bevorzugten Geldbetrag in den Chat.'
   favorite-saved: '%prefix%<#55ff99>Favorit gespeichert: <white>%amount%</white>'
@@ -34,11 +35,12 @@ messages:
   entry-limit: '%prefix%<#ff5555>Du hast das Teilnahmelimit für diese Runde erreicht.'
   min-entry: '%prefix%<#ff5555>Mindestbetrag: <white>%amount%</white>'
   max-entry: '%prefix%<#ff5555>Höchstbetrag: <white>%amount%</white>'
-  min-items: '%prefix%<#ff5555>Mindestanzahl an Gegenständen: <white>%amount%</white>'
-  max-items: '%prefix%<#ff5555>Höchstanzahl an Gegenständen: <white>%amount%</white>'
+  min-items: '%prefix%<#ff5555>Mindestanzahl an Gegenstandsstapeln: <white>%amount%</white>'
+  max-items: '%prefix%<#ff5555>Höchstanzahl an Gegenstandsstapeln: <white>%amount%</white>'
   item-not-allowed: '%prefix%<#ff5555>Dieser Gegenstand wird nicht akzeptiert.'
   item-no-value: '%prefix%<#ff5555>Dieser Gegenstand ist für den Jackpot ungültig.'
   draw-started: '%prefix%<#ffcc33>Die Jackpot-Ziehung hat begonnen!'
+  draw-in-progress: '%prefix%<#ffcc33>Dieser Jackpot wird gerade gezogen. Bitte warte auf das Ergebnis.'
   draw-winner: '%prefix%<#55ff99>Gewinner: <white>%player%</white> | Preis: <white>%value%</white>'
   draw-winner-broadcast: '%prefix%<#55ff99>Gewinner: <white>%player%</white> | Geld: <white>%money%</white> | Gegenstände: <white>%items%</white> | Ziehung: <gray>%draw%</gray>'
   draw-animation-title: '<#ffcc33><bold>ucJackpot</bold>'
@@ -70,6 +72,9 @@ messages:
   selftest-issue: '<gray>- Problem: <white>%issue%</white>'
   debug-on: '%prefix%<#55ff99>Debug-Modus aktiviert.'
   debug-off: '%prefix%<#ffcc33>Debug-Modus deaktiviert.'
+  title-toggle-enabled: '%prefix%<#55ff99>Ziehungs-Titelbenachrichtigungen aktiviert.'
+  title-toggle-disabled: '%prefix%<#ffcc33>Ziehungs-Titelbenachrichtigungen deaktiviert.'
+  title-toggle-unavailable: '%prefix%<#ff5555>Ziehungs-Titelbenachrichtigungen sind in den Servereinstellungen deaktiviert.'
   help:
     - '<#ffcc33><bold>ucJackpot Befehle</bold>'
     - '<gray>%command% open [room] <dark_gray>- <white>Menü öffnen'
@@ -82,6 +87,7 @@ messages:
     - '<gray>%command% top <dark_gray>- <white>Rangliste anzeigen'
     - '<gray>%command% history <dark_gray>- <white>Letzte Gewinner anzeigen'
     - '<gray>%command% mailbox <dark_gray>- <white>Postfach-Belohnungen abholen'
+    - '<gray>%command% title <dark_gray>- <white>Ziehungs-Titelbenachrichtigungen umschalten'
 
 
 

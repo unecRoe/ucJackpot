@@ -11,7 +11,7 @@ items:
     lore:
       - '<dark_gray>Seleção do inventário'
       - ''
-      - '<#ffcc33>Limite <dark_gray>| <white>%min_items%-%max_items% itens</white>'
+      - '<#ffcc33>Limite <dark_gray>| <white>%min_items%-%max_items% pilhas de itens</white>'
       - '<gray>Clique nos itens aceitos do seu inventário.'
       - '<gray>Itens recusados não entram na seleção.'
     action: none

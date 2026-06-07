@@ -11,7 +11,7 @@ items:
     lore:
       - '<dark_gray>インベントリ選択'
       - ''
-      - '<#ffcc33>上限 <dark_gray>| <white>%min_items%-%max_items% 個</white>'
+      - '<#ffcc33>上限 <dark_gray>| <white>%min_items%-%max_items% スタック</white>'
       - '<gray>インベントリ内の使用可能なアイテムをクリック。'
       - '<gray>対象外のアイテムは選択に追加されません。'
     action: none

@@ -11,7 +11,7 @@ items:
     lore:
       - '<dark_gray>背包选择'
       - ''
-      - '<#ffcc33>限制 <dark_gray>| <white>%min_items%-%max_items% 件物品</white>'
+      - '<#ffcc33>限制 <dark_gray>| <white>%min_items%-%max_items% 物品堆</white>'
       - '<gray>点击背包中可接受的物品。'
       - '<gray>不接受的物品不会加入选择。'
     action: none
