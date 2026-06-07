@@ -1,0 +1,42 @@
+title: '<#cc99ff><bold>Histórico de sorteios</bold>'
+size: 54
+filler:
+  material: PURPLE_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: BOOK
+    name: '<#cc99ff><bold>Vencedores recentes</bold>'
+    lore:
+      - '<dark_gray>Sorteios anteriores'
+      - ''
+      - '<gray>Mostra vencedores recentes e valores ganhos.'
+      - '<gray>Cada registro representa um sorteio.'
+    action: none
+  back:
+    slot: 49
+    material: ARROW
+    name: '<#55ff99><bold>Voltar</bold>'
+    lore:
+      - '<gray>Voltar ao menu principal.'
+    action: open-main
+history-item:
+  material: CHEST
+  name: '<#ffcc33><bold>#%index% %winner%</bold>'
+  lore:
+    - '<dark_gray>Registro do sorteio'
+    - ''
+    - '<#55ff99>Prêmio <dark_gray>| <white>%value%</white>'
+    - '<#cc99ff>Data <dark_gray>| <white>%time%</white>'
+    - '<#ffcc33>Sala <dark_gray>| <white>%jackpot%</white>'
+dynamic:
+  record-slots: [10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25, 28, 29, 30, 31, 32, 33, 34, 37, 38, 39, 40, 41, 42, 43]
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

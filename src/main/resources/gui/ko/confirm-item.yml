@@ -1,0 +1,51 @@
+title: '<#33ccff><bold>아이템 넣기</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 45
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  name: ' '
+items:
+  preview:
+    slot: 4
+    material: PLAYER_HEAD
+    name: '<#33ccff><bold>여러 아이템 선택</bold>'
+    lore:
+      - '<dark_gray>인벤토리 선택'
+      - ''
+      - '<#ffcc33>제한 <dark_gray>| <white>%min_items%-%max_items%개</white>'
+      - '<gray>인벤토리에서 허용된 아이템을 클릭하세요.'
+      - '<gray>허용되지 않은 아이템은 선택되지 않습니다.'
+    action: none
+  confirm:
+    slot: 20
+    material: LIME_CONCRETE
+    name: '<#55ff99><bold>선택한 아이템 넣기</bold>'
+    lore:
+      - '<dark_gray>확인'
+      - ''
+      - '<gray>선택한 아이템을 잭팟 보상 풀에 넣습니다.'
+      - '<gray>승자는 아이템 그대로 받습니다.'
+    action: confirm-item
+  cancel:
+    slot: 24
+    material: RED_CONCRETE
+    name: '<#ff5555><bold>취소</bold>'
+    lore:
+      - '<dark_gray>취소'
+      - ''
+      - '<gray>선택을 종료하고 메인 메뉴로 돌아갑니다.'
+    action: open-main
+  back:
+    slot: 40
+    material: ARROW
+    name: '<#55ff99><bold>뒤로</bold>'
+    lore:
+      - '<gray>메인 메뉴로 돌아갑니다.'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

@@ -1,0 +1,44 @@
+title: '<#ffaa00><bold>Statistiques</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 27
+filler:
+  material: ORANGE_STAINED_GLASS_PANE
+  name: ' '
+items:
+  player:
+    slot: 11
+    material: PLAYER_HEAD
+    head: '%player%'
+    name: '<#ffaa00><bold>%player%</bold>'
+    lore:
+      - '<dark_gray>Infos personnelles de manche'
+      - ''
+      - '<#ffcc33>Entrées <dark_gray>| <white>%player_entries%</white>'
+      - '<#cc99ff>Chance <dark_gray>| <white>%player_chance%%</white>'
+      - '<#55ff99>Cagnotte totale <dark_gray>| <white>%pot_value%</white>'
+    action: none
+  round:
+    slot: 13
+    material: CLOCK
+    name: '<#ffcc33><bold>État de la manche</bold>'
+    lore:
+      - '<dark_gray>État actuel'
+      - ''
+      - '<#ffcc33>État <dark_gray>| <white>%status%</white>'
+      - '<#cc99ff>Temps restant <dark_gray>| <white>%time_left%</white>'
+      - '<#ffaa00>Participants <dark_gray>| <white>%players%</white>'
+    action: none
+  back:
+    slot: 15
+    material: ARROW
+    name: '<#55ff99><bold>Retour</bold>'
+    lore:
+      - '<gray>Revenir au menu principal.'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

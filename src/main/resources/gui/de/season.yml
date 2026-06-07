@@ -1,0 +1,36 @@
+title: '<#cc99ff><bold>Saison</bold> <dark_gray>| <white>%season%</white>'
+size: 27
+filler:
+  material: MAGENTA_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 13
+    material: AMETHYST_SHARD
+    name: '<#cc99ff><bold>%season%</bold>'
+    lore:
+      - '<dark_gray>Saisonübersicht'
+      - ''
+      - '<#ffcc33>Raum <dark_gray>| <white>%jackpot_name%</white>'
+      - '<#ffaa00>Teilnehmer <dark_gray>| <white>%players%</white>'
+      - '<#55ff99>Pool <dark_gray>| <white>%pot_value%</white>'
+      - ''
+      - '<gray>Die Saisonwertung wird über diesen Raum verfolgt.'
+    action: none
+  back:
+    slot: 22
+    material: ARROW
+    name: '<#55ff99><bold>Zurück</bold>'
+    lore:
+      - '<gray>Zurück zum Hauptmenü.'
+    action: open-main
+dynamic:
+  leaderboard-slots: [10, 11, 12, 14, 15, 16]
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

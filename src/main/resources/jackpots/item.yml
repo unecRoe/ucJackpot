@@ -1,0 +1,152 @@
+# ucJackpot room configuration: Item Room
+#
+# Item-only room. Deposited items stay as real ItemStacks and are delivered
+# to the winner. Money and ticket entries are disabled in this preset.
+
+# Unique room id used by commands, storage, logs, placeholders, and GUI actions.
+id: item
+
+# Set false to disable this room without deleting the file.
+enabled: true
+
+# Display name used when no GUI locale override is available.
+display-name: '<#33ccff>Item Room</#33ccff>'
+
+# item allows item entries only.
+mode: item
+
+currency:
+  # Disabled because this room is item-only.
+  enabled: false
+
+  # Money limits are ignored while currency.enabled is false.
+  min-entry: 0.0
+  max-entry: 0.0
+  default-entry: 0.0
+  quick-amounts: [0.0]
+  tax-percent: 0.0
+
+items:
+  # Enables item deposits for this room.
+  enabled: true
+
+  # Minimum total value required for selected items.
+  min-value: 50.0
+
+  # Minimum item stacks required per item entry.
+  min-items-per-entry: 1
+
+  # Maximum item stacks accepted per item entry.
+  max-items-per-entry: 12
+
+  # Adds extra confirmation for special-looking items.
+  special-protection: true
+
+  # Allows enchanted item deposits.
+  accept-enchanted-items: true
+
+  # Allows custom model data item deposits.
+  accept-custom-model-data: true
+
+  # Item value map for this room. These values become entry weight.
+  material-values:
+    DIAMOND: 250.0
+    EMERALD: 200.0
+    NETHERITE_INGOT: 1500.0
+    GOLD_INGOT: 75.0
+    IRON_INGOT: 25.0
+
+round:
+  # Round length after countdown starts.
+  duration-seconds: 300
+
+  # Minimum unique players required before countdown can start.
+  min-players: 2
+
+  # Minimum total item value required before draw.
+  min-total-value: 100.0
+
+  # Maximum entries per player in one round.
+  max-entries-per-player: 20
+
+  # Delay between entries for the same player.
+  cooldown-seconds: 8
+
+  # Automatically draw when requirements are met and time ends.
+  auto-draw: true
+
+  # Delay before countdown begins after enough players join.
+  start-delay-seconds: 10
+
+odds:
+  luck-streak-dampener:
+    # Reduces repeated wins by lowering recent winner weight.
+    enabled: true
+
+    # Time window used to detect recent winners.
+    recent-win-window-hours: 24
+
+    # Weight multiplier for recent winners.
+    multiplier-after-win: 0.75
+
+engagement:
+  combo:
+    # Small participation bonus for repeated entries.
+    enabled: true
+
+    # Bonus percent added per combo step.
+    step-percent: 1.0
+
+    # Maximum combo bonus percent.
+    max-percent: 5.0
+
+season:
+  # Season id used by this room.
+  id: item-season
+
+  # Console commands executed by /ucjackpot season reward.
+  reward-commands:
+    - 'say %player% received item season %season% reward. Rank #%rank%'
+
+tickets:
+  # Disabled because this room is item-only by default.
+  enabled: false
+
+  # Ticket settings are ignored while tickets.enabled is false.
+  material: PAPER
+  name-contains: Jackpot Ticket
+  entry-value: 0.0
+
+rewards:
+  # Required for item jackpot behavior: item deposits go to the winner.
+  winner-takes-items: true
+
+  consolation:
+    # Enables consolation commands for eligible non-winners.
+    enabled: true
+
+    # Minimum entries required before consolation can run.
+    min-entries: 4
+
+    # Money percent is 0.0 because this room has no money pot.
+    money-percent: 0.0
+
+    # Optional consolation commands.
+    commands: []
+
+  rare-bonus:
+    # Enables rare post-draw bonus commands.
+    enabled: true
+
+    # Chance percent for rare bonus.
+    chance-percent: 2.0
+
+    # Optional rare bonus commands.
+    commands: []
+
+broadcasts:
+  # Total item values that trigger milestone broadcasts.
+  milestone-values: [1000.0, 5000.0, 10000.0]
+
+  # Remaining seconds that trigger countdown broadcasts.
+  countdown-seconds: [60, 30, 10, 5, 4, 3, 2, 1]

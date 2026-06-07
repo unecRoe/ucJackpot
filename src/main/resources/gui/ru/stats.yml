@@ -1,0 +1,44 @@
+title: '<#ffaa00><bold>Статистика</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 27
+filler:
+  material: ORANGE_STAINED_GLASS_PANE
+  name: ' '
+items:
+  player:
+    slot: 11
+    material: PLAYER_HEAD
+    head: '%player%'
+    name: '<#ffaa00><bold>%player%</bold>'
+    lore:
+      - '<dark_gray>Твои данные раунда'
+      - ''
+      - '<#ffcc33>Входы <dark_gray>| <white>%player_entries%</white>'
+      - '<#cc99ff>Шанс <dark_gray>| <white>%player_chance%%</white>'
+      - '<#55ff99>Общий банк <dark_gray>| <white>%pot_value%</white>'
+    action: none
+  round:
+    slot: 13
+    material: CLOCK
+    name: '<#ffcc33><bold>Статус раунда</bold>'
+    lore:
+      - '<dark_gray>Текущее состояние'
+      - ''
+      - '<#ffcc33>Статус <dark_gray>| <white>%status%</white>'
+      - '<#cc99ff>Осталось <dark_gray>| <white>%time_left%</white>'
+      - '<#ffaa00>Участники <dark_gray>| <white>%players%</white>'
+    action: none
+  back:
+    slot: 15
+    material: ARROW
+    name: '<#55ff99><bold>Назад</bold>'
+    lore:
+      - '<gray>Вернуться в главное меню.'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

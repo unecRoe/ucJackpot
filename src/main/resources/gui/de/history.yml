@@ -1,0 +1,42 @@
+title: '<#cc99ff><bold>Ziehungshistorie</bold>'
+size: 54
+filler:
+  material: PURPLE_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: BOOK
+    name: '<#cc99ff><bold>Letzte Gewinner</bold>'
+    lore:
+      - '<dark_gray>Vergangene Ziehungen'
+      - ''
+      - '<gray>Zeigt letzte Gewinner und Gewinnwerte.'
+      - '<gray>Jeder Eintrag steht für eine Ziehung.'
+    action: none
+  back:
+    slot: 49
+    material: ARROW
+    name: '<#55ff99><bold>Zurück</bold>'
+    lore:
+      - '<gray>Zurück zum Hauptmenü.'
+    action: open-main
+history-item:
+  material: CHEST
+  name: '<#ffcc33><bold>#%index% %winner%</bold>'
+  lore:
+    - '<dark_gray>Ziehungsdatensatz'
+    - ''
+    - '<#55ff99>Gewinn <dark_gray>| <white>%value%</white>'
+    - '<#cc99ff>Datum <dark_gray>| <white>%time%</white>'
+    - '<#ffcc33>Raum <dark_gray>| <white>%jackpot%</white>'
+dynamic:
+  record-slots: [10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25, 28, 29, 30, 31, 32, 33, 34, 37, 38, 39, 40, 41, 42, 43]
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

@@ -1,0 +1,109 @@
+title: '<#ffcc33><bold>Комнаты джекпота</bold>'
+size: 54
+filler:
+  material: BLACK_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: COMPASS
+    name: '<#ffcc33><bold>Выбор комнаты</bold>'
+    lore:
+      - '<dark_gray>Уровень риска и награды'
+      - ''
+      - '<gray>Комнаты расположены по центру и симметрично.'
+      - '<gray>Главное меню откроется для выбранной комнаты.'
+    action: none
+  back:
+    slot: 49
+    material: ARROW
+    name: '<#55ff99><bold>Назад</bold>'
+    lore:
+      - '<gray>Вернуться в главное меню.'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+rooms:
+  low:
+    slot: 20
+    material: EMERALD
+    display-name: '<#55ff99>Низкая комната</#55ff99>'
+    name: '<#55ff99><bold>Низкая комната</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>Комната для лёгкого входа'
+      - ''
+      - '<#55ff99>Банк денег <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Банк предметов <dark_gray>| <white>%items% предметов</white>'
+      - '<#ffaa00>Участники <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Осталось <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Нажми, чтобы открыть эту комнату.'
+  default:
+    slot: 22
+    material: NETHER_STAR
+    display-name: '<#ffcc33>Общая комната</#ffcc33>'
+    name: '<#ffcc33><bold>Общая комната</bold> <dark_gray>| <white>%mode%</white>'
+    glow: true
+    lore:
+      - '<dark_gray>Главная комната джекпота'
+      - ''
+      - '<#55ff99>Банк денег <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Банк предметов <dark_gray>| <white>%items% предметов</white>'
+      - '<#ffaa00>Участники <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Осталось <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Нажми, чтобы открыть эту комнату.'
+  high:
+    slot: 24
+    material: NETHERITE_INGOT
+    display-name: '<#ff5555>Высокая комната</#ff5555>'
+    name: '<#ff5555><bold>Высокая комната</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>Высокий риск, высокая награда'
+      - ''
+      - '<#55ff99>Банк денег <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Банк предметов <dark_gray>| <white>%items% предметов</white>'
+      - '<#ffaa00>Участники <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Осталось <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Нажми, чтобы открыть эту комнату.'
+  item:
+    slot: 30
+    material: DIAMOND
+    display-name: '<#33ccff>Комната предметов</#33ccff>'
+    name: '<#33ccff><bold>Комната предметов</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>Призовой банк только с предметами'
+      - ''
+      - '<#55ff99>Банк денег <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Банк предметов <dark_gray>| <white>%items% предметов</white>'
+      - '<#ffaa00>Участники <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Осталось <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Нажми, чтобы открыть эту комнату.'
+  event:
+    slot: 32
+    material: AMETHYST_SHARD
+    display-name: '<#cc99ff>Ивент-комната</#cc99ff>'
+    name: '<#cc99ff><bold>Ивент-комната</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>Особый ивент-банк'
+      - ''
+      - '<#55ff99>Банк денег <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Банк предметов <dark_gray>| <white>%items% предметов</white>'
+      - '<#ffaa00>Участники <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Осталось <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Нажми, чтобы открыть эту комнату.'
+dynamic:
+  fallback-room-slots: [11, 13, 15, 19, 25, 28, 34, 37, 39, 41, 43]
+
+
+
+

@@ -1,0 +1,239 @@
+title: '<#ffcc33><bold>ucJackpot</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 54
+filler:
+  material: BLACK_STAINED_GLASS_PANE
+  name: ' '
+text:
+  status-live: '<#55ff99>نشط</#55ff99>'
+  status-waiting: '<#ffcc33>بانتظار</#ffcc33>'
+  status-stopped: '<#ff5555>متوقف</#ff5555>'
+  season-name: 'الموسم %number%'
+  season-low: 'موسم الغرفة المنخفضة'
+  season-high: 'موسم الغرفة العالية'
+  season-item: 'موسم غرفة العناصر'
+  season-event: 'موسم الحدث'
+  favorite-none: '<gray>غير محدد</gray>'
+  mode-money: 'مال'
+  mode-item: 'عناصر'
+  mode-hybrid: 'مال + عناصر'
+  entry-type-money: 'مال'
+  entry-type-item: 'عنصر'
+  entry-type-ticket: 'تذكرة'
+  depositor-name: '<#ffcc33><bold>%player%</bold>'
+  depositor-lore:
+    - '<dark_gray>إيداع اللاعب'
+    - ''
+    - '<#55ff99>المال <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>العناصر <dark_gray>| <white>%items%</white>'
+    - '<#ffcc33>الدخول <dark_gray>| <white>%entries%</white>'
+    - '<#cc99ff>الفرصة <dark_gray>| <white>%chance%%</white>'
+    - ''
+    - '<#55ff99>انقر لعرض التفاصيل.'
+  money-summary-name: '<#55ff99><bold>إيداع المال</bold>'
+  money-summary-lore:
+    - '<dark_gray>ملخص المال'
+    - ''
+    - '<#ffcc33>اللاعب <dark_gray>| <white>%player%</white>'
+    - '<#55ff99>المودع <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>العناصر <dark_gray>| <white>%items%</white>'
+  deposited-item-name: '<#33ccff><bold>%item%</bold>'
+  deposited-item-lore:
+    - '<dark_gray>إيداع عنصر'
+    - ''
+    - '<#ffcc33>المودع <dark_gray>| <white>%player%</white>'
+    - '<#33ccff>الكمية <dark_gray>| <white>%amount%</white>'
+    - ''
+    - '<gray>يسلم إلى الفائز كعنصر.'
+  room-name: '<#ffcc33><bold>%name%</bold> <dark_gray>| <white>%mode%</white>'
+  room-lore:
+    - '<dark_gray>ملخص الغرفة'
+    - ''
+    - '<#55ff99>رصيد المال <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>رصيد العناصر <dark_gray>| <white>%items% عناصر</white>'
+    - '<#ffaa00>المشاركون <dark_gray>| <white>%players%</white>'
+    - '<#cc99ff>الوقت المتبقي <dark_gray>| <white>%time%</white>'
+    - ''
+    - '<#55ff99>انقر لفتح هذه الغرفة.'
+  prize-summary-name: '<#ffcc33><bold>صندوق الجوائز</bold>'
+  prize-summary-lore:
+    - '<dark_gray>رصيد الجائزة النشط'
+    - ''
+    - '<#55ff99>جائزة المال <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>جائزة العناصر <dark_gray>| <white>%items%</white>'
+    - '<#ffaa00>دخول التذاكر <dark_gray>| <white>%tickets%</white>'
+    - ''
+    - '<gray>الفائز يستلم المال والعناصر بشكل منفصل.'
+  fairness-player-name: '<#55ff99><bold>%player%</bold>'
+  fairness-player-lore:
+    - '<dark_gray>فرص المشارك'
+    - ''
+    - '<#cc99ff>الفرصة <dark_gray>| <white>%chance%%</white>'
+    - '<#ffcc33>الوزن <dark_gray>| <white>%weight%</white>'
+    - '<#55ff99>المال <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>العناصر <dark_gray>| <white>%items%</white>'
+    - '<#ffaa00>التذاكر <dark_gray>| <white>%tickets%</white>'
+  watch-entry-name: '<#ffcc33><bold>%player%</bold>'
+  watch-entry-lore:
+    - '<dark_gray>دخول مباشر'
+    - ''
+    - '<#cc99ff>الفرصة <dark_gray>| <white>%chance%%</white>'
+    - '<#ffcc33>نوع الدخول <dark_gray>| <white>%type%</white>'
+  season-stat-name: '<#cc99ff><bold>#%rank% %player%</bold>'
+  season-stat-lore:
+    - '<dark_gray>أداء الموسم'
+    - ''
+    - '<#cc99ff>الموسم <dark_gray>| <white>%season%</white>'
+    - '<#ffcc33>الدخول <dark_gray>| <white>%entries%</white>'
+    - '<#55ff99>الفوز <dark_gray>| <white>%wins%</white>'
+    - '<#33ccff>القيمة المدخلة <dark_gray>| <white>%value_in%</white>'
+    - '<#55ff99>القيمة الرابحة <dark_gray>| <white>%value_won%</white>'
+items:
+  status:
+    slot: 4
+    material: NETHER_STAR
+    name: '<gradient:#ffcc33:#ff3366><bold>%jackpot_name%</bold></gradient>'
+    lore:
+      - '<dark_gray>ملخص الجولة'
+      - ''
+      - '<#ffcc33>الحالة <dark_gray>| <white>%status%</white>'
+      - '<#55ff99>القيمة الكلية <dark_gray>| <white>%pot_value%</white>'
+      - '<#55ff99>رصيد المال <dark_gray>| <white>%money_pot%</white>'
+      - '<#33ccff>رصيد العناصر <dark_gray>| <white>%item_pot% عناصر</white>'
+      - '<#ffaa00>المشاركون <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>الوقت المتبقي <dark_gray>| <white>%time_left%</white>'
+    glow: true
+    action: none
+  join-money:
+    slot: 20
+    material: GOLD_INGOT
+    name: '<#55ff99><bold>إيداع المال</bold>'
+    lore:
+      - '<dark_gray>دخول بالمال'
+      - ''
+      - '<#55ff99>استخدم مبالغ سريعة أو إدخالاً يدوياً.'
+      - '<gray>فرصتك: <white>%player_chance%%</white>'
+      - ''
+      - '<#55ff99>انقر لفتح إيداع المال.'
+    action: money-menu
+  join-item:
+    slot: 22
+    material: DIAMOND
+    name: '<#33ccff><bold>إيداع العناصر</bold>'
+    lore:
+      - '<dark_gray>دخول بالعناصر'
+      - ''
+      - '<#33ccff>اختر عدة عناصر مقبولة.'
+      - '<gray>الفائز يستلمها كعناصر.'
+      - ''
+      - '<#33ccff>انقر لفتح الاختيار.'
+    action: item-confirm
+  ticket:
+    slot: 24
+    material: PAPER
+    name: '<#ffaa00><bold>استخدام تذكرة</bold>'
+    lore:
+      - '<dark_gray>دخول بتذكرة'
+      - ''
+      - '<#ffaa00>وزن التذكرة <dark_gray>| <white>%ticket_value%</white>'
+      - '<gray>يستخدم تذكرة صالحة لدخول مجاني.'
+      - ''
+      - '<#ffaa00>انقر لاستخدام تذكرة.'
+    action: ticket
+  deposits:
+    slot: 29
+    material: CHEST
+    name: '<#33ccff><bold>الإيداعات</bold>'
+    lore:
+      - '<dark_gray>سجل المشاركين'
+      - ''
+      - '<gray>يعرض من أودع ماذا في هذه الجولة.'
+      - '<gray>انقر لاعباً لفحص المال والعناصر.'
+    action: deposits
+  rooms:
+    slot: 30
+    material: COMPASS
+    name: '<#ffcc33><bold>الغرف</bold>'
+    lore:
+      - '<dark_gray>اختيار الغرفة'
+      - ''
+      - '<gray>اختر الغرفة العامة أو المنخفضة أو العالية أو العناصر أو الحدث.'
+    action: rooms
+  preview:
+    slot: 31
+    material: ENDER_CHEST
+    name: '<#55ff99><bold>صندوق الجوائز</bold>'
+    lore:
+      - '<dark_gray>معاينة الرصيد'
+      - ''
+      - '<gray>شاهد المال والعناصر المنتظرة للفائز.'
+    action: preview
+  fairness:
+    slot: 32
+    material: SPYGLASS
+    name: '<#33ccff><bold>احتمالات شفافة</bold>'
+    lore:
+      - '<dark_gray>تفاصيل السحب العادل'
+      - ''
+      - '<gray>يعرض فرص المشاركين وآخر سجل سحب.'
+    action: fairness
+  watch:
+    slot: 33
+    material: CLOCK
+    name: '<#cc99ff><bold>شاشة المتابعة</bold>'
+    lore:
+      - '<dark_gray>متابعة مباشرة'
+      - ''
+      - '<gray>تابع سير الجولة والمشاركين.'
+    action: watch
+  stats:
+    slot: 38
+    material: PLAYER_HEAD
+    head: '%player%'
+    name: '<#ffaa00><bold>إحصائياتك</bold>'
+    lore:
+      - '<dark_gray>ملخص شخصي'
+      - ''
+      - '<#ffcc33>الدخول <dark_gray>| <white>%player_entries%</white>'
+      - '<#cc99ff>الفرصة <dark_gray>| <white>%player_chance%%</white>'
+      - '<#55ff99>آخر فائز <dark_gray>| <white>%last_winner%</white>'
+    action: stats
+  season:
+    slot: 40
+    material: AMETHYST_SHARD
+    name: '<#cc99ff><bold>الموسم</bold>'
+    lore:
+      - '<dark_gray>متابعة الموسم'
+      - ''
+      - '<#cc99ff>الموسم <dark_gray>| <white>%season%</white>'
+      - '<gray>يعرض حالة الموسم لهذه الغرفة.'
+    action: season
+  history:
+    slot: 42
+    material: BOOK
+    name: '<#cc99ff><bold>السجل</bold>'
+    lore:
+      - '<dark_gray>سحوبات حديثة'
+      - ''
+      - '<gray>يعرض الفائزين وقيم الجوائز.'
+    action: history
+  reclaim:
+    slot: 49
+    material: HOPPER
+    name: '<#55ff99><bold>استرداد الإيداعات</bold>'
+    lore:
+      - '<dark_gray>إيداعات بانتظار'
+      - ''
+      - '<#55ff99>المال <dark_gray>| <white>%reclaim_money%</white>'
+      - '<#33ccff>العناصر <dark_gray>| <white>%reclaim_items%</white>'
+      - '<#ffaa00>التذاكر <dark_gray>| <white>%reclaim_tickets%</white>'
+      - ''
+      - '<gray>يعيدها إذا لم يبدأ العد التنازلي.'
+    action: reclaim
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

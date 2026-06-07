@@ -1,0 +1,36 @@
+title: '<#cc99ff><bold>赛季</bold> <dark_gray>| <white>%season%</white>'
+size: 27
+filler:
+  material: MAGENTA_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 13
+    material: AMETHYST_SHARD
+    name: '<#cc99ff><bold>%season%</bold>'
+    lore:
+      - '<dark_gray>赛季概览'
+      - ''
+      - '<#ffcc33>房间 <dark_gray>| <white>%jackpot_name%</white>'
+      - '<#ffaa00>参与者 <dark_gray>| <white>%players%</white>'
+      - '<#55ff99>奖池 <dark_gray>| <white>%pot_value%</white>'
+      - ''
+      - '<gray>此房间会追踪赛季排行。'
+    action: none
+  back:
+    slot: 22
+    material: ARROW
+    name: '<#55ff99><bold>返回</bold>'
+    lore:
+      - '<gray>返回主菜单。'
+    action: open-main
+dynamic:
+  leaderboard-slots: [10, 11, 12, 14, 15, 16]
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

@@ -1,0 +1,50 @@
+title: '<#33ccff><bold>Déposer des objets</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 45
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  name: ' '
+items:
+  preview:
+    slot: 4
+    material: PLAYER_HEAD
+    name: '<#33ccff><bold>Sélection multiple</bold>'
+    lore:
+      - '<dark_gray>Sélection dans l''inventaire'
+      - ''
+      - '<#ffcc33>Limite <dark_gray>| <white>%min_items%-%max_items% objets</white>'
+      - '<gray>Clique sur les objets acceptés dans ton inventaire.'
+      - '<gray>Les objets refusés ne sont pas ajoutés.'
+    action: none
+  confirm:
+    slot: 20
+    material: LIME_CONCRETE
+    name: '<#55ff99><bold>Déposer la sélection</bold>'
+    lore:
+      - '<dark_gray>Confirmation'
+      - ''
+      - '<gray>Ajoute les objets sélectionnés à la cagnotte.'
+      - '<gray>Le gagnant les reçoit comme objets.'
+    action: confirm-item
+  cancel:
+    slot: 24
+    material: RED_CONCRETE
+    name: '<#ff5555><bold>Annuler</bold>'
+    lore:
+      - '<dark_gray>Annuler'
+      - ''
+      - '<gray>Quitte la sélection et revient au menu principal.'
+    action: open-main
+  back:
+    slot: 40
+    material: ARROW
+    name: '<#55ff99><bold>Retour</bold>'
+    lore:
+      - '<gray>Revenir au menu principal.'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+

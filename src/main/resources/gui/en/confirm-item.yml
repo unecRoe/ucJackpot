@@ -1,0 +1,50 @@
+title: '<#33ccff><bold>Deposit Items</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 45
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  name: ' '
+items:
+  preview:
+    slot: 4
+    material: PLAYER_HEAD
+    name: '<#33ccff><bold>Multi Item Selection</bold>'
+    lore:
+      - '<dark_gray>Inventory selection'
+      - ''
+      - '<#ffcc33>Limit <dark_gray>| <white>%min_items%-%max_items% item(s)</white>'
+      - '<gray>Click accepted items in your lower inventory.'
+      - '<gray>Rejected items are not added to selection.'
+    action: none
+  confirm:
+    slot: 20
+    material: LIME_CONCRETE
+    name: '<#55ff99><bold>Deposit Selected</bold>'
+    lore:
+      - '<dark_gray>Confirm'
+      - ''
+      - '<gray>Adds selected items to the jackpot pot.'
+      - '<gray>The winner receives them as items.'
+    action: confirm-item
+  cancel:
+    slot: 24
+    material: RED_CONCRETE
+    name: '<#ff5555><bold>Cancel</bold>'
+    lore:
+      - '<dark_gray>Cancel'
+      - ''
+      - '<gray>Leaves selection and returns to main menu.'
+    action: open-main
+  back:
+    slot: 40
+    material: ARROW
+    name: '<#55ff99><bold>Back</bold>'
+    lore:
+      - '<gray>Return to main menu.'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+

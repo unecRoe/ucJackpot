@@ -1,0 +1,108 @@
+title: '<#ffcc33><bold>Salles Jackpot</bold>'
+size: 54
+filler:
+  material: BLACK_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: COMPASS
+    name: '<#ffcc33><bold>Choix de salle</bold>'
+    lore:
+      - '<dark_gray>Niveau de risque et de récompense'
+      - ''
+      - '<gray>Les salles sont placées en disposition centrale équilibrée.'
+      - '<gray>Le menu principal s''ouvre pour la salle choisie.'
+    action: none
+  back:
+    slot: 49
+    material: ARROW
+    name: '<#55ff99><bold>Retour</bold>'
+    lore:
+      - '<gray>Revenir au menu principal.'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+rooms:
+  low:
+    slot: 20
+    material: EMERALD
+    display-name: '<#55ff99>Salle basse</#55ff99>'
+    name: '<#55ff99><bold>Salle basse</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>Salle d''entrée'
+      - ''
+      - '<#55ff99>Cagnotte argent <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Cagnotte objets <dark_gray>| <white>%items% objets</white>'
+      - '<#ffaa00>Participants <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Temps restant <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Clique pour ouvrir cette salle.'
+  default:
+    slot: 22
+    material: NETHER_STAR
+    display-name: '<#ffcc33>Salle générale</#ffcc33>'
+    name: '<#ffcc33><bold>Salle générale</bold> <dark_gray>| <white>%mode%</white>'
+    glow: true
+    lore:
+      - '<dark_gray>Salle principale du jackpot'
+      - ''
+      - '<#55ff99>Cagnotte argent <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Cagnotte objets <dark_gray>| <white>%items% objets</white>'
+      - '<#ffaa00>Participants <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Temps restant <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Clique pour ouvrir cette salle.'
+  high:
+    slot: 24
+    material: NETHERITE_INGOT
+    display-name: '<#ff5555>Salle haute</#ff5555>'
+    name: '<#ff5555><bold>Salle haute</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>Risque élevé, gain élevé'
+      - ''
+      - '<#55ff99>Cagnotte argent <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Cagnotte objets <dark_gray>| <white>%items% objets</white>'
+      - '<#ffaa00>Participants <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Temps restant <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Clique pour ouvrir cette salle.'
+  item:
+    slot: 30
+    material: DIAMOND
+    display-name: '<#33ccff>Salle à objets</#33ccff>'
+    name: '<#33ccff><bold>Salle à objets</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>Cagnotte uniquement en objets'
+      - ''
+      - '<#55ff99>Cagnotte argent <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Cagnotte objets <dark_gray>| <white>%items% objets</white>'
+      - '<#ffaa00>Participants <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Temps restant <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Clique pour ouvrir cette salle.'
+  event:
+    slot: 32
+    material: AMETHYST_SHARD
+    display-name: '<#cc99ff>Salle événement</#cc99ff>'
+    name: '<#cc99ff><bold>Salle événement</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>Cagnotte spéciale événement'
+      - ''
+      - '<#55ff99>Cagnotte argent <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Cagnotte objets <dark_gray>| <white>%items% objets</white>'
+      - '<#ffaa00>Participants <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Temps restant <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Clique pour ouvrir cette salle.'
+dynamic:
+  fallback-room-slots: [11, 13, 15, 19, 25, 28, 34, 37, 39, 41, 43]
+
+
+

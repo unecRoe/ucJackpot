@@ -1,0 +1,51 @@
+title: '<#33ccff><bold>Depositar itens</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 45
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  name: ' '
+items:
+  preview:
+    slot: 4
+    material: PLAYER_HEAD
+    name: '<#33ccff><bold>Seleção múltipla</bold>'
+    lore:
+      - '<dark_gray>Seleção do inventário'
+      - ''
+      - '<#ffcc33>Limite <dark_gray>| <white>%min_items%-%max_items% itens</white>'
+      - '<gray>Clique nos itens aceitos do seu inventário.'
+      - '<gray>Itens recusados não entram na seleção.'
+    action: none
+  confirm:
+    slot: 20
+    material: LIME_CONCRETE
+    name: '<#55ff99><bold>Depositar seleção</bold>'
+    lore:
+      - '<dark_gray>Confirmar'
+      - ''
+      - '<gray>Adiciona os itens selecionados ao pote do jackpot.'
+      - '<gray>O vencedor recebe tudo como itens.'
+    action: confirm-item
+  cancel:
+    slot: 24
+    material: RED_CONCRETE
+    name: '<#ff5555><bold>Cancelar</bold>'
+    lore:
+      - '<dark_gray>Cancelar'
+      - ''
+      - '<gray>Sai da seleção e volta ao menu principal.'
+    action: open-main
+  back:
+    slot: 40
+    material: ARROW
+    name: '<#55ff99><bold>Voltar</bold>'
+    lore:
+      - '<gray>Voltar ao menu principal.'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

@@ -1,0 +1,36 @@
+title: '<#33ccff><bold>投入内容</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 54
+filler:
+  material: CYAN_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: CHEST
+    name: '<#33ccff><bold>このラウンドの投入</bold>'
+    lore:
+      - '<dark_gray>参加者一覧'
+      - ''
+      - '<#ffaa00>参加者 <dark_gray>| <white>%players%</white>'
+      - '<#55ff99>賞金プール <dark_gray>| <white>%money_pot%</white>'
+      - '<#33ccff>アイテムプール <dark_gray>| <white>%item_pot% 個</white>'
+      - ''
+      - '<#55ff99>プレイヤーをクリックして詳細を見る。'
+    action: none
+  back:
+    slot: 49
+    material: ARROW
+    name: '<#55ff99><bold>戻る</bold>'
+    lore:
+      - '<gray>メインメニューに戻る。'
+    action: open-main
+dynamic:
+  depositor-slots: [10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25, 28, 29, 30, 31, 32, 33, 34, 37, 38, 39, 40, 41, 42, 43]
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

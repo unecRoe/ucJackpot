@@ -1,0 +1,51 @@
+title: '<#33ccff><bold>إيداع العناصر</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 45
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  name: ' '
+items:
+  preview:
+    slot: 4
+    material: PLAYER_HEAD
+    name: '<#33ccff><bold>اختيار متعدد</bold>'
+    lore:
+      - '<dark_gray>اختيار من المخزون'
+      - ''
+      - '<#ffcc33>الحد <dark_gray>| <white>%min_items%-%max_items% عناصر</white>'
+      - '<gray>انقر العناصر المقبولة في مخزونك.'
+      - '<gray>العناصر المرفوضة لا تدخل الاختيار.'
+    action: none
+  confirm:
+    slot: 20
+    material: LIME_CONCRETE
+    name: '<#55ff99><bold>إيداع المحدد</bold>'
+    lore:
+      - '<dark_gray>تأكيد'
+      - ''
+      - '<gray>يضيف العناصر المحددة إلى جائزة الجاكبوت.'
+      - '<gray>الفائز يستلمها كعناصر.'
+    action: confirm-item
+  cancel:
+    slot: 24
+    material: RED_CONCRETE
+    name: '<#ff5555><bold>إلغاء</bold>'
+    lore:
+      - '<dark_gray>إلغاء'
+      - ''
+      - '<gray>يغادر الاختيار ويعود إلى القائمة الرئيسية.'
+    action: open-main
+  back:
+    slot: 40
+    material: ARROW
+    name: '<#55ff99><bold>رجوع</bold>'
+    lore:
+      - '<gray>العودة إلى القائمة الرئيسية.'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

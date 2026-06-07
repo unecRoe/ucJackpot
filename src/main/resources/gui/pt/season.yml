@@ -1,0 +1,36 @@
+title: '<#cc99ff><bold>Temporada</bold> <dark_gray>| <white>%season%</white>'
+size: 27
+filler:
+  material: MAGENTA_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 13
+    material: AMETHYST_SHARD
+    name: '<#cc99ff><bold>%season%</bold>'
+    lore:
+      - '<dark_gray>Resumo da temporada'
+      - ''
+      - '<#ffcc33>Sala <dark_gray>| <white>%jackpot_name%</white>'
+      - '<#ffaa00>Participantes <dark_gray>| <white>%players%</white>'
+      - '<#55ff99>Pote <dark_gray>| <white>%pot_value%</white>'
+      - ''
+      - '<gray>O ranking da temporada é acompanhado nesta sala.'
+    action: none
+  back:
+    slot: 22
+    material: ARROW
+    name: '<#55ff99><bold>Voltar</bold>'
+    lore:
+      - '<gray>Voltar ao menu principal.'
+    action: open-main
+dynamic:
+  leaderboard-slots: [10, 11, 12, 14, 15, 16]
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

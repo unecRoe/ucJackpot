@@ -1,0 +1,44 @@
+title: '<#ffaa00><bold>통계</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 27
+filler:
+  material: ORANGE_STAINED_GLASS_PANE
+  name: ' '
+items:
+  player:
+    slot: 11
+    material: PLAYER_HEAD
+    head: '%player%'
+    name: '<#ffaa00><bold>%player%</bold>'
+    lore:
+      - '<dark_gray>개인 라운드 정보'
+      - ''
+      - '<#ffcc33>투입 수 <dark_gray>| <white>%player_entries%</white>'
+      - '<#cc99ff>확률 <dark_gray>| <white>%player_chance%%</white>'
+      - '<#55ff99>전체 풀 <dark_gray>| <white>%pot_value%</white>'
+    action: none
+  round:
+    slot: 13
+    material: CLOCK
+    name: '<#ffcc33><bold>라운드 상태</bold>'
+    lore:
+      - '<dark_gray>현재 상태'
+      - ''
+      - '<#ffcc33>상태 <dark_gray>| <white>%status%</white>'
+      - '<#cc99ff>남은 시간 <dark_gray>| <white>%time_left%</white>'
+      - '<#ffaa00>참가자 <dark_gray>| <white>%players%</white>'
+    action: none
+  back:
+    slot: 15
+    material: ARROW
+    name: '<#55ff99><bold>뒤로</bold>'
+    lore:
+      - '<gray>메인 메뉴로 돌아갑니다.'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

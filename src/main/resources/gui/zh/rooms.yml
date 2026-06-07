@@ -1,0 +1,109 @@
+title: '<#ffcc33><bold>Jackpot 房间</bold>'
+size: 54
+filler:
+  material: BLACK_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: COMPASS
+    name: '<#ffcc33><bold>选择房间</bold>'
+    lore:
+      - '<dark_gray>风险与奖励等级'
+      - ''
+      - '<gray>房间以平衡的中心布局排列。'
+      - '<gray>选择后会打开该房间的主菜单。'
+    action: none
+  back:
+    slot: 49
+    material: ARROW
+    name: '<#55ff99><bold>返回</bold>'
+    lore:
+      - '<gray>返回主菜单。'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+rooms:
+  low:
+    slot: 20
+    material: EMERALD
+    display-name: '<#55ff99>低额房间</#55ff99>'
+    name: '<#55ff99><bold>低额房间</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>入门级房间'
+      - ''
+      - '<#55ff99>金钱奖池 <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>物品奖池 <dark_gray>| <white>%items% 件物品</white>'
+      - '<#ffaa00>参与者 <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>剩余时间 <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>点击打开此房间。'
+  default:
+    slot: 22
+    material: NETHER_STAR
+    display-name: '<#ffcc33>通用房间</#ffcc33>'
+    name: '<#ffcc33><bold>通用房间</bold> <dark_gray>| <white>%mode%</white>'
+    glow: true
+    lore:
+      - '<dark_gray>主 Jackpot 房间'
+      - ''
+      - '<#55ff99>金钱奖池 <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>物品奖池 <dark_gray>| <white>%items% 件物品</white>'
+      - '<#ffaa00>参与者 <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>剩余时间 <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>点击打开此房间。'
+  high:
+    slot: 24
+    material: NETHERITE_INGOT
+    display-name: '<#ff5555>高额房间</#ff5555>'
+    name: '<#ff5555><bold>高额房间</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>高风险，高奖励'
+      - ''
+      - '<#55ff99>金钱奖池 <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>物品奖池 <dark_gray>| <white>%items% 件物品</white>'
+      - '<#ffaa00>参与者 <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>剩余时间 <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>点击打开此房间。'
+  item:
+    slot: 30
+    material: DIAMOND
+    display-name: '<#33ccff>物品房间</#33ccff>'
+    name: '<#33ccff><bold>物品房间</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>仅物品奖励池'
+      - ''
+      - '<#55ff99>金钱奖池 <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>物品奖池 <dark_gray>| <white>%items% 件物品</white>'
+      - '<#ffaa00>参与者 <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>剩余时间 <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>点击打开此房间。'
+  event:
+    slot: 32
+    material: AMETHYST_SHARD
+    display-name: '<#cc99ff>活动房间</#cc99ff>'
+    name: '<#cc99ff><bold>活动房间</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>特殊活动奖池'
+      - ''
+      - '<#55ff99>金钱奖池 <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>物品奖池 <dark_gray>| <white>%items% 件物品</white>'
+      - '<#ffaa00>参与者 <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>剩余时间 <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>点击打开此房间。'
+dynamic:
+  fallback-room-slots: [11, 13, 15, 19, 25, 28, 34, 37, 39, 41, 43]
+
+
+
+

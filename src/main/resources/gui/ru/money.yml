@@ -1,0 +1,106 @@
+title: '<#55ff99><bold>Внести деньги</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 45
+filler:
+  material: GREEN_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: GOLD_INGOT
+    name: '<#55ff99><bold>Денежный вход</bold>'
+    lore:
+      - '<dark_gray>Диапазон суммы'
+      - ''
+      - '<#ffcc33>Минимум <dark_gray>| <white>%min_money%</white>'
+      - '<#ffcc33>Максимум <dark_gray>| <white>%max_money%</white>'
+      - '<#55ff99>Избранное <dark_gray>| <white>%favorite_money%</white>'
+      - '<#cc99ff>Твой шанс <dark_gray>| <white>%player_chance%%</white>'
+    action: none
+  quick-1:
+    slot: 11
+    material: SUNFLOWER
+    name: '<#ffcc33><bold>%quick_money_1%</bold>'
+    lore:
+      - '<dark_gray>Быстрый вклад'
+      - ''
+      - '<gray>Войти сразу с этой суммой.'
+    action: money-quick-1
+  quick-2:
+    slot: 13
+    material: SUNFLOWER
+    name: '<#ffcc33><bold>%quick_money_2%</bold>'
+    lore:
+      - '<dark_gray>Быстрый вклад'
+      - ''
+      - '<gray>Войти сразу с этой суммой.'
+    action: money-quick-2
+  quick-3:
+    slot: 15
+    material: SUNFLOWER
+    name: '<#ffcc33><bold>%quick_money_3%</bold>'
+    lore:
+      - '<dark_gray>Быстрый вклад'
+      - ''
+      - '<gray>Войти сразу с этой суммой.'
+    action: money-quick-3
+  quick-4:
+    slot: 21
+    material: SUNFLOWER
+    name: '<#ffcc33><bold>%quick_money_4%</bold>'
+    lore:
+      - '<dark_gray>Быстрый вклад'
+      - ''
+      - '<gray>Войти сразу с этой суммой.'
+    action: money-quick-4
+  quick-5:
+    slot: 23
+    material: SUNFLOWER
+    name: '<#ffcc33><bold>%quick_money_5%</bold>'
+    lore:
+      - '<dark_gray>Быстрый вклад'
+      - ''
+      - '<gray>Войти сразу с этой суммой.'
+    action: money-quick-5
+  manual:
+    slot: 29
+    material: OAK_SIGN
+    name: '<#33ccff><bold>Своя сумма</bold>'
+    lore:
+      - '<dark_gray>Ручной ввод'
+      - ''
+      - '<gray>Нажми и напиши сумму в чат.'
+    action: money-manual
+  favorite:
+    slot: 31
+    material: EMERALD
+    name: '<#55ff99><bold>Использовать избранное</bold>'
+    lore:
+      - '<dark_gray>Сохранённая сумма'
+      - ''
+      - '<#55ff99>Избранное <dark_gray>| <white>%favorite_money%</white>'
+      - '<gray>Войти сразу с этой суммой.'
+    action: money-favorite
+  favorite-set:
+    slot: 33
+    material: WRITABLE_BOOK
+    name: '<#33ccff><bold>Сохранить избранное</bold>'
+    lore:
+      - '<dark_gray>Быстрая сумма'
+      - ''
+      - '<gray>Нажми и напиши новую избранную сумму.'
+    action: money-favorite-set
+  back:
+    slot: 40
+    material: ARROW
+    name: '<#55ff99><bold>Назад</bold>'
+    lore:
+      - '<gray>Вернуться в главное меню.'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

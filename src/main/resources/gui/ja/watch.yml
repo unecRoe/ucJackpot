@@ -1,0 +1,34 @@
+title: '<#cc99ff><bold>観戦画面</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 54
+filler:
+  material: PURPLE_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: CLOCK
+    name: '<#cc99ff><bold>ライブ進行</bold>'
+    lore:
+      - '<dark_gray>ラウンド観戦'
+      - ''
+      - '<#cc99ff>残り時間 <dark_gray>| <white>%time_left%</white>'
+      - '<#ffaa00>参加者 <dark_gray>| <white>%players%</white>'
+      - '<gray>ラウンド中、参加者が画面上を流れます。'
+    action: none
+  back:
+    slot: 49
+    material: ARROW
+    name: '<#55ff99><bold>戻る</bold>'
+    lore:
+      - '<gray>メインメニューに戻る。'
+    action: open-main
+dynamic:
+  entry-slots: [10, 11, 12, 13, 14, 15, 16]
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

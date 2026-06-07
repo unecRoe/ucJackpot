@@ -1,0 +1,239 @@
+title: '<#ffcc33><bold>ucJackpot</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 54
+filler:
+  material: BLACK_STAINED_GLASS_PANE
+  name: ' '
+text:
+  status-live: '<#55ff99>進行中</#55ff99>'
+  status-waiting: '<#ffcc33>待機中</#ffcc33>'
+  status-stopped: '<#ff5555>停止中</#ff5555>'
+  season-name: 'シーズン %number%'
+  season-low: '低額ルームシーズン'
+  season-high: '高額ルームシーズン'
+  season-item: 'アイテムルームシーズン'
+  season-event: 'イベントシーズン'
+  favorite-none: '<gray>未設定</gray>'
+  mode-money: 'お金'
+  mode-item: 'アイテム'
+  mode-hybrid: 'お金 + アイテム'
+  entry-type-money: 'お金'
+  entry-type-item: 'アイテム'
+  entry-type-ticket: 'チケット'
+  depositor-name: '<#ffcc33><bold>%player%</bold>'
+  depositor-lore:
+    - '<dark_gray>プレイヤーの投入'
+    - ''
+    - '<#55ff99>お金 <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>アイテム <dark_gray>| <white>%items%</white>'
+    - '<#ffcc33>投入数 <dark_gray>| <white>%entries%</white>'
+    - '<#cc99ff>確率 <dark_gray>| <white>%chance%%</white>'
+    - ''
+    - '<#55ff99>クリックして詳細を見る。'
+  money-summary-name: '<#55ff99><bold>お金の投入</bold>'
+  money-summary-lore:
+    - '<dark_gray>お金の概要'
+    - ''
+    - '<#ffcc33>プレイヤー <dark_gray>| <white>%player%</white>'
+    - '<#55ff99>投入額 <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>アイテム数 <dark_gray>| <white>%items%</white>'
+  deposited-item-name: '<#33ccff><bold>%item%</bold>'
+  deposited-item-lore:
+    - '<dark_gray>アイテム投入'
+    - ''
+    - '<#ffcc33>投入者 <dark_gray>| <white>%player%</white>'
+    - '<#33ccff>数量 <dark_gray>| <white>%amount%</white>'
+    - ''
+    - '<gray>勝者へアイテムとして渡されます。'
+  room-name: '<#ffcc33><bold>%name%</bold> <dark_gray>| <white>%mode%</white>'
+  room-lore:
+    - '<dark_gray>ルーム概要'
+    - ''
+    - '<#55ff99>賞金プール <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>アイテムプール <dark_gray>| <white>%items% 個</white>'
+    - '<#ffaa00>参加者 <dark_gray>| <white>%players%</white>'
+    - '<#cc99ff>残り時間 <dark_gray>| <white>%time%</white>'
+    - ''
+    - '<#55ff99>クリックしてこのルームを開く。'
+  prize-summary-name: '<#ffcc33><bold>報酬チェスト</bold>'
+  prize-summary-lore:
+    - '<dark_gray>現在の報酬プール'
+    - ''
+    - '<#55ff99>お金の報酬 <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>アイテム報酬 <dark_gray>| <white>%items%</white>'
+    - '<#ffaa00>チケット投入 <dark_gray>| <white>%tickets%</white>'
+    - ''
+    - '<gray>勝者はお金とアイテムを別々に受け取ります。'
+  fairness-player-name: '<#55ff99><bold>%player%</bold>'
+  fairness-player-lore:
+    - '<dark_gray>参加者の確率'
+    - ''
+    - '<#cc99ff>確率 <dark_gray>| <white>%chance%%</white>'
+    - '<#ffcc33>重み <dark_gray>| <white>%weight%</white>'
+    - '<#55ff99>お金 <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>アイテム <dark_gray>| <white>%items%</white>'
+    - '<#ffaa00>チケット <dark_gray>| <white>%tickets%</white>'
+  watch-entry-name: '<#ffcc33><bold>%player%</bold>'
+  watch-entry-lore:
+    - '<dark_gray>ライブ投入'
+    - ''
+    - '<#cc99ff>確率 <dark_gray>| <white>%chance%%</white>'
+    - '<#ffcc33>投入タイプ <dark_gray>| <white>%type%</white>'
+  season-stat-name: '<#cc99ff><bold>#%rank% %player%</bold>'
+  season-stat-lore:
+    - '<dark_gray>シーズン成績'
+    - ''
+    - '<#cc99ff>シーズン <dark_gray>| <white>%season%</white>'
+    - '<#ffcc33>投入数 <dark_gray>| <white>%entries%</white>'
+    - '<#55ff99>勝利数 <dark_gray>| <white>%wins%</white>'
+    - '<#33ccff>投入価値 <dark_gray>| <white>%value_in%</white>'
+    - '<#55ff99>獲得価値 <dark_gray>| <white>%value_won%</white>'
+items:
+  status:
+    slot: 4
+    material: NETHER_STAR
+    name: '<gradient:#ffcc33:#ff3366><bold>%jackpot_name%</bold></gradient>'
+    lore:
+      - '<dark_gray>ラウンド概要'
+      - ''
+      - '<#ffcc33>状態 <dark_gray>| <white>%status%</white>'
+      - '<#55ff99>合計価値 <dark_gray>| <white>%pot_value%</white>'
+      - '<#55ff99>賞金プール <dark_gray>| <white>%money_pot%</white>'
+      - '<#33ccff>アイテムプール <dark_gray>| <white>%item_pot% 個</white>'
+      - '<#ffaa00>参加者 <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>残り時間 <dark_gray>| <white>%time_left%</white>'
+    glow: true
+    action: none
+  join-money:
+    slot: 20
+    material: GOLD_INGOT
+    name: '<#55ff99><bold>お金を投入</bold>'
+    lore:
+      - '<dark_gray>お金で参加'
+      - ''
+      - '<#55ff99>クイック金額または手入力を使えます。'
+      - '<gray>あなたの確率: <white>%player_chance%%</white>'
+      - ''
+      - '<#55ff99>クリックしてお金の投入を開く。'
+    action: money-menu
+  join-item:
+    slot: 22
+    material: DIAMOND
+    name: '<#33ccff><bold>アイテムを投入</bold>'
+    lore:
+      - '<dark_gray>アイテムで参加'
+      - ''
+      - '<#33ccff>使用可能なアイテムを複数選択します。'
+      - '<gray>勝者はアイテムとして受け取ります。'
+      - ''
+      - '<#33ccff>クリックして選択を開く。'
+    action: item-confirm
+  ticket:
+    slot: 24
+    material: PAPER
+    name: '<#ffaa00><bold>チケットを使用</bold>'
+    lore:
+      - '<dark_gray>チケット参加'
+      - ''
+      - '<#ffaa00>チケット重み <dark_gray>| <white>%ticket_value%</white>'
+      - '<gray>有効なチケットで無料参加します。'
+      - ''
+      - '<#ffaa00>クリックしてチケットを使う。'
+    action: ticket
+  deposits:
+    slot: 29
+    material: CHEST
+    name: '<#33ccff><bold>投入内容</bold>'
+    lore:
+      - '<dark_gray>参加者の記録'
+      - ''
+      - '<gray>このラウンドで誰が何を投入したか表示します。'
+      - '<gray>プレイヤーをクリックしてお金とアイテムを確認。'
+    action: deposits
+  rooms:
+    slot: 30
+    material: COMPASS
+    name: '<#ffcc33><bold>ルーム</bold>'
+    lore:
+      - '<dark_gray>ルーム選択'
+      - ''
+      - '<gray>通常、低額、高額、アイテム、イベントルームを選択。'
+    action: rooms
+  preview:
+    slot: 31
+    material: ENDER_CHEST
+    name: '<#55ff99><bold>報酬チェスト</bold>'
+    lore:
+      - '<dark_gray>プールプレビュー'
+      - ''
+      - '<gray>勝者を待つお金とアイテムを確認します。'
+    action: preview
+  fairness:
+    slot: 32
+    material: SPYGLASS
+    name: '<#33ccff><bold>透明な確率</bold>'
+    lore:
+      - '<dark_gray>公平な抽選の詳細'
+      - ''
+      - '<gray>参加者の確率と前回の抽選記録を表示します。'
+    action: fairness
+  watch:
+    slot: 33
+    material: CLOCK
+    name: '<#cc99ff><bold>観戦画面</bold>'
+    lore:
+      - '<dark_gray>ライブ追跡'
+      - ''
+      - '<gray>ラウンドの流れと参加者を観戦します。'
+    action: watch
+  stats:
+    slot: 38
+    material: PLAYER_HEAD
+    head: '%player%'
+    name: '<#ffaa00><bold>あなたの統計</bold>'
+    lore:
+      - '<dark_gray>個人概要'
+      - ''
+      - '<#ffcc33>投入数 <dark_gray>| <white>%player_entries%</white>'
+      - '<#cc99ff>確率 <dark_gray>| <white>%player_chance%%</white>'
+      - '<#55ff99>前回の勝者 <dark_gray>| <white>%last_winner%</white>'
+    action: stats
+  season:
+    slot: 40
+    material: AMETHYST_SHARD
+    name: '<#cc99ff><bold>シーズン</bold>'
+    lore:
+      - '<dark_gray>シーズン追跡'
+      - ''
+      - '<#cc99ff>シーズン <dark_gray>| <white>%season%</white>'
+      - '<gray>このルームのシーズン状況を表示します。'
+    action: season
+  history:
+    slot: 42
+    material: BOOK
+    name: '<#cc99ff><bold>履歴</bold>'
+    lore:
+      - '<dark_gray>最近の抽選'
+      - ''
+      - '<gray>勝者と賞品価値を表示します。'
+    action: history
+  reclaim:
+    slot: 49
+    material: HOPPER
+    name: '<#55ff99><bold>投入分を回収</bold>'
+    lore:
+      - '<dark_gray>待機中の投入'
+      - ''
+      - '<#55ff99>お金 <dark_gray>| <white>%reclaim_money%</white>'
+      - '<#33ccff>アイテム <dark_gray>| <white>%reclaim_items%</white>'
+      - '<#ffaa00>チケット <dark_gray>| <white>%reclaim_tickets%</white>'
+      - ''
+      - '<gray>カウントダウン開始前なら返却されます。'
+    action: reclaim
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

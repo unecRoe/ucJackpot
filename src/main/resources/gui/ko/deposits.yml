@@ -1,0 +1,36 @@
+title: '<#33ccff><bold>투입 내역</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 54
+filler:
+  material: CYAN_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: CHEST
+    name: '<#33ccff><bold>이번 라운드 투입</bold>'
+    lore:
+      - '<dark_gray>참가자 목록'
+      - ''
+      - '<#ffaa00>참가자 <dark_gray>| <white>%players%</white>'
+      - '<#55ff99>돈 풀 <dark_gray>| <white>%money_pot%</white>'
+      - '<#33ccff>아이템 풀 <dark_gray>| <white>%item_pot%개</white>'
+      - ''
+      - '<#55ff99>플레이어를 클릭해 상세를 확인하세요.'
+    action: none
+  back:
+    slot: 49
+    material: ARROW
+    name: '<#55ff99><bold>뒤로</bold>'
+    lore:
+      - '<gray>메인 메뉴로 돌아갑니다.'
+    action: open-main
+dynamic:
+  depositor-slots: [10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25, 28, 29, 30, 31, 32, 33, 34, 37, 38, 39, 40, 41, 42, 43]
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

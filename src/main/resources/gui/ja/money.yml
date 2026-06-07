@@ -1,0 +1,106 @@
+title: '<#55ff99><bold>お金を投入</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 45
+filler:
+  material: GREEN_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: GOLD_INGOT
+    name: '<#55ff99><bold>お金で参加</bold>'
+    lore:
+      - '<dark_gray>金額範囲'
+      - ''
+      - '<#ffcc33>最小 <dark_gray>| <white>%min_money%</white>'
+      - '<#ffcc33>最大 <dark_gray>| <white>%max_money%</white>'
+      - '<#55ff99>お気に入り <dark_gray>| <white>%favorite_money%</white>'
+      - '<#cc99ff>あなたの確率 <dark_gray>| <white>%player_chance%%</white>'
+    action: none
+  quick-1:
+    slot: 11
+    material: SUNFLOWER
+    name: '<#ffcc33><bold>%quick_money_1%</bold>'
+    lore:
+      - '<dark_gray>クイック投入'
+      - ''
+      - '<gray>この金額ですぐ参加します。'
+    action: money-quick-1
+  quick-2:
+    slot: 13
+    material: SUNFLOWER
+    name: '<#ffcc33><bold>%quick_money_2%</bold>'
+    lore:
+      - '<dark_gray>クイック投入'
+      - ''
+      - '<gray>この金額ですぐ参加します。'
+    action: money-quick-2
+  quick-3:
+    slot: 15
+    material: SUNFLOWER
+    name: '<#ffcc33><bold>%quick_money_3%</bold>'
+    lore:
+      - '<dark_gray>クイック投入'
+      - ''
+      - '<gray>この金額ですぐ参加します。'
+    action: money-quick-3
+  quick-4:
+    slot: 21
+    material: SUNFLOWER
+    name: '<#ffcc33><bold>%quick_money_4%</bold>'
+    lore:
+      - '<dark_gray>クイック投入'
+      - ''
+      - '<gray>この金額ですぐ参加します。'
+    action: money-quick-4
+  quick-5:
+    slot: 23
+    material: SUNFLOWER
+    name: '<#ffcc33><bold>%quick_money_5%</bold>'
+    lore:
+      - '<dark_gray>クイック投入'
+      - ''
+      - '<gray>この金額ですぐ参加します。'
+    action: money-quick-5
+  manual:
+    slot: 29
+    material: OAK_SIGN
+    name: '<#33ccff><bold>手入力の金額</bold>'
+    lore:
+      - '<dark_gray>カスタム金額'
+      - ''
+      - '<gray>クリック後、チャットに金額を入力します。'
+    action: money-manual
+  favorite:
+    slot: 31
+    material: EMERALD
+    name: '<#55ff99><bold>お気に入りを使用</bold>'
+    lore:
+      - '<dark_gray>保存済み金額'
+      - ''
+      - '<#55ff99>お気に入り <dark_gray>| <white>%favorite_money%</white>'
+      - '<gray>この金額ですぐ参加します。'
+    action: money-favorite
+  favorite-set:
+    slot: 33
+    material: WRITABLE_BOOK
+    name: '<#33ccff><bold>お気に入りを保存</bold>'
+    lore:
+      - '<dark_gray>クイック金額'
+      - ''
+      - '<gray>クリック後、新しいお気に入り金額を入力します。'
+    action: money-favorite-set
+  back:
+    slot: 40
+    material: ARROW
+    name: '<#55ff99><bold>戻る</bold>'
+    lore:
+      - '<gray>メインメニューに戻る。'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

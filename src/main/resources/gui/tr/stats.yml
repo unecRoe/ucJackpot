@@ -1,0 +1,43 @@
+title: '<#ffaa00><bold>İstatistikler</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 27
+filler:
+  material: ORANGE_STAINED_GLASS_PANE
+  name: ' '
+items:
+  player:
+    slot: 11
+    material: PLAYER_HEAD
+    head: '%player%'
+    name: '<#ffaa00><bold>%player%</bold>'
+    lore:
+      - '<dark_gray>Kişisel tur bilgisi'
+      - ''
+      - '<#ffcc33>Giriş <dark_gray>| <white>%player_entries%</white>'
+      - '<#cc99ff>Şans <dark_gray>| <white>%player_chance%%</white>'
+      - '<#55ff99>Toplam havuz <dark_gray>| <white>%pot_value%</white>'
+    action: none
+  round:
+    slot: 13
+    material: CLOCK
+    name: '<#ffcc33><bold>Tur Durumu</bold>'
+    lore:
+      - '<dark_gray>Anlık durum'
+      - ''
+      - '<#ffcc33>Durum <dark_gray>| <white>%status%</white>'
+      - '<#cc99ff>Kalan süre <dark_gray>| <white>%time_left%</white>'
+      - '<#ffaa00>Katılımcı <dark_gray>| <white>%players%</white>'
+    action: none
+  back:
+    slot: 15
+    material: ARROW
+    name: '<#55ff99><bold>Geri</bold>'
+    lore:
+      - '<gray>Ana menüye dön.'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+

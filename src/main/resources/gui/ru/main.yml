@@ -1,0 +1,239 @@
+title: '<#ffcc33><bold>ucJackpot</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 54
+filler:
+  material: BLACK_STAINED_GLASS_PANE
+  name: ' '
+text:
+  status-live: '<#55ff99>АКТИВНО</#55ff99>'
+  status-waiting: '<#ffcc33>ОЖИДАНИЕ</#ffcc33>'
+  status-stopped: '<#ff5555>ОСТАНОВЛЕНО</#ff5555>'
+  season-name: 'Сезон %number%'
+  season-low: 'Сезон низкой комнаты'
+  season-high: 'Сезон высокой комнаты'
+  season-item: 'Сезон комнаты предметов'
+  season-event: 'Ивент-сезон'
+  favorite-none: '<gray>Не задано</gray>'
+  mode-money: 'Деньги'
+  mode-item: 'Предметы'
+  mode-hybrid: 'Деньги + Предметы'
+  entry-type-money: 'Деньги'
+  entry-type-item: 'Предмет'
+  entry-type-ticket: 'Билет'
+  depositor-name: '<#ffcc33><bold>%player%</bold>'
+  depositor-lore:
+    - '<dark_gray>Вклад игрока'
+    - ''
+    - '<#55ff99>Деньги <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>Предметы <dark_gray>| <white>%items%</white>'
+    - '<#ffcc33>Входы <dark_gray>| <white>%entries%</white>'
+    - '<#cc99ff>Шанс <dark_gray>| <white>%chance%%</white>'
+    - ''
+    - '<#55ff99>Нажми, чтобы посмотреть детали.'
+  money-summary-name: '<#55ff99><bold>Денежный вклад</bold>'
+  money-summary-lore:
+    - '<dark_gray>Сводка денег'
+    - ''
+    - '<#ffcc33>Игрок <dark_gray>| <white>%player%</white>'
+    - '<#55ff99>Внесено <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>Предметы <dark_gray>| <white>%items%</white>'
+  deposited-item-name: '<#33ccff><bold>%item%</bold>'
+  deposited-item-lore:
+    - '<dark_gray>Вклад предмета'
+    - ''
+    - '<#ffcc33>Внёс <dark_gray>| <white>%player%</white>'
+    - '<#33ccff>Количество <dark_gray>| <white>%amount%</white>'
+    - ''
+    - '<gray>Передаётся победителю как предмет.'
+  room-name: '<#ffcc33><bold>%name%</bold> <dark_gray>| <white>%mode%</white>'
+  room-lore:
+    - '<dark_gray>Обзор комнаты'
+    - ''
+    - '<#55ff99>Банк денег <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>Банк предметов <dark_gray>| <white>%items% предметов</white>'
+    - '<#ffaa00>Участники <dark_gray>| <white>%players%</white>'
+    - '<#cc99ff>Осталось <dark_gray>| <white>%time%</white>'
+    - ''
+    - '<#55ff99>Нажми, чтобы открыть эту комнату.'
+  prize-summary-name: '<#ffcc33><bold>Сундук призов</bold>'
+  prize-summary-lore:
+    - '<dark_gray>Активный призовой банк'
+    - ''
+    - '<#55ff99>Денежный приз <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>Приз предметами <dark_gray>| <white>%items%</white>'
+    - '<#ffaa00>Входы по билетам <dark_gray>| <white>%tickets%</white>'
+    - ''
+    - '<gray>Победитель получает деньги и предметы отдельно.'
+  fairness-player-name: '<#55ff99><bold>%player%</bold>'
+  fairness-player-lore:
+    - '<dark_gray>Шансы участника'
+    - ''
+    - '<#cc99ff>Шанс <dark_gray>| <white>%chance%%</white>'
+    - '<#ffcc33>Вес <dark_gray>| <white>%weight%</white>'
+    - '<#55ff99>Деньги <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>Предметы <dark_gray>| <white>%items%</white>'
+    - '<#ffaa00>Билеты <dark_gray>| <white>%tickets%</white>'
+  watch-entry-name: '<#ffcc33><bold>%player%</bold>'
+  watch-entry-lore:
+    - '<dark_gray>Живой вход'
+    - ''
+    - '<#cc99ff>Шанс <dark_gray>| <white>%chance%%</white>'
+    - '<#ffcc33>Тип входа <dark_gray>| <white>%type%</white>'
+  season-stat-name: '<#cc99ff><bold>#%rank% %player%</bold>'
+  season-stat-lore:
+    - '<dark_gray>Сезонный результат'
+    - ''
+    - '<#cc99ff>Сезон <dark_gray>| <white>%season%</white>'
+    - '<#ffcc33>Входы <dark_gray>| <white>%entries%</white>'
+    - '<#55ff99>Победы <dark_gray>| <white>%wins%</white>'
+    - '<#33ccff>Внесённая ценность <dark_gray>| <white>%value_in%</white>'
+    - '<#55ff99>Выигранная ценность <dark_gray>| <white>%value_won%</white>'
+items:
+  status:
+    slot: 4
+    material: NETHER_STAR
+    name: '<gradient:#ffcc33:#ff3366><bold>%jackpot_name%</bold></gradient>'
+    lore:
+      - '<dark_gray>Обзор раунда'
+      - ''
+      - '<#ffcc33>Статус <dark_gray>| <white>%status%</white>'
+      - '<#55ff99>Общая ценность <dark_gray>| <white>%pot_value%</white>'
+      - '<#55ff99>Банк денег <dark_gray>| <white>%money_pot%</white>'
+      - '<#33ccff>Банк предметов <dark_gray>| <white>%item_pot% предметов</white>'
+      - '<#ffaa00>Участники <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Осталось <dark_gray>| <white>%time_left%</white>'
+    glow: true
+    action: none
+  join-money:
+    slot: 20
+    material: GOLD_INGOT
+    name: '<#55ff99><bold>Внести деньги</bold>'
+    lore:
+      - '<dark_gray>Денежный вход'
+      - ''
+      - '<#55ff99>Используй быстрые суммы или ручной ввод.'
+      - '<gray>Твой шанс: <white>%player_chance%%</white>'
+      - ''
+      - '<#55ff99>Нажми, чтобы открыть денежный вклад.'
+    action: money-menu
+  join-item:
+    slot: 22
+    material: DIAMOND
+    name: '<#33ccff><bold>Внести предметы</bold>'
+    lore:
+      - '<dark_gray>Вход предметами'
+      - ''
+      - '<#33ccff>Выбери несколько разрешённых предметов.'
+      - '<gray>Победитель получит их как предметы.'
+      - ''
+      - '<#33ccff>Нажми, чтобы открыть выбор.'
+    action: item-confirm
+  ticket:
+    slot: 24
+    material: PAPER
+    name: '<#ffaa00><bold>Использовать билет</bold>'
+    lore:
+      - '<dark_gray>Вход по билету'
+      - ''
+      - '<#ffaa00>Вес билета <dark_gray>| <white>%ticket_value%</white>'
+      - '<gray>Использует действительный билет для бесплатного входа.'
+      - ''
+      - '<#ffaa00>Нажми, чтобы использовать билет.'
+    action: ticket
+  deposits:
+    slot: 29
+    material: CHEST
+    name: '<#33ccff><bold>Вклады</bold>'
+    lore:
+      - '<dark_gray>Журнал участников'
+      - ''
+      - '<gray>Показывает, кто что внёс в этом раунде.'
+      - '<gray>Нажми на игрока, чтобы проверить деньги и предметы.'
+    action: deposits
+  rooms:
+    slot: 30
+    material: COMPASS
+    name: '<#ffcc33><bold>Комнаты</bold>'
+    lore:
+      - '<dark_gray>Выбор комнаты'
+      - ''
+      - '<gray>Выбери общую, низкую, высокую, предметную или ивент-комнату.'
+    action: rooms
+  preview:
+    slot: 31
+    material: ENDER_CHEST
+    name: '<#55ff99><bold>Сундук призов</bold>'
+    lore:
+      - '<dark_gray>Предпросмотр банка'
+      - ''
+      - '<gray>Посмотри деньги и предметы, ожидающие победителя.'
+    action: preview
+  fairness:
+    slot: 32
+    material: SPYGLASS
+    name: '<#33ccff><bold>Прозрачные шансы</bold>'
+    lore:
+      - '<dark_gray>Детали честного розыгрыша'
+      - ''
+      - '<gray>Показывает шансы участников и последний розыгрыш.'
+    action: fairness
+  watch:
+    slot: 33
+    material: CLOCK
+    name: '<#cc99ff><bold>Экран наблюдения</bold>'
+    lore:
+      - '<dark_gray>Живое наблюдение'
+      - ''
+      - '<gray>Следи за ходом раунда и участниками.'
+    action: watch
+  stats:
+    slot: 38
+    material: PLAYER_HEAD
+    head: '%player%'
+    name: '<#ffaa00><bold>Твоя статистика</bold>'
+    lore:
+      - '<dark_gray>Личный обзор'
+      - ''
+      - '<#ffcc33>Входы <dark_gray>| <white>%player_entries%</white>'
+      - '<#cc99ff>Шанс <dark_gray>| <white>%player_chance%%</white>'
+      - '<#55ff99>Последний победитель <dark_gray>| <white>%last_winner%</white>'
+    action: stats
+  season:
+    slot: 40
+    material: AMETHYST_SHARD
+    name: '<#cc99ff><bold>Сезон</bold>'
+    lore:
+      - '<dark_gray>Отслеживание сезона'
+      - ''
+      - '<#cc99ff>Сезон <dark_gray>| <white>%season%</white>'
+      - '<gray>Показывает статус сезона для этой комнаты.'
+    action: season
+  history:
+    slot: 42
+    material: BOOK
+    name: '<#cc99ff><bold>История</bold>'
+    lore:
+      - '<dark_gray>Недавние розыгрыши'
+      - ''
+      - '<gray>Показывает победителей и ценность призов.'
+    action: history
+  reclaim:
+    slot: 49
+    material: HOPPER
+    name: '<#55ff99><bold>Вернуть вклады</bold>'
+    lore:
+      - '<dark_gray>Ожидающие вклады'
+      - ''
+      - '<#55ff99>Деньги <dark_gray>| <white>%reclaim_money%</white>'
+      - '<#33ccff>Предметы <dark_gray>| <white>%reclaim_items%</white>'
+      - '<#ffaa00>Билеты <dark_gray>| <white>%reclaim_tickets%</white>'
+      - ''
+      - '<gray>Возвращает их, если отсчёт ещё не начался.'
+    action: reclaim
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

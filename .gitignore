@@ -1,0 +1,17 @@
+target/
+*.class
+*.log
+*.db
+*.sqlite
+*.sqlite3
+
+.idea/
+.vscode/
+*.iml
+
+plugins/
+logs/
+data/
+
+.DS_Store
+Thumbs.db

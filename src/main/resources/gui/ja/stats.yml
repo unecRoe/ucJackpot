@@ -1,0 +1,44 @@
+title: '<#ffaa00><bold>統計</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 27
+filler:
+  material: ORANGE_STAINED_GLASS_PANE
+  name: ' '
+items:
+  player:
+    slot: 11
+    material: PLAYER_HEAD
+    head: '%player%'
+    name: '<#ffaa00><bold>%player%</bold>'
+    lore:
+      - '<dark_gray>個人ラウンド情報'
+      - ''
+      - '<#ffcc33>投入数 <dark_gray>| <white>%player_entries%</white>'
+      - '<#cc99ff>確率 <dark_gray>| <white>%player_chance%%</white>'
+      - '<#55ff99>合計プール <dark_gray>| <white>%pot_value%</white>'
+    action: none
+  round:
+    slot: 13
+    material: CLOCK
+    name: '<#ffcc33><bold>ラウンド状況</bold>'
+    lore:
+      - '<dark_gray>現在の状況'
+      - ''
+      - '<#ffcc33>状態 <dark_gray>| <white>%status%</white>'
+      - '<#cc99ff>残り時間 <dark_gray>| <white>%time_left%</white>'
+      - '<#ffaa00>参加者 <dark_gray>| <white>%players%</white>'
+    action: none
+  back:
+    slot: 15
+    material: ARROW
+    name: '<#55ff99><bold>戻る</bold>'
+    lore:
+      - '<gray>メインメニューに戻る。'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

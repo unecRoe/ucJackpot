@@ -1,0 +1,238 @@
+title: '<#ffcc33><bold>ucJackpot</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 54
+filler:
+  material: BLACK_STAINED_GLASS_PANE
+  name: ' '
+text:
+  status-live: '<#55ff99>LIVE</#55ff99>'
+  status-waiting: '<#ffcc33>WAITING</#ffcc33>'
+  status-stopped: '<#ff5555>STOPPED</#ff5555>'
+  season-name: 'Season %number%'
+  season-low: 'Low Room Season'
+  season-high: 'High Room Season'
+  season-item: 'Item Room Season'
+  season-event: 'Event Season'
+  favorite-none: '<gray>Not set</gray>'
+  mode-money: 'Money'
+  mode-item: 'Items'
+  mode-hybrid: 'Money + Items'
+  entry-type-money: 'Money'
+  entry-type-item: 'Item'
+  entry-type-ticket: 'Ticket'
+  depositor-name: '<#ffcc33><bold>%player%</bold>'
+  depositor-lore:
+    - '<dark_gray>Player deposit'
+    - ''
+    - '<#55ff99>Money <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>Items <dark_gray>| <white>%items%</white>'
+    - '<#ffcc33>Entries <dark_gray>| <white>%entries%</white>'
+    - '<#cc99ff>Chance <dark_gray>| <white>%chance%%</white>'
+    - ''
+    - '<#55ff99>Click to view details.'
+  money-summary-name: '<#55ff99><bold>Money Deposit</bold>'
+  money-summary-lore:
+    - '<dark_gray>Money summary'
+    - ''
+    - '<#ffcc33>Player <dark_gray>| <white>%player%</white>'
+    - '<#55ff99>Deposited <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>Item count <dark_gray>| <white>%items%</white>'
+  deposited-item-name: '<#33ccff><bold>%item%</bold>'
+  deposited-item-lore:
+    - '<dark_gray>Item deposit'
+    - ''
+    - '<#ffcc33>Depositor <dark_gray>| <white>%player%</white>'
+    - '<#33ccff>Amount <dark_gray>| <white>%amount%</white>'
+    - ''
+    - '<gray>Delivered to the winner as an item.'
+  room-name: '<#ffcc33><bold>%name%</bold> <dark_gray>| <white>%mode%</white>'
+  room-lore:
+    - '<dark_gray>Room overview'
+    - ''
+    - '<#55ff99>Money pot <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>Item pot <dark_gray>| <white>%items% item(s)</white>'
+    - '<#ffaa00>Participants <dark_gray>| <white>%players%</white>'
+    - '<#cc99ff>Time left <dark_gray>| <white>%time%</white>'
+    - ''
+    - '<#55ff99>Click to open this room.'
+  prize-summary-name: '<#ffcc33><bold>Prize Chest</bold>'
+  prize-summary-lore:
+    - '<dark_gray>Active prize pool'
+    - ''
+    - '<#55ff99>Money prize <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>Item prize <dark_gray>| <white>%items%</white>'
+    - '<#ffaa00>Ticket entries <dark_gray>| <white>%tickets%</white>'
+    - ''
+    - '<gray>Winner receives money and items separately.'
+  fairness-player-name: '<#55ff99><bold>%player%</bold>'
+  fairness-player-lore:
+    - '<dark_gray>Participant odds'
+    - ''
+    - '<#cc99ff>Chance <dark_gray>| <white>%chance%%</white>'
+    - '<#ffcc33>Weight <dark_gray>| <white>%weight%</white>'
+    - '<#55ff99>Money <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>Items <dark_gray>| <white>%items%</white>'
+    - '<#ffaa00>Tickets <dark_gray>| <white>%tickets%</white>'
+  watch-entry-name: '<#ffcc33><bold>%player%</bold>'
+  watch-entry-lore:
+    - '<dark_gray>Live entry'
+    - ''
+    - '<#cc99ff>Chance <dark_gray>| <white>%chance%%</white>'
+    - '<#ffcc33>Entry type <dark_gray>| <white>%type%</white>'
+  season-stat-name: '<#cc99ff><bold>#%rank% %player%</bold>'
+  season-stat-lore:
+    - '<dark_gray>Season performance'
+    - ''
+    - '<#cc99ff>Season <dark_gray>| <white>%season%</white>'
+    - '<#ffcc33>Entries <dark_gray>| <white>%entries%</white>'
+    - '<#55ff99>Wins <dark_gray>| <white>%wins%</white>'
+    - '<#33ccff>Value in <dark_gray>| <white>%value_in%</white>'
+    - '<#55ff99>Value won <dark_gray>| <white>%value_won%</white>'
+items:
+  status:
+    slot: 4
+    material: NETHER_STAR
+    name: '<gradient:#ffcc33:#ff3366><bold>%jackpot_name%</bold></gradient>'
+    lore:
+      - '<dark_gray>Round overview'
+      - ''
+      - '<#ffcc33>Status <dark_gray>| <white>%status%</white>'
+      - '<#55ff99>Total value <dark_gray>| <white>%pot_value%</white>'
+      - '<#55ff99>Money pot <dark_gray>| <white>%money_pot%</white>'
+      - '<#33ccff>Item pot <dark_gray>| <white>%item_pot% item(s)</white>'
+      - '<#ffaa00>Participants <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Time left <dark_gray>| <white>%time_left%</white>'
+    glow: true
+    action: none
+  join-money:
+    slot: 20
+    material: GOLD_INGOT
+    name: '<#55ff99><bold>Deposit Money</bold>'
+    lore:
+      - '<dark_gray>Money entry'
+      - ''
+      - '<#55ff99>Use quick amounts or manual entry.'
+      - '<gray>Your chance: <white>%player_chance%%</white>'
+      - ''
+      - '<#55ff99>Click to open money deposit.'
+    action: money-menu
+  join-item:
+    slot: 22
+    material: DIAMOND
+    name: '<#33ccff><bold>Deposit Items</bold>'
+    lore:
+      - '<dark_gray>Item entry'
+      - ''
+      - '<#33ccff>Select multiple accepted items.'
+      - '<gray>The winner receives them as items.'
+      - ''
+      - '<#33ccff>Click to open item selection.'
+    action: item-confirm
+  ticket:
+    slot: 24
+    material: PAPER
+    name: '<#ffaa00><bold>Use Ticket</bold>'
+    lore:
+      - '<dark_gray>Ticket entry'
+      - ''
+      - '<#ffaa00>Ticket weight <dark_gray>| <white>%ticket_value%</white>'
+      - '<gray>Uses a valid ticket for a free entry.'
+      - ''
+      - '<#ffaa00>Click to use a ticket.'
+    action: ticket
+  deposits:
+    slot: 29
+    material: CHEST
+    name: '<#33ccff><bold>Deposits</bold>'
+    lore:
+      - '<dark_gray>Participant ledger'
+      - ''
+      - '<gray>Shows who deposited what this round.'
+      - '<gray>Click a player to inspect money and items.'
+    action: deposits
+  rooms:
+    slot: 30
+    material: COMPASS
+    name: '<#ffcc33><bold>Rooms</bold>'
+    lore:
+      - '<dark_gray>Room selection'
+      - ''
+      - '<gray>Choose general, low, high, item, or event rooms.'
+    action: rooms
+  preview:
+    slot: 31
+    material: ENDER_CHEST
+    name: '<#55ff99><bold>Prize Chest</bold>'
+    lore:
+      - '<dark_gray>Pool preview'
+      - ''
+      - '<gray>View the money and items waiting for the winner.'
+    action: preview
+  fairness:
+    slot: 32
+    material: SPYGLASS
+    name: '<#33ccff><bold>Transparent Odds</bold>'
+    lore:
+      - '<dark_gray>Fair draw details'
+      - ''
+      - '<gray>Shows participant odds and the latest draw record.'
+    action: fairness
+  watch:
+    slot: 33
+    material: CLOCK
+    name: '<#cc99ff><bold>Watch Screen</bold>'
+    lore:
+      - '<dark_gray>Live tracking'
+      - ''
+      - '<gray>Watch the round flow and participants.'
+    action: watch
+  stats:
+    slot: 38
+    material: PLAYER_HEAD
+    head: '%player%'
+    name: '<#ffaa00><bold>Your Stats</bold>'
+    lore:
+      - '<dark_gray>Personal overview'
+      - ''
+      - '<#ffcc33>Entries <dark_gray>| <white>%player_entries%</white>'
+      - '<#cc99ff>Chance <dark_gray>| <white>%player_chance%%</white>'
+      - '<#55ff99>Last winner <dark_gray>| <white>%last_winner%</white>'
+    action: stats
+  season:
+    slot: 40
+    material: AMETHYST_SHARD
+    name: '<#cc99ff><bold>Season</bold>'
+    lore:
+      - '<dark_gray>Season tracking'
+      - ''
+      - '<#cc99ff>Season <dark_gray>| <white>%season%</white>'
+      - '<gray>Shows the season status for this room.'
+    action: season
+  history:
+    slot: 42
+    material: BOOK
+    name: '<#cc99ff><bold>History</bold>'
+    lore:
+      - '<dark_gray>Recent draws'
+      - ''
+      - '<gray>Shows winners and prize values.'
+    action: history
+  reclaim:
+    slot: 49
+    material: HOPPER
+    name: '<#55ff99><bold>Reclaim Deposits</bold>'
+    lore:
+      - '<dark_gray>Waiting deposits'
+      - ''
+      - '<#55ff99>Money <dark_gray>| <white>%reclaim_money%</white>'
+      - '<#33ccff>Items <dark_gray>| <white>%reclaim_items%</white>'
+      - '<#ffaa00>Tickets <dark_gray>| <white>%reclaim_tickets%</white>'
+      - ''
+      - '<gray>Returns them if the countdown has not started.'
+    action: reclaim
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+

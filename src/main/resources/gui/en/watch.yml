@@ -1,0 +1,33 @@
+title: '<#cc99ff><bold>Watch Screen</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 54
+filler:
+  material: PURPLE_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: CLOCK
+    name: '<#cc99ff><bold>Live Flow</bold>'
+    lore:
+      - '<dark_gray>Round watch'
+      - ''
+      - '<#cc99ff>Time left <dark_gray>| <white>%time_left%</white>'
+      - '<#ffaa00>Participants <dark_gray>| <white>%players%</white>'
+      - '<gray>Participants move through the screen as the round runs.'
+    action: none
+  back:
+    slot: 49
+    material: ARROW
+    name: '<#55ff99><bold>Back</bold>'
+    lore:
+      - '<gray>Return to main menu.'
+    action: open-main
+dynamic:
+  entry-slots: [10, 11, 12, 13, 14, 15, 16]
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+

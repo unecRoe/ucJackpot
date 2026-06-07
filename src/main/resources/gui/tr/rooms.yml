@@ -1,0 +1,108 @@
+title: '<#ffcc33><bold>Jackpot Odaları</bold>'
+size: 54
+filler:
+  material: BLACK_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: COMPASS
+    name: '<#ffcc33><bold>Oda Seçimi</bold>'
+    lore:
+      - '<dark_gray>Risk ve ödül seviyesi'
+      - ''
+      - '<gray>Odalar ortada dengeli şekilde dizilir.'
+      - '<gray>Ana menü seçtiğin oda için açılır.'
+    action: none
+  back:
+    slot: 49
+    material: ARROW
+    name: '<#55ff99><bold>Geri</bold>'
+    lore:
+      - '<gray>Ana menüye dön.'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+rooms:
+  low:
+    slot: 20
+    material: EMERALD
+    display-name: '<#55ff99>Düşük Oda</#55ff99>'
+    name: '<#55ff99><bold>Düşük Oda</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>Başlangıç seviyesi'
+      - ''
+      - '<#55ff99>Para havuzu <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Eşya havuzu <dark_gray>| <white>%items% eşya</white>'
+      - '<#ffaa00>Katılımcı <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Kalan süre <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Tıkla ve odayı aç.'
+  default:
+    slot: 22
+    material: NETHER_STAR
+    display-name: '<#ffcc33>Genel Oda</#ffcc33>'
+    name: '<#ffcc33><bold>Genel Oda</bold> <dark_gray>| <white>%mode%</white>'
+    glow: true
+    lore:
+      - '<dark_gray>Ana jackpot odası'
+      - ''
+      - '<#55ff99>Para havuzu <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Eşya havuzu <dark_gray>| <white>%items% eşya</white>'
+      - '<#ffaa00>Katılımcı <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Kalan süre <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Tıkla ve odayı aç.'
+  high:
+    slot: 24
+    material: NETHERITE_INGOT
+    display-name: '<#ff5555>Yüksek Oda</#ff5555>'
+    name: '<#ff5555><bold>Yüksek Oda</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>Yüksek risk, yüksek ödül'
+      - ''
+      - '<#55ff99>Para havuzu <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Eşya havuzu <dark_gray>| <white>%items% eşya</white>'
+      - '<#ffaa00>Katılımcı <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Kalan süre <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Tıkla ve odayı aç.'
+  item:
+    slot: 30
+    material: DIAMOND
+    display-name: '<#33ccff>Eşya Odası</#33ccff>'
+    name: '<#33ccff><bold>Eşya Odası</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>Sadece eşya havuzu'
+      - ''
+      - '<#55ff99>Para havuzu <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Eşya havuzu <dark_gray>| <white>%items% eşya</white>'
+      - '<#ffaa00>Katılımcı <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Kalan süre <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Tıkla ve odayı aç.'
+  event:
+    slot: 32
+    material: AMETHYST_SHARD
+    display-name: '<#cc99ff>Etkinlik Odası</#cc99ff>'
+    name: '<#cc99ff><bold>Etkinlik Odası</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>Özel etkinlik havuzu'
+      - ''
+      - '<#55ff99>Para havuzu <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Eşya havuzu <dark_gray>| <white>%items% eşya</white>'
+      - '<#ffaa00>Katılımcı <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Kalan süre <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Tıkla ve odayı aç.'
+dynamic:
+  fallback-room-slots: [11, 13, 15, 19, 25, 28, 34, 37, 39, 41, 43]
+
+
+

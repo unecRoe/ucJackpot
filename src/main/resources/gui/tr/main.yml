@@ -1,0 +1,238 @@
+title: '<#ffcc33><bold>ucJackpot</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 54
+filler:
+  material: BLACK_STAINED_GLASS_PANE
+  name: ' '
+text:
+  status-live: '<#55ff99>AKTİF</#55ff99>'
+  status-waiting: '<#ffcc33>BEKLİYOR</#ffcc33>'
+  status-stopped: '<#ff5555>DURDU</#ff5555>'
+  season-name: 'Sezon %number%'
+  season-low: 'Düşük Oda Sezonu'
+  season-high: 'Yüksek Oda Sezonu'
+  season-item: 'Eşya Odası Sezonu'
+  season-event: 'Etkinlik Sezonu'
+  favorite-none: '<gray>Belirlenmedi</gray>'
+  mode-money: 'Para'
+  mode-item: 'Eşya'
+  mode-hybrid: 'Para + Eşya'
+  entry-type-money: 'Para'
+  entry-type-item: 'Eşya'
+  entry-type-ticket: 'Bilet'
+  depositor-name: '<#ffcc33><bold>%player%</bold>'
+  depositor-lore:
+    - '<dark_gray>Oyuncu yatırımı'
+    - ''
+    - '<#55ff99>Para <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>Eşya <dark_gray>| <white>%items%</white>'
+    - '<#ffcc33>Giriş <dark_gray>| <white>%entries%</white>'
+    - '<#cc99ff>Şans <dark_gray>| <white>%chance%%</white>'
+    - ''
+    - '<#55ff99>Tıkla ve detayları aç.'
+  money-summary-name: '<#55ff99><bold>Para Yatırımı</bold>'
+  money-summary-lore:
+    - '<dark_gray>Para özeti'
+    - ''
+    - '<#ffcc33>Oyuncu <dark_gray>| <white>%player%</white>'
+    - '<#55ff99>Yatırılan <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>Eşya adedi <dark_gray>| <white>%items%</white>'
+  deposited-item-name: '<#33ccff><bold>%item%</bold>'
+  deposited-item-lore:
+    - '<dark_gray>Eşya yatırımı'
+    - ''
+    - '<#ffcc33>Yatıran <dark_gray>| <white>%player%</white>'
+    - '<#33ccff>Adet <dark_gray>| <white>%amount%</white>'
+    - ''
+    - '<gray>Kazanana eşya olarak teslim edilir.'
+  room-name: '<#ffcc33><bold>%name%</bold> <dark_gray>| <white>%mode%</white>'
+  room-lore:
+    - '<dark_gray>Oda özeti'
+    - ''
+    - '<#55ff99>Para havuzu <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>Eşya havuzu <dark_gray>| <white>%items% eşya</white>'
+    - '<#ffaa00>Katılımcı <dark_gray>| <white>%players%</white>'
+    - '<#cc99ff>Kalan süre <dark_gray>| <white>%time%</white>'
+    - ''
+    - '<#55ff99>Tıkla ve odayı aç.'
+  prize-summary-name: '<#ffcc33><bold>Ödül Kasası</bold>'
+  prize-summary-lore:
+    - '<dark_gray>Aktif ödül havuzu'
+    - ''
+    - '<#55ff99>Para ödülü <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>Eşya ödülü <dark_gray>| <white>%items%</white>'
+    - '<#ffaa00>Bilet girişi <dark_gray>| <white>%tickets%</white>'
+    - ''
+    - '<gray>Kazanan para ve eşyaları ayrı ayrı alır.'
+  fairness-player-name: '<#55ff99><bold>%player%</bold>'
+  fairness-player-lore:
+    - '<dark_gray>Katılımcı oranı'
+    - ''
+    - '<#cc99ff>Şans <dark_gray>| <white>%chance%%</white>'
+    - '<#ffcc33>Ağırlık <dark_gray>| <white>%weight%</white>'
+    - '<#55ff99>Para <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>Eşya <dark_gray>| <white>%items%</white>'
+    - '<#ffaa00>Bilet <dark_gray>| <white>%tickets%</white>'
+  watch-entry-name: '<#ffcc33><bold>%player%</bold>'
+  watch-entry-lore:
+    - '<dark_gray>Canlı giriş'
+    - ''
+    - '<#cc99ff>Şans <dark_gray>| <white>%chance%%</white>'
+    - '<#ffcc33>Giriş tipi <dark_gray>| <white>%type%</white>'
+  season-stat-name: '<#cc99ff><bold>#%rank% %player%</bold>'
+  season-stat-lore:
+    - '<dark_gray>Sezon performansı'
+    - ''
+    - '<#cc99ff>Sezon <dark_gray>| <white>%season%</white>'
+    - '<#ffcc33>Giriş <dark_gray>| <white>%entries%</white>'
+    - '<#55ff99>Kazanma <dark_gray>| <white>%wins%</white>'
+    - '<#33ccff>Yatırdığı <dark_gray>| <white>%value_in%</white>'
+    - '<#55ff99>Kazandığı <dark_gray>| <white>%value_won%</white>'
+items:
+  status:
+    slot: 4
+    material: NETHER_STAR
+    name: '<gradient:#ffcc33:#ff3366><bold>%jackpot_name%</bold></gradient>'
+    lore:
+      - '<dark_gray>Tur özeti'
+      - ''
+      - '<#ffcc33>Durum <dark_gray>| <white>%status%</white>'
+      - '<#55ff99>Toplam değer <dark_gray>| <white>%pot_value%</white>'
+      - '<#55ff99>Para havuzu <dark_gray>| <white>%money_pot%</white>'
+      - '<#33ccff>Eşya havuzu <dark_gray>| <white>%item_pot% eşya</white>'
+      - '<#ffaa00>Katılımcı <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Kalan süre <dark_gray>| <white>%time_left%</white>'
+    glow: true
+    action: none
+  join-money:
+    slot: 20
+    material: GOLD_INGOT
+    name: '<#55ff99><bold>Para Yatır</bold>'
+    lore:
+      - '<dark_gray>Para katılımı'
+      - ''
+      - '<#55ff99>Hızlı miktar veya manuel giriş kullan.'
+      - '<gray>Şansın: <white>%player_chance%%</white>'
+      - ''
+      - '<#55ff99>Tıkla ve para menüsünü aç.'
+    action: money-menu
+  join-item:
+    slot: 22
+    material: DIAMOND
+    name: '<#33ccff><bold>Eşya Yatır</bold>'
+    lore:
+      - '<dark_gray>Eşya katılımı'
+      - ''
+      - '<#33ccff>Birden fazla uygun eşyayı seç.'
+      - '<gray>Kazanan eşyaları eşya olarak alır.'
+      - ''
+      - '<#33ccff>Tıkla ve seçim ekranını aç.'
+    action: item-confirm
+  ticket:
+    slot: 24
+    material: PAPER
+    name: '<#ffaa00><bold>Biletle Katıl</bold>'
+    lore:
+      - '<dark_gray>Bilet katılımı'
+      - ''
+      - '<#ffaa00>Bilet ağırlığı <dark_gray>| <white>%ticket_value%</white>'
+      - '<gray>Uygun biletin varsa ücretsiz giriş yapar.'
+      - ''
+      - '<#ffaa00>Tıkla ve bilet kullan.'
+    action: ticket
+  deposits:
+    slot: 29
+    material: CHEST
+    name: '<#33ccff><bold>Yatırımlar</bold>'
+    lore:
+      - '<dark_gray>Katılımcı dökümü'
+      - ''
+      - '<gray>Kimin ne yatırdığını oyuncu bazlı gösterir.'
+      - '<gray>Oyuncuya tıklayınca para ve eşyaları açılır.'
+    action: deposits
+  rooms:
+    slot: 30
+    material: COMPASS
+    name: '<#ffcc33><bold>Odalar</bold>'
+    lore:
+      - '<dark_gray>Oda seçimi'
+      - ''
+      - '<gray>Genel, düşük, yüksek, eşya ve etkinlik odalarını seç.'
+    action: rooms
+  preview:
+    slot: 31
+    material: ENDER_CHEST
+    name: '<#55ff99><bold>Ödül Kasası</bold>'
+    lore:
+      - '<dark_gray>Havuz önizlemesi'
+      - ''
+      - '<gray>Kazanılacak para ve eşyaları tek ekranda gösterir.'
+    action: preview
+  fairness:
+    slot: 32
+    material: SPYGLASS
+    name: '<#33ccff><bold>Şeffaf Oranlar</bold>'
+    lore:
+      - '<dark_gray>Adil çekiliş bilgisi'
+      - ''
+      - '<gray>Katılımcı şanslarını ve son çekiliş kaydını gösterir.'
+    action: fairness
+  watch:
+    slot: 33
+    material: CLOCK
+    name: '<#cc99ff><bold>İzleme Ekranı</bold>'
+    lore:
+      - '<dark_gray>Canlı takip'
+      - ''
+      - '<gray>Tur akışını ve katılımcıları izlersin.'
+    action: watch
+  stats:
+    slot: 38
+    material: PLAYER_HEAD
+    head: '%player%'
+    name: '<#ffaa00><bold>İstatistiklerin</bold>'
+    lore:
+      - '<dark_gray>Kişisel özet'
+      - ''
+      - '<#ffcc33>Giriş <dark_gray>| <white>%player_entries%</white>'
+      - '<#cc99ff>Şans <dark_gray>| <white>%player_chance%%</white>'
+      - '<#55ff99>Son kazanan <dark_gray>| <white>%last_winner%</white>'
+    action: stats
+  season:
+    slot: 40
+    material: AMETHYST_SHARD
+    name: '<#cc99ff><bold>Sezon</bold>'
+    lore:
+      - '<dark_gray>Sezon takibi'
+      - ''
+      - '<#cc99ff>Sezon <dark_gray>| <white>%season%</white>'
+      - '<gray>Bu oda için sezon durumunu gösterir.'
+    action: season
+  history:
+    slot: 42
+    material: BOOK
+    name: '<#cc99ff><bold>Geçmiş</bold>'
+    lore:
+      - '<dark_gray>Son çekilişler'
+      - ''
+      - '<gray>Kazananları ve ödül değerlerini gösterir.'
+    action: history
+  reclaim:
+    slot: 49
+    material: HOPPER
+    name: '<#55ff99><bold>Yatırımı Geri Al</bold>'
+    lore:
+      - '<dark_gray>Bekleyen yatırım'
+      - ''
+      - '<#55ff99>Para <dark_gray>| <white>%reclaim_money%</white>'
+      - '<#33ccff>Eşya <dark_gray>| <white>%reclaim_items%</white>'
+      - '<#ffaa00>Bilet <dark_gray>| <white>%reclaim_tickets%</white>'
+      - ''
+      - '<gray>Geri sayım başlamadıysa iade eder.'
+    action: reclaim
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+

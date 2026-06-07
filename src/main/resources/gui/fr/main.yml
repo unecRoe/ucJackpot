@@ -1,0 +1,238 @@
+title: '<#ffcc33><bold>ucJackpot</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 54
+filler:
+  material: BLACK_STAINED_GLASS_PANE
+  name: ' '
+text:
+  status-live: '<#55ff99>EN DIRECT</#55ff99>'
+  status-waiting: '<#ffcc33>EN ATTENTE</#ffcc33>'
+  status-stopped: '<#ff5555>ARRÊTÉ</#ff5555>'
+  season-name: 'Saison %number%'
+  season-low: 'Saison de la salle basse'
+  season-high: 'Saison de la salle haute'
+  season-item: 'Saison de la salle à objets'
+  season-event: 'Saison événement'
+  favorite-none: '<gray>Non défini</gray>'
+  mode-money: 'Argent'
+  mode-item: 'Objets'
+  mode-hybrid: 'Argent + Objets'
+  entry-type-money: 'Argent'
+  entry-type-item: 'Objet'
+  entry-type-ticket: 'Billet'
+  depositor-name: '<#ffcc33><bold>%player%</bold>'
+  depositor-lore:
+    - '<dark_gray>Dépôt du joueur'
+    - ''
+    - '<#55ff99>Argent <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>Objets <dark_gray>| <white>%items%</white>'
+    - '<#ffcc33>Entrées <dark_gray>| <white>%entries%</white>'
+    - '<#cc99ff>Chance <dark_gray>| <white>%chance%%</white>'
+    - ''
+    - '<#55ff99>Clique pour voir les détails.'
+  money-summary-name: '<#55ff99><bold>Dépôt d''argent</bold>'
+  money-summary-lore:
+    - '<dark_gray>Résumé argent'
+    - ''
+    - '<#ffcc33>Joueur <dark_gray>| <white>%player%</white>'
+    - '<#55ff99>Déposé <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>Objets <dark_gray>| <white>%items%</white>'
+  deposited-item-name: '<#33ccff><bold>%item%</bold>'
+  deposited-item-lore:
+    - '<dark_gray>Dépôt d''objet'
+    - ''
+    - '<#ffcc33>Déposant <dark_gray>| <white>%player%</white>'
+    - '<#33ccff>Quantité <dark_gray>| <white>%amount%</white>'
+    - ''
+    - '<gray>Remis au gagnant comme objet.'
+  room-name: '<#ffcc33><bold>%name%</bold> <dark_gray>| <white>%mode%</white>'
+  room-lore:
+    - '<dark_gray>Aperçu de la salle'
+    - ''
+    - '<#55ff99>Cagnotte argent <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>Cagnotte objets <dark_gray>| <white>%items% objets</white>'
+    - '<#ffaa00>Participants <dark_gray>| <white>%players%</white>'
+    - '<#cc99ff>Temps restant <dark_gray>| <white>%time%</white>'
+    - ''
+    - '<#55ff99>Clique pour ouvrir cette salle.'
+  prize-summary-name: '<#ffcc33><bold>Coffre des gains</bold>'
+  prize-summary-lore:
+    - '<dark_gray>Cagnotte active'
+    - ''
+    - '<#55ff99>Gain argent <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>Gain objets <dark_gray>| <white>%items%</white>'
+    - '<#ffaa00>Entrées par billet <dark_gray>| <white>%tickets%</white>'
+    - ''
+    - '<gray>Le gagnant reçoit l''argent et les objets séparément.'
+  fairness-player-name: '<#55ff99><bold>%player%</bold>'
+  fairness-player-lore:
+    - '<dark_gray>Chances du participant'
+    - ''
+    - '<#cc99ff>Chance <dark_gray>| <white>%chance%%</white>'
+    - '<#ffcc33>Poids <dark_gray>| <white>%weight%</white>'
+    - '<#55ff99>Argent <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>Objets <dark_gray>| <white>%items%</white>'
+    - '<#ffaa00>Billets <dark_gray>| <white>%tickets%</white>'
+  watch-entry-name: '<#ffcc33><bold>%player%</bold>'
+  watch-entry-lore:
+    - '<dark_gray>Entrée en direct'
+    - ''
+    - '<#cc99ff>Chance <dark_gray>| <white>%chance%%</white>'
+    - '<#ffcc33>Type d''entrée <dark_gray>| <white>%type%</white>'
+  season-stat-name: '<#cc99ff><bold>#%rank% %player%</bold>'
+  season-stat-lore:
+    - '<dark_gray>Performance de saison'
+    - ''
+    - '<#cc99ff>Saison <dark_gray>| <white>%season%</white>'
+    - '<#ffcc33>Entrées <dark_gray>| <white>%entries%</white>'
+    - '<#55ff99>Victoires <dark_gray>| <white>%wins%</white>'
+    - '<#33ccff>Valeur déposée <dark_gray>| <white>%value_in%</white>'
+    - '<#55ff99>Valeur gagnée <dark_gray>| <white>%value_won%</white>'
+items:
+  status:
+    slot: 4
+    material: NETHER_STAR
+    name: '<gradient:#ffcc33:#ff3366><bold>%jackpot_name%</bold></gradient>'
+    lore:
+      - '<dark_gray>Aperçu de la manche'
+      - ''
+      - '<#ffcc33>État <dark_gray>| <white>%status%</white>'
+      - '<#55ff99>Valeur totale <dark_gray>| <white>%pot_value%</white>'
+      - '<#55ff99>Cagnotte argent <dark_gray>| <white>%money_pot%</white>'
+      - '<#33ccff>Cagnotte objets <dark_gray>| <white>%item_pot% objets</white>'
+      - '<#ffaa00>Participants <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Temps restant <dark_gray>| <white>%time_left%</white>'
+    glow: true
+    action: none
+  join-money:
+    slot: 20
+    material: GOLD_INGOT
+    name: '<#55ff99><bold>Déposer de l''argent</bold>'
+    lore:
+      - '<dark_gray>Entrée en argent'
+      - ''
+      - '<#55ff99>Utilise un montant rapide ou une saisie manuelle.'
+      - '<gray>Ta chance: <white>%player_chance%%</white>'
+      - ''
+      - '<#55ff99>Clique pour ouvrir le dépôt d''argent.'
+    action: money-menu
+  join-item:
+    slot: 22
+    material: DIAMOND
+    name: '<#33ccff><bold>Déposer des objets</bold>'
+    lore:
+      - '<dark_gray>Entrée en objets'
+      - ''
+      - '<#33ccff>Sélectionne plusieurs objets acceptés.'
+      - '<gray>Le gagnant les reçoit comme objets.'
+      - ''
+      - '<#33ccff>Clique pour ouvrir la sélection.'
+    action: item-confirm
+  ticket:
+    slot: 24
+    material: PAPER
+    name: '<#ffaa00><bold>Utiliser un billet</bold>'
+    lore:
+      - '<dark_gray>Entrée par billet'
+      - ''
+      - '<#ffaa00>Poids du billet <dark_gray>| <white>%ticket_value%</white>'
+      - '<gray>Utilise un billet valide pour une entrée gratuite.'
+      - ''
+      - '<#ffaa00>Clique pour utiliser un billet.'
+    action: ticket
+  deposits:
+    slot: 29
+    material: CHEST
+    name: '<#33ccff><bold>Dépôts</bold>'
+    lore:
+      - '<dark_gray>Registre des participants'
+      - ''
+      - '<gray>Montre qui a déposé quoi dans cette manche.'
+      - '<gray>Clique sur un joueur pour inspecter argent et objets.'
+    action: deposits
+  rooms:
+    slot: 30
+    material: COMPASS
+    name: '<#ffcc33><bold>Salles</bold>'
+    lore:
+      - '<dark_gray>Choix de salle'
+      - ''
+      - '<gray>Choisis une salle générale, basse, haute, objet ou événement.'
+    action: rooms
+  preview:
+    slot: 31
+    material: ENDER_CHEST
+    name: '<#55ff99><bold>Coffre des gains</bold>'
+    lore:
+      - '<dark_gray>Aperçu de la cagnotte'
+      - ''
+      - '<gray>Vois l''argent et les objets en attente du gagnant.'
+    action: preview
+  fairness:
+    slot: 32
+    material: SPYGLASS
+    name: '<#33ccff><bold>Chances transparentes</bold>'
+    lore:
+      - '<dark_gray>Détails du tirage équitable'
+      - ''
+      - '<gray>Affiche les chances des participants et le dernier tirage.'
+    action: fairness
+  watch:
+    slot: 33
+    material: CLOCK
+    name: '<#cc99ff><bold>Écran de suivi</bold>'
+    lore:
+      - '<dark_gray>Suivi en direct'
+      - ''
+      - '<gray>Observe le déroulement de la manche et les participants.'
+    action: watch
+  stats:
+    slot: 38
+    material: PLAYER_HEAD
+    head: '%player%'
+    name: '<#ffaa00><bold>Tes statistiques</bold>'
+    lore:
+      - '<dark_gray>Aperçu personnel'
+      - ''
+      - '<#ffcc33>Entrées <dark_gray>| <white>%player_entries%</white>'
+      - '<#cc99ff>Chance <dark_gray>| <white>%player_chance%%</white>'
+      - '<#55ff99>Dernier gagnant <dark_gray>| <white>%last_winner%</white>'
+    action: stats
+  season:
+    slot: 40
+    material: AMETHYST_SHARD
+    name: '<#cc99ff><bold>Saison</bold>'
+    lore:
+      - '<dark_gray>Suivi de saison'
+      - ''
+      - '<#cc99ff>Saison <dark_gray>| <white>%season%</white>'
+      - '<gray>Affiche l''état de saison pour cette salle.'
+    action: season
+  history:
+    slot: 42
+    material: BOOK
+    name: '<#cc99ff><bold>Historique</bold>'
+    lore:
+      - '<dark_gray>Tirages récents'
+      - ''
+      - '<gray>Affiche les gagnants et les valeurs gagnées.'
+    action: history
+  reclaim:
+    slot: 49
+    material: HOPPER
+    name: '<#55ff99><bold>Récupérer les dépôts</bold>'
+    lore:
+      - '<dark_gray>Dépôts en attente'
+      - ''
+      - '<#55ff99>Argent <dark_gray>| <white>%reclaim_money%</white>'
+      - '<#33ccff>Objets <dark_gray>| <white>%reclaim_items%</white>'
+      - '<#ffaa00>Billets <dark_gray>| <white>%reclaim_tickets%</white>'
+      - ''
+      - '<gray>Les rend tant que le compte à rebours n''a pas commencé.'
+    action: reclaim
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+

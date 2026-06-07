@@ -1,0 +1,37 @@
+title: '<#33ccff><bold>Şeffaf Oranlar</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 54
+filler:
+  material: LIGHT_BLUE_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: SPYGLASS
+    name: '<#33ccff><bold>Adil Çekiliş</bold>'
+    lore:
+      - '<dark_gray>Oran ve kayıt özeti'
+      - ''
+      - '<#55ff99>Toplam değer <dark_gray>| <white>%pot_value%</white>'
+      - '<#ffaa00>Katılımcı <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Şansın <dark_gray>| <white>%player_chance%%</white>'
+      - ''
+      - '<#ffcc33>Son çekiliş <dark_gray>| <white>%last_draw_id%</white>'
+      - '<gray>Doğrulama: <white>%last_draw_hash%</white>'
+      - '<gray>Çekiliş değeri: <white>%last_draw_seed%</white>'
+    action: none
+  back:
+    slot: 49
+    material: ARROW
+    name: '<#55ff99><bold>Geri</bold>'
+    lore:
+      - '<gray>Ana menüye dön.'
+    action: open-main
+dynamic:
+  player-slots: [10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25, 28, 29, 30, 31, 32, 33, 34, 37, 38, 39, 40, 41, 42, 43]
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+

@@ -1,0 +1,239 @@
+title: '<#ffcc33><bold>ucJackpot</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 54
+filler:
+  material: BLACK_STAINED_GLASS_PANE
+  name: ' '
+text:
+  status-live: '<#55ff99>进行中</#55ff99>'
+  status-waiting: '<#ffcc33>等待中</#ffcc33>'
+  status-stopped: '<#ff5555>已停止</#ff5555>'
+  season-name: '赛季 %number%'
+  season-low: '低额房间赛季'
+  season-high: '高额房间赛季'
+  season-item: '物品房间赛季'
+  season-event: '活动赛季'
+  favorite-none: '<gray>未设置</gray>'
+  mode-money: '金钱'
+  mode-item: '物品'
+  mode-hybrid: '金钱 + 物品'
+  entry-type-money: '金钱'
+  entry-type-item: '物品'
+  entry-type-ticket: '门票'
+  depositor-name: '<#ffcc33><bold>%player%</bold>'
+  depositor-lore:
+    - '<dark_gray>玩家投入'
+    - ''
+    - '<#55ff99>金钱 <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>物品 <dark_gray>| <white>%items%</white>'
+    - '<#ffcc33>投入次数 <dark_gray>| <white>%entries%</white>'
+    - '<#cc99ff>概率 <dark_gray>| <white>%chance%%</white>'
+    - ''
+    - '<#55ff99>点击查看详情。'
+  money-summary-name: '<#55ff99><bold>金钱投入</bold>'
+  money-summary-lore:
+    - '<dark_gray>金钱摘要'
+    - ''
+    - '<#ffcc33>玩家 <dark_gray>| <white>%player%</white>'
+    - '<#55ff99>已存入 <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>物品数 <dark_gray>| <white>%items%</white>'
+  deposited-item-name: '<#33ccff><bold>%item%</bold>'
+  deposited-item-lore:
+    - '<dark_gray>物品投入'
+    - ''
+    - '<#ffcc33>投入者 <dark_gray>| <white>%player%</white>'
+    - '<#33ccff>数量 <dark_gray>| <white>%amount%</white>'
+    - ''
+    - '<gray>会以物品形式交给赢家。'
+  room-name: '<#ffcc33><bold>%name%</bold> <dark_gray>| <white>%mode%</white>'
+  room-lore:
+    - '<dark_gray>房间概览'
+    - ''
+    - '<#55ff99>金钱奖池 <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>物品奖池 <dark_gray>| <white>%items% 件物品</white>'
+    - '<#ffaa00>参与者 <dark_gray>| <white>%players%</white>'
+    - '<#cc99ff>剩余时间 <dark_gray>| <white>%time%</white>'
+    - ''
+    - '<#55ff99>点击打开此房间。'
+  prize-summary-name: '<#ffcc33><bold>奖励宝箱</bold>'
+  prize-summary-lore:
+    - '<dark_gray>当前奖励池'
+    - ''
+    - '<#55ff99>金钱奖励 <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>物品奖励 <dark_gray>| <white>%items%</white>'
+    - '<#ffaa00>门票投入 <dark_gray>| <white>%tickets%</white>'
+    - ''
+    - '<gray>赢家会分别收到金钱和物品。'
+  fairness-player-name: '<#55ff99><bold>%player%</bold>'
+  fairness-player-lore:
+    - '<dark_gray>参与者概率'
+    - ''
+    - '<#cc99ff>概率 <dark_gray>| <white>%chance%%</white>'
+    - '<#ffcc33>权重 <dark_gray>| <white>%weight%</white>'
+    - '<#55ff99>金钱 <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>物品 <dark_gray>| <white>%items%</white>'
+    - '<#ffaa00>门票 <dark_gray>| <white>%tickets%</white>'
+  watch-entry-name: '<#ffcc33><bold>%player%</bold>'
+  watch-entry-lore:
+    - '<dark_gray>实时投入'
+    - ''
+    - '<#cc99ff>概率 <dark_gray>| <white>%chance%%</white>'
+    - '<#ffcc33>投入类型 <dark_gray>| <white>%type%</white>'
+  season-stat-name: '<#cc99ff><bold>#%rank% %player%</bold>'
+  season-stat-lore:
+    - '<dark_gray>赛季表现'
+    - ''
+    - '<#cc99ff>赛季 <dark_gray>| <white>%season%</white>'
+    - '<#ffcc33>投入次数 <dark_gray>| <white>%entries%</white>'
+    - '<#55ff99>胜利 <dark_gray>| <white>%wins%</white>'
+    - '<#33ccff>投入价值 <dark_gray>| <white>%value_in%</white>'
+    - '<#55ff99>赢得价值 <dark_gray>| <white>%value_won%</white>'
+items:
+  status:
+    slot: 4
+    material: NETHER_STAR
+    name: '<gradient:#ffcc33:#ff3366><bold>%jackpot_name%</bold></gradient>'
+    lore:
+      - '<dark_gray>回合概览'
+      - ''
+      - '<#ffcc33>状态 <dark_gray>| <white>%status%</white>'
+      - '<#55ff99>总价值 <dark_gray>| <white>%pot_value%</white>'
+      - '<#55ff99>金钱奖池 <dark_gray>| <white>%money_pot%</white>'
+      - '<#33ccff>物品奖池 <dark_gray>| <white>%item_pot% 件物品</white>'
+      - '<#ffaa00>参与者 <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>剩余时间 <dark_gray>| <white>%time_left%</white>'
+    glow: true
+    action: none
+  join-money:
+    slot: 20
+    material: GOLD_INGOT
+    name: '<#55ff99><bold>存入金钱</bold>'
+    lore:
+      - '<dark_gray>金钱投入'
+      - ''
+      - '<#55ff99>使用快捷金额或手动输入。'
+      - '<gray>你的概率: <white>%player_chance%%</white>'
+      - ''
+      - '<#55ff99>点击打开金钱存入。'
+    action: money-menu
+  join-item:
+    slot: 22
+    material: DIAMOND
+    name: '<#33ccff><bold>存入物品</bold>'
+    lore:
+      - '<dark_gray>物品投入'
+      - ''
+      - '<#33ccff>选择多个可接受物品。'
+      - '<gray>赢家会以物品形式收到它们。'
+      - ''
+      - '<#33ccff>点击打开物品选择。'
+    action: item-confirm
+  ticket:
+    slot: 24
+    material: PAPER
+    name: '<#ffaa00><bold>使用门票</bold>'
+    lore:
+      - '<dark_gray>门票投入'
+      - ''
+      - '<#ffaa00>门票权重 <dark_gray>| <white>%ticket_value%</white>'
+      - '<gray>使用有效门票免费加入。'
+      - ''
+      - '<#ffaa00>点击使用门票。'
+    action: ticket
+  deposits:
+    slot: 29
+    material: CHEST
+    name: '<#33ccff><bold>投入记录</bold>'
+    lore:
+      - '<dark_gray>参与者账本'
+      - ''
+      - '<gray>显示本轮谁投入了什么。'
+      - '<gray>点击玩家查看金钱和物品。'
+    action: deposits
+  rooms:
+    slot: 30
+    material: COMPASS
+    name: '<#ffcc33><bold>房间</bold>'
+    lore:
+      - '<dark_gray>房间选择'
+      - ''
+      - '<gray>选择通用、低额、高额、物品或活动房间。'
+    action: rooms
+  preview:
+    slot: 31
+    material: ENDER_CHEST
+    name: '<#55ff99><bold>奖励宝箱</bold>'
+    lore:
+      - '<dark_gray>奖池预览'
+      - ''
+      - '<gray>查看等待赢家的金钱和物品。'
+    action: preview
+  fairness:
+    slot: 32
+    material: SPYGLASS
+    name: '<#33ccff><bold>透明概率</bold>'
+    lore:
+      - '<dark_gray>公平开奖详情'
+      - ''
+      - '<gray>显示参与者概率和最近开奖记录。'
+    action: fairness
+  watch:
+    slot: 33
+    material: CLOCK
+    name: '<#cc99ff><bold>观战界面</bold>'
+    lore:
+      - '<dark_gray>实时追踪'
+      - ''
+      - '<gray>观看回合流程和参与者。'
+    action: watch
+  stats:
+    slot: 38
+    material: PLAYER_HEAD
+    head: '%player%'
+    name: '<#ffaa00><bold>你的统计</bold>'
+    lore:
+      - '<dark_gray>个人概览'
+      - ''
+      - '<#ffcc33>投入次数 <dark_gray>| <white>%player_entries%</white>'
+      - '<#cc99ff>概率 <dark_gray>| <white>%player_chance%%</white>'
+      - '<#55ff99>上次赢家 <dark_gray>| <white>%last_winner%</white>'
+    action: stats
+  season:
+    slot: 40
+    material: AMETHYST_SHARD
+    name: '<#cc99ff><bold>赛季</bold>'
+    lore:
+      - '<dark_gray>赛季追踪'
+      - ''
+      - '<#cc99ff>赛季 <dark_gray>| <white>%season%</white>'
+      - '<gray>显示此房间的赛季状态。'
+    action: season
+  history:
+    slot: 42
+    material: BOOK
+    name: '<#cc99ff><bold>历史</bold>'
+    lore:
+      - '<dark_gray>最近开奖'
+      - ''
+      - '<gray>显示赢家和奖励价值。'
+    action: history
+  reclaim:
+    slot: 49
+    material: HOPPER
+    name: '<#55ff99><bold>取回投入</bold>'
+    lore:
+      - '<dark_gray>等待中的投入'
+      - ''
+      - '<#55ff99>金钱 <dark_gray>| <white>%reclaim_money%</white>'
+      - '<#33ccff>物品 <dark_gray>| <white>%reclaim_items%</white>'
+      - '<#ffaa00>门票 <dark_gray>| <white>%reclaim_tickets%</white>'
+      - ''
+      - '<gray>倒计时未开始时可退回。'
+    action: reclaim
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

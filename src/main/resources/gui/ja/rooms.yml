@@ -1,0 +1,109 @@
+title: '<#ffcc33><bold>Jackpot ルーム</bold>'
+size: 54
+filler:
+  material: BLACK_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: COMPASS
+    name: '<#ffcc33><bold>ルーム選択</bold>'
+    lore:
+      - '<dark_gray>リスクと報酬の段階'
+      - ''
+      - '<gray>ルームは中央にバランスよく配置されています。'
+      - '<gray>選んだルームのメインメニューを開きます。'
+    action: none
+  back:
+    slot: 49
+    material: ARROW
+    name: '<#55ff99><bold>戻る</bold>'
+    lore:
+      - '<gray>メインメニューに戻る。'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+rooms:
+  low:
+    slot: 20
+    material: EMERALD
+    display-name: '<#55ff99>低額ルーム</#55ff99>'
+    name: '<#55ff99><bold>低額ルーム</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>参加しやすいルーム'
+      - ''
+      - '<#55ff99>賞金プール <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>アイテムプール <dark_gray>| <white>%items% 個</white>'
+      - '<#ffaa00>参加者 <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>残り時間 <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>クリックしてこのルームを開く。'
+  default:
+    slot: 22
+    material: NETHER_STAR
+    display-name: '<#ffcc33>通常ルーム</#ffcc33>'
+    name: '<#ffcc33><bold>通常ルーム</bold> <dark_gray>| <white>%mode%</white>'
+    glow: true
+    lore:
+      - '<dark_gray>メインのジャックポットルーム'
+      - ''
+      - '<#55ff99>賞金プール <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>アイテムプール <dark_gray>| <white>%items% 個</white>'
+      - '<#ffaa00>参加者 <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>残り時間 <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>クリックしてこのルームを開く。'
+  high:
+    slot: 24
+    material: NETHERITE_INGOT
+    display-name: '<#ff5555>高額ルーム</#ff5555>'
+    name: '<#ff5555><bold>高額ルーム</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>高リスク、高報酬'
+      - ''
+      - '<#55ff99>賞金プール <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>アイテムプール <dark_gray>| <white>%items% 個</white>'
+      - '<#ffaa00>参加者 <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>残り時間 <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>クリックしてこのルームを開く。'
+  item:
+    slot: 30
+    material: DIAMOND
+    display-name: '<#33ccff>アイテムルーム</#33ccff>'
+    name: '<#33ccff><bold>アイテムルーム</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>アイテム中心の賞品プール'
+      - ''
+      - '<#55ff99>賞金プール <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>アイテムプール <dark_gray>| <white>%items% 個</white>'
+      - '<#ffaa00>参加者 <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>残り時間 <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>クリックしてこのルームを開く。'
+  event:
+    slot: 32
+    material: AMETHYST_SHARD
+    display-name: '<#cc99ff>イベントルーム</#cc99ff>'
+    name: '<#cc99ff><bold>イベントルーム</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>特別イベントのプール'
+      - ''
+      - '<#55ff99>賞金プール <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>アイテムプール <dark_gray>| <white>%items% 個</white>'
+      - '<#ffaa00>参加者 <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>残り時間 <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>クリックしてこのルームを開く。'
+dynamic:
+  fallback-room-slots: [11, 13, 15, 19, 25, 28, 34, 37, 39, 41, 43]
+
+
+
+

@@ -1,0 +1,239 @@
+title: '<#ffcc33><bold>ucJackpot</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 54
+filler:
+  material: BLACK_STAINED_GLASS_PANE
+  name: ' '
+text:
+  status-live: '<#55ff99>진행 중</#55ff99>'
+  status-waiting: '<#ffcc33>대기 중</#ffcc33>'
+  status-stopped: '<#ff5555>중지됨</#ff5555>'
+  season-name: '시즌 %number%'
+  season-low: '낮은 방 시즌'
+  season-high: '높은 방 시즌'
+  season-item: '아이템 방 시즌'
+  season-event: '이벤트 시즌'
+  favorite-none: '<gray>설정 안 됨</gray>'
+  mode-money: '돈'
+  mode-item: '아이템'
+  mode-hybrid: '돈 + 아이템'
+  entry-type-money: '돈'
+  entry-type-item: '아이템'
+  entry-type-ticket: '티켓'
+  depositor-name: '<#ffcc33><bold>%player%</bold>'
+  depositor-lore:
+    - '<dark_gray>플레이어 투입'
+    - ''
+    - '<#55ff99>돈 <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>아이템 <dark_gray>| <white>%items%</white>'
+    - '<#ffcc33>투입 수 <dark_gray>| <white>%entries%</white>'
+    - '<#cc99ff>확률 <dark_gray>| <white>%chance%%</white>'
+    - ''
+    - '<#55ff99>클릭해서 상세를 봅니다.'
+  money-summary-name: '<#55ff99><bold>돈 투입</bold>'
+  money-summary-lore:
+    - '<dark_gray>돈 요약'
+    - ''
+    - '<#ffcc33>플레이어 <dark_gray>| <white>%player%</white>'
+    - '<#55ff99>넣은 돈 <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>아이템 수 <dark_gray>| <white>%items%</white>'
+  deposited-item-name: '<#33ccff><bold>%item%</bold>'
+  deposited-item-lore:
+    - '<dark_gray>아이템 투입'
+    - ''
+    - '<#ffcc33>투입자 <dark_gray>| <white>%player%</white>'
+    - '<#33ccff>수량 <dark_gray>| <white>%amount%</white>'
+    - ''
+    - '<gray>승자에게 아이템 그대로 지급됩니다.'
+  room-name: '<#ffcc33><bold>%name%</bold> <dark_gray>| <white>%mode%</white>'
+  room-lore:
+    - '<dark_gray>방 요약'
+    - ''
+    - '<#55ff99>돈 풀 <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>아이템 풀 <dark_gray>| <white>%items%개</white>'
+    - '<#ffaa00>참가자 <dark_gray>| <white>%players%</white>'
+    - '<#cc99ff>남은 시간 <dark_gray>| <white>%time%</white>'
+    - ''
+    - '<#55ff99>클릭해서 이 방을 엽니다.'
+  prize-summary-name: '<#ffcc33><bold>보상 상자</bold>'
+  prize-summary-lore:
+    - '<dark_gray>현재 보상 풀'
+    - ''
+    - '<#55ff99>돈 보상 <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>아이템 보상 <dark_gray>| <white>%items%</white>'
+    - '<#ffaa00>티켓 투입 <dark_gray>| <white>%tickets%</white>'
+    - ''
+    - '<gray>승자는 돈과 아이템을 따로 받습니다.'
+  fairness-player-name: '<#55ff99><bold>%player%</bold>'
+  fairness-player-lore:
+    - '<dark_gray>참가자 확률'
+    - ''
+    - '<#cc99ff>확률 <dark_gray>| <white>%chance%%</white>'
+    - '<#ffcc33>가중치 <dark_gray>| <white>%weight%</white>'
+    - '<#55ff99>돈 <dark_gray>| <white>%money%</white>'
+    - '<#33ccff>아이템 <dark_gray>| <white>%items%</white>'
+    - '<#ffaa00>티켓 <dark_gray>| <white>%tickets%</white>'
+  watch-entry-name: '<#ffcc33><bold>%player%</bold>'
+  watch-entry-lore:
+    - '<dark_gray>실시간 투입'
+    - ''
+    - '<#cc99ff>확률 <dark_gray>| <white>%chance%%</white>'
+    - '<#ffcc33>투입 유형 <dark_gray>| <white>%type%</white>'
+  season-stat-name: '<#cc99ff><bold>#%rank% %player%</bold>'
+  season-stat-lore:
+    - '<dark_gray>시즌 성과'
+    - ''
+    - '<#cc99ff>시즌 <dark_gray>| <white>%season%</white>'
+    - '<#ffcc33>투입 수 <dark_gray>| <white>%entries%</white>'
+    - '<#55ff99>승리 <dark_gray>| <white>%wins%</white>'
+    - '<#33ccff>투입 가치 <dark_gray>| <white>%value_in%</white>'
+    - '<#55ff99>획득 가치 <dark_gray>| <white>%value_won%</white>'
+items:
+  status:
+    slot: 4
+    material: NETHER_STAR
+    name: '<gradient:#ffcc33:#ff3366><bold>%jackpot_name%</bold></gradient>'
+    lore:
+      - '<dark_gray>라운드 요약'
+      - ''
+      - '<#ffcc33>상태 <dark_gray>| <white>%status%</white>'
+      - '<#55ff99>총 가치 <dark_gray>| <white>%pot_value%</white>'
+      - '<#55ff99>돈 풀 <dark_gray>| <white>%money_pot%</white>'
+      - '<#33ccff>아이템 풀 <dark_gray>| <white>%item_pot%개</white>'
+      - '<#ffaa00>참가자 <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>남은 시간 <dark_gray>| <white>%time_left%</white>'
+    glow: true
+    action: none
+  join-money:
+    slot: 20
+    material: GOLD_INGOT
+    name: '<#55ff99><bold>돈 넣기</bold>'
+    lore:
+      - '<dark_gray>돈으로 참가'
+      - ''
+      - '<#55ff99>빠른 금액 또는 직접 입력을 사용합니다.'
+      - '<gray>내 확률: <white>%player_chance%%</white>'
+      - ''
+      - '<#55ff99>클릭해서 돈 투입 메뉴를 엽니다.'
+    action: money-menu
+  join-item:
+    slot: 22
+    material: DIAMOND
+    name: '<#33ccff><bold>아이템 넣기</bold>'
+    lore:
+      - '<dark_gray>아이템으로 참가'
+      - ''
+      - '<#33ccff>허용된 아이템을 여러 개 선택합니다.'
+      - '<gray>승자는 아이템 그대로 받습니다.'
+      - ''
+      - '<#33ccff>클릭해서 선택을 엽니다.'
+    action: item-confirm
+  ticket:
+    slot: 24
+    material: PAPER
+    name: '<#ffaa00><bold>티켓 사용</bold>'
+    lore:
+      - '<dark_gray>티켓 참가'
+      - ''
+      - '<#ffaa00>티켓 가중치 <dark_gray>| <white>%ticket_value%</white>'
+      - '<gray>유효한 티켓으로 무료 참가합니다.'
+      - ''
+      - '<#ffaa00>클릭해서 티켓을 사용합니다.'
+    action: ticket
+  deposits:
+    slot: 29
+    material: CHEST
+    name: '<#33ccff><bold>투입 내역</bold>'
+    lore:
+      - '<dark_gray>참가자 기록'
+      - ''
+      - '<gray>이번 라운드에 누가 무엇을 넣었는지 보여줍니다.'
+      - '<gray>플레이어를 클릭해 돈과 아이템을 확인하세요.'
+    action: deposits
+  rooms:
+    slot: 30
+    material: COMPASS
+    name: '<#ffcc33><bold>방</bold>'
+    lore:
+      - '<dark_gray>방 선택'
+      - ''
+      - '<gray>일반, 낮은, 높은, 아이템, 이벤트 방을 선택합니다.'
+    action: rooms
+  preview:
+    slot: 31
+    material: ENDER_CHEST
+    name: '<#55ff99><bold>보상 상자</bold>'
+    lore:
+      - '<dark_gray>풀 미리보기'
+      - ''
+      - '<gray>승자를 기다리는 돈과 아이템을 확인합니다.'
+    action: preview
+  fairness:
+    slot: 32
+    material: SPYGLASS
+    name: '<#33ccff><bold>투명한 확률</bold>'
+    lore:
+      - '<dark_gray>공정 추첨 상세'
+      - ''
+      - '<gray>참가자 확률과 최근 추첨 기록을 보여줍니다.'
+    action: fairness
+  watch:
+    slot: 33
+    material: CLOCK
+    name: '<#cc99ff><bold>관전 화면</bold>'
+    lore:
+      - '<dark_gray>실시간 추적'
+      - ''
+      - '<gray>라운드 흐름과 참가자를 관전합니다.'
+    action: watch
+  stats:
+    slot: 38
+    material: PLAYER_HEAD
+    head: '%player%'
+    name: '<#ffaa00><bold>내 통계</bold>'
+    lore:
+      - '<dark_gray>개인 요약'
+      - ''
+      - '<#ffcc33>투입 수 <dark_gray>| <white>%player_entries%</white>'
+      - '<#cc99ff>확률 <dark_gray>| <white>%player_chance%%</white>'
+      - '<#55ff99>최근 승자 <dark_gray>| <white>%last_winner%</white>'
+    action: stats
+  season:
+    slot: 40
+    material: AMETHYST_SHARD
+    name: '<#cc99ff><bold>시즌</bold>'
+    lore:
+      - '<dark_gray>시즌 추적'
+      - ''
+      - '<#cc99ff>시즌 <dark_gray>| <white>%season%</white>'
+      - '<gray>이 방의 시즌 상태를 보여줍니다.'
+    action: season
+  history:
+    slot: 42
+    material: BOOK
+    name: '<#cc99ff><bold>기록</bold>'
+    lore:
+      - '<dark_gray>최근 추첨'
+      - ''
+      - '<gray>승자와 보상 가치를 보여줍니다.'
+    action: history
+  reclaim:
+    slot: 49
+    material: HOPPER
+    name: '<#55ff99><bold>투입분 회수</bold>'
+    lore:
+      - '<dark_gray>대기 중인 투입'
+      - ''
+      - '<#55ff99>돈 <dark_gray>| <white>%reclaim_money%</white>'
+      - '<#33ccff>아이템 <dark_gray>| <white>%reclaim_items%</white>'
+      - '<#ffaa00>티켓 <dark_gray>| <white>%reclaim_tickets%</white>'
+      - ''
+      - '<gray>카운트다운 전이면 돌려받습니다.'
+    action: reclaim
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

@@ -1,0 +1,51 @@
+title: '<#33ccff><bold>Gegenstände einzahlen</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 45
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  name: ' '
+items:
+  preview:
+    slot: 4
+    material: PLAYER_HEAD
+    name: '<#33ccff><bold>Mehrfachauswahl</bold>'
+    lore:
+      - '<dark_gray>Inventarauswahl'
+      - ''
+      - '<#ffcc33>Limit <dark_gray>| <white>%min_items%-%max_items% Gegenstände</white>'
+      - '<gray>Klicke akzeptierte Gegenstände in deinem Inventar an.'
+      - '<gray>Abgelehnte Gegenstände werden nicht ausgewählt.'
+    action: none
+  confirm:
+    slot: 20
+    material: LIME_CONCRETE
+    name: '<#55ff99><bold>Auswahl einzahlen</bold>'
+    lore:
+      - '<dark_gray>Bestätigen'
+      - ''
+      - '<gray>Legt die ausgewählten Gegenstände in den Jackpot-Pool.'
+      - '<gray>Der Gewinner erhält sie als Gegenstände.'
+    action: confirm-item
+  cancel:
+    slot: 24
+    material: RED_CONCRETE
+    name: '<#ff5555><bold>Abbrechen</bold>'
+    lore:
+      - '<dark_gray>Abbrechen'
+      - ''
+      - '<gray>Verlässt die Auswahl und öffnet das Hauptmenü.'
+    action: open-main
+  back:
+    slot: 40
+    material: ARROW
+    name: '<#55ff99><bold>Zurück</bold>'
+    lore:
+      - '<gray>Zurück zum Hauptmenü.'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

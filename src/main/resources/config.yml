@@ -1,0 +1,132 @@
+# ucJackpot main configuration
+#
+# This file controls global plugin behavior only.
+# Player-facing chat messages are in lang/<locale>.yml.
+# Player-facing GUI text is in gui/<locale>/<menu>.yml.
+# Jackpot room rules are in jackpots/*.yml.
+
+settings:
+  # Language loaded by default. Supported: en, tr, de, fr, es, pt, ru, ar, zh, ja, ko
+  # Only this locale and the fallback locale are extracted on startup/reload.
+  default-locale: en
+
+  # Used when a message or GUI file is missing from the selected locale.
+  fallback-locale: en
+
+  # How often active rounds update timers and automatic draw state.
+  tick-interval-seconds: 1
+
+  # Starts configured rooms automatically when the plugin loads.
+  auto-start-rounds: true
+
+  # Stores active entries so they can be restored after a restart.
+  save-active-entries: true
+
+commands:
+  # /ucjackpot is always registered by plugin.yml.
+  # These aliases are registered dynamically and are refreshed by /ucjackpot reload.
+  aliases:
+    - jackpot
+    - jp
+    - ucj
+
+metrics:
+  # Anonymous usage metrics. Set enabled to false if you do not want metrics.
+  enabled: false
+  bstats-plugin-id: 0
+
+storage:
+  # sqlite is recommended for small/medium servers.
+  # mysql or mariadb is recommended for networks and cross-server reporting.
+  type: sqlite
+
+  # Relative to plugins/ucJackpot/.
+  sqlite-file: data/ucjackpot.db
+
+  mysql:
+    host: 127.0.0.1
+    port: 3306
+    database: ucjackpot
+    username: root
+    password: ''
+    use-ssl: false
+    pool-size: 8
+
+economy:
+  vault:
+    # Requires Vault plus an economy plugin for money rooms.
+    enabled: true
+
+    # false lets item-only rooms work even when no economy provider is installed.
+    required-for-money-jackpot: false
+
+  formatting:
+    symbol: '$'
+    decimals: 2
+
+logging:
+  # Enables debug categories below. Keep false on production unless troubleshooting.
+  debug: false
+
+  categories:
+    database: false
+    economy: false
+    gui: false
+    draw: false
+    items: false
+    placeholders: false
+    commands: false
+    tickets: false
+    season: false
+    audit: false
+
+  audit:
+    # Database audit stores player UUID, player name, room id, action, payload, and timestamp.
+    database: true
+
+    # File audit writes daily logs under plugins/ucJackpot/logs/.
+    file: true
+    rotate-daily: true
+    keep-days: 30
+
+security:
+  # Worlds where jackpot interaction is blocked.
+  blocked-worlds: []
+
+  # Materials that can never be deposited as jackpot items.
+  blocked-materials:
+    - BEDROCK
+    - COMMAND_BLOCK
+    - CHAIN_COMMAND_BLOCK
+    - REPEATING_COMMAND_BLOCK
+    - BARRIER
+    - STRUCTURE_BLOCK
+    - JIGSAW
+
+  # true means items must have a value in the room material-values map.
+  # false allows accepted materials to use fallback valuation rules.
+  require-item-value-rule: false
+
+features:
+  bossbar: true
+  actionbar: true
+  sound-feedback: true
+  consolation-rewards: true
+  mailbox: true
+  community-multiplier: true
+  suspicious-entry-alerts: true
+  seasons: true
+
+discord:
+  enabled: false
+  webhook-url: ''
+
+  # Planned webhook event filters. Keep empty or disabled unless you wire a webhook.
+  audit-events:
+    - DRAW
+    - ADMIN_ACTION
+    - SUSPICIOUS_ENTRY
+
+leaderboard:
+  cache-seconds: 60
+  season-id: season-1

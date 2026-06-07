@@ -1,0 +1,34 @@
+title: '<#cc99ff><bold>شاشة المتابعة</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 54
+filler:
+  material: PURPLE_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: CLOCK
+    name: '<#cc99ff><bold>المسار المباشر</bold>'
+    lore:
+      - '<dark_gray>متابعة الجولة'
+      - ''
+      - '<#cc99ff>الوقت المتبقي <dark_gray>| <white>%time_left%</white>'
+      - '<#ffaa00>المشاركون <dark_gray>| <white>%players%</white>'
+      - '<gray>يتحرك المشاركون على الشاشة أثناء الجولة.'
+    action: none
+  back:
+    slot: 49
+    material: ARROW
+    name: '<#55ff99><bold>رجوع</bold>'
+    lore:
+      - '<gray>العودة إلى القائمة الرئيسية.'
+    action: open-main
+dynamic:
+  entry-slots: [10, 11, 12, 13, 14, 15, 16]
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

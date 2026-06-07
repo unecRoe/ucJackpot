@@ -1,0 +1,51 @@
+title: '<#33ccff><bold>Внести предметы</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 45
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  name: ' '
+items:
+  preview:
+    slot: 4
+    material: PLAYER_HEAD
+    name: '<#33ccff><bold>Выбор нескольких предметов</bold>'
+    lore:
+      - '<dark_gray>Выбор из инвентаря'
+      - ''
+      - '<#ffcc33>Лимит <dark_gray>| <white>%min_items%-%max_items% предметов</white>'
+      - '<gray>Нажимай на разрешённые предметы в своём инвентаре.'
+      - '<gray>Запрещённые предметы не добавляются в выбор.'
+    action: none
+  confirm:
+    slot: 20
+    material: LIME_CONCRETE
+    name: '<#55ff99><bold>Внести выбранное</bold>'
+    lore:
+      - '<dark_gray>Подтверждение'
+      - ''
+      - '<gray>Добавляет выбранные предметы в банк джекпота.'
+      - '<gray>Победитель получит их как предметы.'
+    action: confirm-item
+  cancel:
+    slot: 24
+    material: RED_CONCRETE
+    name: '<#ff5555><bold>Отмена</bold>'
+    lore:
+      - '<dark_gray>Отмена'
+      - ''
+      - '<gray>Закрывает выбор и возвращает в главное меню.'
+    action: open-main
+  back:
+    slot: 40
+    material: ARROW
+    name: '<#55ff99><bold>Назад</bold>'
+    lore:
+      - '<gray>Вернуться в главное меню.'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

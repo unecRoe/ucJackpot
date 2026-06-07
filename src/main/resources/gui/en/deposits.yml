@@ -1,0 +1,35 @@
+title: '<#33ccff><bold>Deposits</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 54
+filler:
+  material: CYAN_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: CHEST
+    name: '<#33ccff><bold>Round Deposits</bold>'
+    lore:
+      - '<dark_gray>Participant list'
+      - ''
+      - '<#ffaa00>Participants <dark_gray>| <white>%players%</white>'
+      - '<#55ff99>Money pot <dark_gray>| <white>%money_pot%</white>'
+      - '<#33ccff>Item pot <dark_gray>| <white>%item_pot% item(s)</white>'
+      - ''
+      - '<#55ff99>Click a player to view details.'
+    action: none
+  back:
+    slot: 49
+    material: ARROW
+    name: '<#55ff99><bold>Back</bold>'
+    lore:
+      - '<gray>Return to main menu.'
+    action: open-main
+dynamic:
+  depositor-slots: [10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25, 28, 29, 30, 31, 32, 33, 34, 37, 38, 39, 40, 41, 42, 43]
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+

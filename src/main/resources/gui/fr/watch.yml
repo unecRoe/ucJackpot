@@ -1,0 +1,33 @@
+title: '<#cc99ff><bold>Écran de suivi</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 54
+filler:
+  material: PURPLE_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: CLOCK
+    name: '<#cc99ff><bold>Déroulement en direct</bold>'
+    lore:
+      - '<dark_gray>Suivi de la manche'
+      - ''
+      - '<#cc99ff>Temps restant <dark_gray>| <white>%time_left%</white>'
+      - '<#ffaa00>Participants <dark_gray>| <white>%players%</white>'
+      - '<gray>Les participants se déplacent sur l''écran pendant la manche.'
+    action: none
+  back:
+    slot: 49
+    material: ARROW
+    name: '<#55ff99><bold>Retour</bold>'
+    lore:
+      - '<gray>Revenir au menu principal.'
+    action: open-main
+dynamic:
+  entry-slots: [10, 11, 12, 13, 14, 15, 16]
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+

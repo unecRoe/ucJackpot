@@ -1,0 +1,36 @@
+title: '<#cc99ff><bold>الموسم</bold> <dark_gray>| <white>%season%</white>'
+size: 27
+filler:
+  material: MAGENTA_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 13
+    material: AMETHYST_SHARD
+    name: '<#cc99ff><bold>%season%</bold>'
+    lore:
+      - '<dark_gray>نظرة على الموسم'
+      - ''
+      - '<#ffcc33>الغرفة <dark_gray>| <white>%jackpot_name%</white>'
+      - '<#ffaa00>المشاركون <dark_gray>| <white>%players%</white>'
+      - '<#55ff99>الرصيد <dark_gray>| <white>%pot_value%</white>'
+      - ''
+      - '<gray>ترتيب الموسم يتتبع هذه الغرفة.'
+    action: none
+  back:
+    slot: 22
+    material: ARROW
+    name: '<#55ff99><bold>رجوع</bold>'
+    lore:
+      - '<gray>العودة إلى القائمة الرئيسية.'
+    action: open-main
+dynamic:
+  leaderboard-slots: [10, 11, 12, 14, 15, 16]
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

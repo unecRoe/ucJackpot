@@ -1,0 +1,105 @@
+title: '<#55ff99><bold>Para Yatır</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 45
+filler:
+  material: GREEN_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: GOLD_INGOT
+    name: '<#55ff99><bold>Para Katılımı</bold>'
+    lore:
+      - '<dark_gray>Miktar aralığı'
+      - ''
+      - '<#ffcc33>Minimum <dark_gray>| <white>%min_money%</white>'
+      - '<#ffcc33>Maksimum <dark_gray>| <white>%max_money%</white>'
+      - '<#55ff99>Favori <dark_gray>| <white>%favorite_money%</white>'
+      - '<#cc99ff>Şansın <dark_gray>| <white>%player_chance%%</white>'
+    action: none
+  quick-1:
+    slot: 11
+    material: SUNFLOWER
+    name: '<#ffcc33><bold>%quick_money_1%</bold>'
+    lore:
+      - '<dark_gray>Hızlı yatırma'
+      - ''
+      - '<gray>Bu miktarla hemen katıl.'
+    action: money-quick-1
+  quick-2:
+    slot: 13
+    material: SUNFLOWER
+    name: '<#ffcc33><bold>%quick_money_2%</bold>'
+    lore:
+      - '<dark_gray>Hızlı yatırma'
+      - ''
+      - '<gray>Bu miktarla hemen katıl.'
+    action: money-quick-2
+  quick-3:
+    slot: 15
+    material: SUNFLOWER
+    name: '<#ffcc33><bold>%quick_money_3%</bold>'
+    lore:
+      - '<dark_gray>Hızlı yatırma'
+      - ''
+      - '<gray>Bu miktarla hemen katıl.'
+    action: money-quick-3
+  quick-4:
+    slot: 21
+    material: SUNFLOWER
+    name: '<#ffcc33><bold>%quick_money_4%</bold>'
+    lore:
+      - '<dark_gray>Hızlı yatırma'
+      - ''
+      - '<gray>Bu miktarla hemen katıl.'
+    action: money-quick-4
+  quick-5:
+    slot: 23
+    material: SUNFLOWER
+    name: '<#ffcc33><bold>%quick_money_5%</bold>'
+    lore:
+      - '<dark_gray>Hızlı yatırma'
+      - ''
+      - '<gray>Bu miktarla hemen katıl.'
+    action: money-quick-5
+  manual:
+    slot: 29
+    material: OAK_SIGN
+    name: '<#33ccff><bold>Manuel Miktar</bold>'
+    lore:
+      - '<dark_gray>Özel miktar'
+      - ''
+      - '<gray>Tıkla, miktarı chate yaz.'
+    action: money-manual
+  favorite:
+    slot: 31
+    material: EMERALD
+    name: '<#55ff99><bold>Favoriyle Katıl</bold>'
+    lore:
+      - '<dark_gray>Kayıtlı miktar'
+      - ''
+      - '<#55ff99>Favori <dark_gray>| <white>%favorite_money%</white>'
+      - '<gray>Bu miktarla hemen katılır.'
+    action: money-favorite
+  favorite-set:
+    slot: 33
+    material: WRITABLE_BOOK
+    name: '<#33ccff><bold>Favori Kaydet</bold>'
+    lore:
+      - '<dark_gray>Hızlı miktar'
+      - ''
+      - '<gray>Tıkla, yeni favori miktarını yaz.'
+    action: money-favorite-set
+  back:
+    slot: 40
+    material: ARROW
+    name: '<#55ff99><bold>Geri</bold>'
+    lore:
+      - '<gray>Ana menüye dön.'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+

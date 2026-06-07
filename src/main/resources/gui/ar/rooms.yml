@@ -1,0 +1,109 @@
+title: '<#ffcc33><bold>غرف الجاكبوت</bold>'
+size: 54
+filler:
+  material: BLACK_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: COMPASS
+    name: '<#ffcc33><bold>اختيار الغرفة</bold>'
+    lore:
+      - '<dark_gray>مستوى المخاطرة والجائزة'
+      - ''
+      - '<gray>الغرف مرتبة بتصميم وسطي متوازن.'
+      - '<gray>تفتح القائمة الرئيسية للغرفة المختارة.'
+    action: none
+  back:
+    slot: 49
+    material: ARROW
+    name: '<#55ff99><bold>رجوع</bold>'
+    lore:
+      - '<gray>العودة إلى القائمة الرئيسية.'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+rooms:
+  low:
+    slot: 20
+    material: EMERALD
+    display-name: '<#55ff99>غرفة منخفضة</#55ff99>'
+    name: '<#55ff99><bold>غرفة منخفضة</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>غرفة دخول خفيفة'
+      - ''
+      - '<#55ff99>رصيد المال <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>رصيد العناصر <dark_gray>| <white>%items% عناصر</white>'
+      - '<#ffaa00>المشاركون <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>الوقت المتبقي <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>انقر لفتح هذه الغرفة.'
+  default:
+    slot: 22
+    material: NETHER_STAR
+    display-name: '<#ffcc33>الغرفة العامة</#ffcc33>'
+    name: '<#ffcc33><bold>الغرفة العامة</bold> <dark_gray>| <white>%mode%</white>'
+    glow: true
+    lore:
+      - '<dark_gray>غرفة الجاكبوت الرئيسية'
+      - ''
+      - '<#55ff99>رصيد المال <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>رصيد العناصر <dark_gray>| <white>%items% عناصر</white>'
+      - '<#ffaa00>المشاركون <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>الوقت المتبقي <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>انقر لفتح هذه الغرفة.'
+  high:
+    slot: 24
+    material: NETHERITE_INGOT
+    display-name: '<#ff5555>غرفة عالية</#ff5555>'
+    name: '<#ff5555><bold>غرفة عالية</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>مخاطرة عالية وجائزة عالية'
+      - ''
+      - '<#55ff99>رصيد المال <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>رصيد العناصر <dark_gray>| <white>%items% عناصر</white>'
+      - '<#ffaa00>المشاركون <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>الوقت المتبقي <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>انقر لفتح هذه الغرفة.'
+  item:
+    slot: 30
+    material: DIAMOND
+    display-name: '<#33ccff>غرفة العناصر</#33ccff>'
+    name: '<#33ccff><bold>غرفة العناصر</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>جائزة قائمة على العناصر'
+      - ''
+      - '<#55ff99>رصيد المال <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>رصيد العناصر <dark_gray>| <white>%items% عناصر</white>'
+      - '<#ffaa00>المشاركون <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>الوقت المتبقي <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>انقر لفتح هذه الغرفة.'
+  event:
+    slot: 32
+    material: AMETHYST_SHARD
+    display-name: '<#cc99ff>غرفة الحدث</#cc99ff>'
+    name: '<#cc99ff><bold>غرفة الحدث</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>جائزة حدث خاصة'
+      - ''
+      - '<#55ff99>رصيد المال <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>رصيد العناصر <dark_gray>| <white>%items% عناصر</white>'
+      - '<#ffaa00>المشاركون <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>الوقت المتبقي <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>انقر لفتح هذه الغرفة.'
+dynamic:
+  fallback-room-slots: [11, 13, 15, 19, 25, 28, 34, 37, 39, 41, 43]
+
+
+
+

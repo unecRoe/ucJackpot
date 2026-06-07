@@ -1,0 +1,44 @@
+title: '<#ffaa00><bold>الإحصائيات</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 27
+filler:
+  material: ORANGE_STAINED_GLASS_PANE
+  name: ' '
+items:
+  player:
+    slot: 11
+    material: PLAYER_HEAD
+    head: '%player%'
+    name: '<#ffaa00><bold>%player%</bold>'
+    lore:
+      - '<dark_gray>معلوماتك في الجولة'
+      - ''
+      - '<#ffcc33>الدخول <dark_gray>| <white>%player_entries%</white>'
+      - '<#cc99ff>الفرصة <dark_gray>| <white>%player_chance%%</white>'
+      - '<#55ff99>الرصيد الكلي <dark_gray>| <white>%pot_value%</white>'
+    action: none
+  round:
+    slot: 13
+    material: CLOCK
+    name: '<#ffcc33><bold>حالة الجولة</bold>'
+    lore:
+      - '<dark_gray>الحالة الحالية'
+      - ''
+      - '<#ffcc33>الحالة <dark_gray>| <white>%status%</white>'
+      - '<#cc99ff>الوقت المتبقي <dark_gray>| <white>%time_left%</white>'
+      - '<#ffaa00>المشاركون <dark_gray>| <white>%players%</white>'
+    action: none
+  back:
+    slot: 15
+    material: ARROW
+    name: '<#55ff99><bold>رجوع</bold>'
+    lore:
+      - '<gray>العودة إلى القائمة الرئيسية.'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

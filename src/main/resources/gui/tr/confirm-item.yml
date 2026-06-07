@@ -1,0 +1,50 @@
+title: '<#33ccff><bold>Eşya Yatır</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 45
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  name: ' '
+items:
+  preview:
+    slot: 4
+    material: PLAYER_HEAD
+    name: '<#33ccff><bold>Çoklu Eşya Seçimi</bold>'
+    lore:
+      - '<dark_gray>Envanterden seçim'
+      - ''
+      - '<#ffcc33>Limit <dark_gray>| <white>%min_items%-%max_items% eşya</white>'
+      - '<gray>Alt envanterindeki uygun eşyalara tıkla.'
+      - '<gray>Uygun olmayan eşyalar seçime alınmaz.'
+    action: none
+  confirm:
+    slot: 20
+    material: LIME_CONCRETE
+    name: '<#55ff99><bold>Seçilenleri Yatır</bold>'
+    lore:
+      - '<dark_gray>Onay'
+      - ''
+      - '<gray>Seçili eşyaları jackpot havuzuna ekler.'
+      - '<gray>Kazanan eşyaları eşya olarak alır.'
+    action: confirm-item
+  cancel:
+    slot: 24
+    material: RED_CONCRETE
+    name: '<#ff5555><bold>Vazgeç</bold>'
+    lore:
+      - '<dark_gray>İptal'
+      - ''
+      - '<gray>Seçimi bırakır ve ana menüye döner.'
+    action: open-main
+  back:
+    slot: 40
+    material: ARROW
+    name: '<#55ff99><bold>Geri</bold>'
+    lore:
+      - '<gray>Ana menüye dön.'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+

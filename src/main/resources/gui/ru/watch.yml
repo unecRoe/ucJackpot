@@ -1,0 +1,34 @@
+title: '<#cc99ff><bold>Экран наблюдения</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 54
+filler:
+  material: PURPLE_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: CLOCK
+    name: '<#cc99ff><bold>Живой ход раунда</bold>'
+    lore:
+      - '<dark_gray>Наблюдение за раундом'
+      - ''
+      - '<#cc99ff>Осталось <dark_gray>| <white>%time_left%</white>'
+      - '<#ffaa00>Участники <dark_gray>| <white>%players%</white>'
+      - '<gray>Участники движутся по экрану во время раунда.'
+    action: none
+  back:
+    slot: 49
+    material: ARROW
+    name: '<#55ff99><bold>Назад</bold>'
+    lore:
+      - '<gray>Вернуться в главное меню.'
+    action: open-main
+dynamic:
+  entry-slots: [10, 11, 12, 13, 14, 15, 16]
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

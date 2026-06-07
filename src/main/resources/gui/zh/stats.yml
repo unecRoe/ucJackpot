@@ -1,0 +1,44 @@
+title: '<#ffaa00><bold>统计</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 27
+filler:
+  material: ORANGE_STAINED_GLASS_PANE
+  name: ' '
+items:
+  player:
+    slot: 11
+    material: PLAYER_HEAD
+    head: '%player%'
+    name: '<#ffaa00><bold>%player%</bold>'
+    lore:
+      - '<dark_gray>个人本轮信息'
+      - ''
+      - '<#ffcc33>投入 <dark_gray>| <white>%player_entries%</white>'
+      - '<#cc99ff>概率 <dark_gray>| <white>%player_chance%%</white>'
+      - '<#55ff99>总奖池 <dark_gray>| <white>%pot_value%</white>'
+    action: none
+  round:
+    slot: 13
+    material: CLOCK
+    name: '<#ffcc33><bold>回合状态</bold>'
+    lore:
+      - '<dark_gray>当前状态'
+      - ''
+      - '<#ffcc33>状态 <dark_gray>| <white>%status%</white>'
+      - '<#cc99ff>剩余时间 <dark_gray>| <white>%time_left%</white>'
+      - '<#ffaa00>参与者 <dark_gray>| <white>%players%</white>'
+    action: none
+  back:
+    slot: 15
+    material: ARROW
+    name: '<#55ff99><bold>返回</bold>'
+    lore:
+      - '<gray>返回主菜单。'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

@@ -1,0 +1,51 @@
+title: '<#33ccff><bold>存入物品</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 45
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  name: ' '
+items:
+  preview:
+    slot: 4
+    material: PLAYER_HEAD
+    name: '<#33ccff><bold>多选物品</bold>'
+    lore:
+      - '<dark_gray>背包选择'
+      - ''
+      - '<#ffcc33>限制 <dark_gray>| <white>%min_items%-%max_items% 件物品</white>'
+      - '<gray>点击背包中可接受的物品。'
+      - '<gray>不接受的物品不会加入选择。'
+    action: none
+  confirm:
+    slot: 20
+    material: LIME_CONCRETE
+    name: '<#55ff99><bold>存入所选</bold>'
+    lore:
+      - '<dark_gray>确认'
+      - ''
+      - '<gray>将所选物品加入奖池。'
+      - '<gray>赢家会以物品形式收到它们。'
+    action: confirm-item
+  cancel:
+    slot: 24
+    material: RED_CONCRETE
+    name: '<#ff5555><bold>取消</bold>'
+    lore:
+      - '<dark_gray>取消'
+      - ''
+      - '<gray>离开选择并返回主菜单。'
+    action: open-main
+  back:
+    slot: 40
+    material: ARROW
+    name: '<#55ff99><bold>返回</bold>'
+    lore:
+      - '<gray>返回主菜单。'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

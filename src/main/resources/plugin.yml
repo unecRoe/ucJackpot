@@ -1,0 +1,68 @@
+name: ucJackpot
+version: '1.0.0'
+main: com.unecroe.ucjackpot.UcJackpotPlugin
+api-version: '1.21'
+authors: [unecroe]
+description: Production-grade configurable jackpot plugin for money and item economies.
+website: https://github.com/unecroe/ucJackpot
+softdepend:
+  - Vault
+  - PlaceholderAPI
+libraries:
+  - com.zaxxer:HikariCP:7.0.2
+  - org.xerial:sqlite-jdbc:3.53.2.0
+  - com.mysql:mysql-connector-j:9.7.0
+  - org.mariadb.jdbc:mariadb-java-client:3.5.8
+commands:
+  ucjackpot:
+    description: Main ucJackpot command.
+    usage: /<command> [rooms|open|join|item|ticket|season|stats|top|history|mailbox|admin|reload]
+permissions:
+  ucjackpot.use:
+    default: true
+  ucjackpot.join.money:
+    default: true
+  ucjackpot.join.item:
+    default: true
+  ucjackpot.join.ticket:
+    default: true
+  ucjackpot.stats:
+    default: true
+  ucjackpot.top:
+    default: true
+  ucjackpot.history:
+    default: true
+  ucjackpot.mailbox:
+    default: true
+  ucjackpot.season:
+    default: true
+  ucjackpot.ticket.give:
+    default: op
+  ucjackpot.season.reward:
+    default: op
+  ucjackpot.notify:
+    default: op
+  ucjackpot.admin:
+    default: op
+  ucjackpot.reload:
+    default: op
+  ucjackpot.start:
+    default: op
+  ucjackpot.stop:
+    default: op
+  ucjackpot.draw:
+    default: op
+  ucjackpot.cancel:
+    default: op
+  ucjackpot.setpot:
+    default: op
+  ucjackpot.debug:
+    default: op
+  ucjackpot.selftest:
+    default: op
+  ucjackpot.bypass.cooldown:
+    default: op
+  ucjackpot.bypass.limit:
+    default: op
+
+

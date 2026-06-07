@@ -1,0 +1,51 @@
+title: '<#33ccff><bold>アイテムを投入</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 45
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  name: ' '
+items:
+  preview:
+    slot: 4
+    material: PLAYER_HEAD
+    name: '<#33ccff><bold>複数アイテム選択</bold>'
+    lore:
+      - '<dark_gray>インベントリ選択'
+      - ''
+      - '<#ffcc33>上限 <dark_gray>| <white>%min_items%-%max_items% 個</white>'
+      - '<gray>インベントリ内の使用可能なアイテムをクリック。'
+      - '<gray>対象外のアイテムは選択に追加されません。'
+    action: none
+  confirm:
+    slot: 20
+    material: LIME_CONCRETE
+    name: '<#55ff99><bold>選択を投入</bold>'
+    lore:
+      - '<dark_gray>確認'
+      - ''
+      - '<gray>選択したアイテムをジャックポットに追加します。'
+      - '<gray>勝者はアイテムとして受け取ります。'
+    action: confirm-item
+  cancel:
+    slot: 24
+    material: RED_CONCRETE
+    name: '<#ff5555><bold>キャンセル</bold>'
+    lore:
+      - '<dark_gray>キャンセル'
+      - ''
+      - '<gray>選択を終了してメインメニューへ戻ります。'
+    action: open-main
+  back:
+    slot: 40
+    material: ARROW
+    name: '<#55ff99><bold>戻る</bold>'
+    lore:
+      - '<gray>メインメニューに戻る。'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

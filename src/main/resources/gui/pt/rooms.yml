@@ -1,0 +1,109 @@
+title: '<#ffcc33><bold>Salas Jackpot</bold>'
+size: 54
+filler:
+  material: BLACK_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: COMPASS
+    name: '<#ffcc33><bold>Escolher sala</bold>'
+    lore:
+      - '<dark_gray>Nível de risco e recompensa'
+      - ''
+      - '<gray>As salas ficam em uma disposição central equilibrada.'
+      - '<gray>O menu principal abre para a sala escolhida.'
+    action: none
+  back:
+    slot: 49
+    material: ARROW
+    name: '<#55ff99><bold>Voltar</bold>'
+    lore:
+      - '<gray>Voltar ao menu principal.'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+rooms:
+  low:
+    slot: 20
+    material: EMERALD
+    display-name: '<#55ff99>Sala baixa</#55ff99>'
+    name: '<#55ff99><bold>Sala baixa</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>Sala de entrada'
+      - ''
+      - '<#55ff99>Pote de dinheiro <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Pote de itens <dark_gray>| <white>%items% itens</white>'
+      - '<#ffaa00>Participantes <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Tempo restante <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Clique para abrir esta sala.'
+  default:
+    slot: 22
+    material: NETHER_STAR
+    display-name: '<#ffcc33>Sala geral</#ffcc33>'
+    name: '<#ffcc33><bold>Sala geral</bold> <dark_gray>| <white>%mode%</white>'
+    glow: true
+    lore:
+      - '<dark_gray>Sala principal do jackpot'
+      - ''
+      - '<#55ff99>Pote de dinheiro <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Pote de itens <dark_gray>| <white>%items% itens</white>'
+      - '<#ffaa00>Participantes <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Tempo restante <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Clique para abrir esta sala.'
+  high:
+    slot: 24
+    material: NETHERITE_INGOT
+    display-name: '<#ff5555>Sala alta</#ff5555>'
+    name: '<#ff5555><bold>Sala alta</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>Alto risco, alta recompensa'
+      - ''
+      - '<#55ff99>Pote de dinheiro <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Pote de itens <dark_gray>| <white>%items% itens</white>'
+      - '<#ffaa00>Participantes <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Tempo restante <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Clique para abrir esta sala.'
+  item:
+    slot: 30
+    material: DIAMOND
+    display-name: '<#33ccff>Sala de itens</#33ccff>'
+    name: '<#33ccff><bold>Sala de itens</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>Pote somente com itens'
+      - ''
+      - '<#55ff99>Pote de dinheiro <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Pote de itens <dark_gray>| <white>%items% itens</white>'
+      - '<#ffaa00>Participantes <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Tempo restante <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Clique para abrir esta sala.'
+  event:
+    slot: 32
+    material: AMETHYST_SHARD
+    display-name: '<#cc99ff>Sala de evento</#cc99ff>'
+    name: '<#cc99ff><bold>Sala de evento</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>Pote especial de evento'
+      - ''
+      - '<#55ff99>Pote de dinheiro <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Pote de itens <dark_gray>| <white>%items% itens</white>'
+      - '<#ffaa00>Participantes <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Tempo restante <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Clique para abrir esta sala.'
+dynamic:
+  fallback-room-slots: [11, 13, 15, 19, 25, 28, 34, 37, 39, 41, 43]
+
+
+
+

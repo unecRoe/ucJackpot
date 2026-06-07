@@ -1,0 +1,36 @@
+title: '<#33ccff><bold>投入</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 54
+filler:
+  material: CYAN_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: CHEST
+    name: '<#33ccff><bold>本轮投入</bold>'
+    lore:
+      - '<dark_gray>参与者列表'
+      - ''
+      - '<#ffaa00>参与者 <dark_gray>| <white>%players%</white>'
+      - '<#55ff99>金钱奖池 <dark_gray>| <white>%money_pot%</white>'
+      - '<#33ccff>物品奖池 <dark_gray>| <white>%item_pot% 件物品</white>'
+      - ''
+      - '<#55ff99>点击玩家查看详情。'
+    action: none
+  back:
+    slot: 49
+    material: ARROW
+    name: '<#55ff99><bold>返回</bold>'
+    lore:
+      - '<gray>返回主菜单。'
+    action: open-main
+dynamic:
+  depositor-slots: [10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25, 28, 29, 30, 31, 32, 33, 34, 37, 38, 39, 40, 41, 42, 43]
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

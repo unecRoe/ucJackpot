@@ -1,0 +1,143 @@
+# ucJackpot room configuration: High Roller
+#
+# High-risk money-only room for late-game economies.
+# Item and ticket entries are disabled in this preset.
+
+# Unique room id used by commands, storage, logs, placeholders, and GUI actions.
+id: high
+
+# Set false to disable this room without deleting the file.
+enabled: true
+
+# Display name used when no GUI locale override is available.
+display-name: '<#ff5555>High Roller</#ff5555>'
+
+# money allows money entries only.
+mode: money
+
+currency:
+  # Enables money entries for this room.
+  enabled: true
+
+  # Lowest money amount accepted per entry.
+  min-entry: 10000.0
+
+  # Highest money amount accepted per entry.
+  max-entry: 10000000.0
+
+  # Default amount used by quick join and no-amount command joins.
+  default-entry: 50000.0
+
+  # Quick amount buttons shown in the money GUI.
+  quick-amounts: [10000.0, 25000.0, 50000.0, 100000.0, 250000.0]
+
+  # Percent removed from money prize before payout.
+  tax-percent: 0.0
+
+items:
+  # Disabled because this room is money-only.
+  enabled: false
+
+  # Item value settings are ignored while items.enabled is false.
+  min-value: 0.0
+  min-items-per-entry: 1
+  max-items-per-entry: 1
+  special-protection: true
+  accept-enchanted-items: true
+  accept-custom-model-data: true
+  material-values: {}
+
+round:
+  # Round length after countdown starts.
+  duration-seconds: 420
+
+  # Minimum unique players required before countdown can start.
+  min-players: 2
+
+  # Minimum total money value required before draw.
+  min-total-value: 20000.0
+
+  # Maximum entries per player in one round.
+  max-entries-per-player: 20
+
+  # Delay between entries for the same player.
+  cooldown-seconds: 10
+
+  # Automatically draw when requirements are met and time ends.
+  auto-draw: true
+
+  # Delay before countdown begins after enough players join.
+  start-delay-seconds: 15
+
+odds:
+  luck-streak-dampener:
+    # Reduces repeated wins by lowering recent winner weight.
+    enabled: true
+
+    # Time window used to detect recent winners.
+    recent-win-window-hours: 24
+
+    # Weight multiplier for recent winners.
+    multiplier-after-win: 0.75
+
+engagement:
+  combo:
+    # Small participation bonus for repeated entries.
+    enabled: true
+
+    # Smaller step for high-risk rooms to keep odds stable.
+    step-percent: 0.5
+
+    # Maximum combo bonus percent.
+    max-percent: 3.0
+
+season:
+  # Season id used by this room.
+  id: high-season
+
+  # Console commands executed by /ucjackpot season reward.
+  reward-commands:
+    - 'say %player% received high season %season% reward. Rank #%rank%'
+
+tickets:
+  # Disabled because this room is money-only by default.
+  enabled: false
+
+  # Ticket settings are ignored while tickets.enabled is false.
+  material: PAPER
+  name-contains: Jackpot Ticket
+  entry-value: 0.0
+
+rewards:
+  # Safe to keep true; no item entries exist in this preset.
+  winner-takes-items: true
+
+  consolation:
+    # Enables consolation rewards.
+    enabled: true
+
+    # Minimum entries required before consolation can run.
+    min-entries: 5
+
+    # Money percent used for consolation calculation.
+    money-percent: 1.0
+
+    # Optional consolation commands.
+    commands: []
+
+  rare-bonus:
+    # Enables rare post-draw bonus commands.
+    enabled: true
+
+    # Chance percent for rare bonus.
+    chance-percent: 1.0
+
+    # Optional rare bonus commands.
+    commands: []
+
+broadcasts:
+  # Pot values that trigger milestone broadcasts.
+  milestone-values: [100000.0, 500000.0, 1000000.0]
+
+  # Remaining seconds that trigger countdown broadcasts.
+  countdown-seconds: [60, 30, 10, 5, 4, 3, 2, 1]

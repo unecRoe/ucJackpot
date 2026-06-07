@@ -1,0 +1,109 @@
+title: '<#ffcc33><bold>Jackpot 방</bold>'
+size: 54
+filler:
+  material: BLACK_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: COMPASS
+    name: '<#ffcc33><bold>방 선택</bold>'
+    lore:
+      - '<dark_gray>위험과 보상 단계'
+      - ''
+      - '<gray>방은 중앙에 균형 있게 배치되어 있습니다.'
+      - '<gray>선택한 방의 메인 메뉴가 열립니다.'
+    action: none
+  back:
+    slot: 49
+    material: ARROW
+    name: '<#55ff99><bold>뒤로</bold>'
+    lore:
+      - '<gray>메인 메뉴로 돌아갑니다.'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+rooms:
+  low:
+    slot: 20
+    material: EMERALD
+    display-name: '<#55ff99>낮은 방</#55ff99>'
+    name: '<#55ff99><bold>낮은 방</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>가볍게 참가하는 방'
+      - ''
+      - '<#55ff99>돈 풀 <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>아이템 풀 <dark_gray>| <white>%items%개</white>'
+      - '<#ffaa00>참가자 <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>남은 시간 <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>클릭해서 이 방을 엽니다.'
+  default:
+    slot: 22
+    material: NETHER_STAR
+    display-name: '<#ffcc33>일반 방</#ffcc33>'
+    name: '<#ffcc33><bold>일반 방</bold> <dark_gray>| <white>%mode%</white>'
+    glow: true
+    lore:
+      - '<dark_gray>메인 잭팟 방'
+      - ''
+      - '<#55ff99>돈 풀 <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>아이템 풀 <dark_gray>| <white>%items%개</white>'
+      - '<#ffaa00>참가자 <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>남은 시간 <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>클릭해서 이 방을 엽니다.'
+  high:
+    slot: 24
+    material: NETHERITE_INGOT
+    display-name: '<#ff5555>높은 방</#ff5555>'
+    name: '<#ff5555><bold>높은 방</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>높은 위험, 높은 보상'
+      - ''
+      - '<#55ff99>돈 풀 <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>아이템 풀 <dark_gray>| <white>%items%개</white>'
+      - '<#ffaa00>참가자 <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>남은 시간 <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>클릭해서 이 방을 엽니다.'
+  item:
+    slot: 30
+    material: DIAMOND
+    display-name: '<#33ccff>아이템 방</#33ccff>'
+    name: '<#33ccff><bold>아이템 방</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>아이템 중심 보상 풀'
+      - ''
+      - '<#55ff99>돈 풀 <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>아이템 풀 <dark_gray>| <white>%items%개</white>'
+      - '<#ffaa00>참가자 <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>남은 시간 <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>클릭해서 이 방을 엽니다.'
+  event:
+    slot: 32
+    material: AMETHYST_SHARD
+    display-name: '<#cc99ff>이벤트 방</#cc99ff>'
+    name: '<#cc99ff><bold>이벤트 방</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>특별 이벤트 보상 풀'
+      - ''
+      - '<#55ff99>돈 풀 <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>아이템 풀 <dark_gray>| <white>%items%개</white>'
+      - '<#ffaa00>참가자 <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>남은 시간 <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>클릭해서 이 방을 엽니다.'
+dynamic:
+  fallback-room-slots: [11, 13, 15, 19, 25, 28, 34, 37, 39, 41, 43]
+
+
+
+

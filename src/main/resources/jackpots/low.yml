@@ -1,0 +1,161 @@
+# ucJackpot room configuration: Low Roller
+#
+# Low-risk hybrid room for new players and early economy servers.
+# Limits are intentionally smaller than the general room.
+
+# Unique room id used by commands, storage, logs, placeholders, and GUI actions.
+id: low
+
+# Set false to disable this room without deleting the file.
+enabled: true
+
+# Display name used when no GUI locale override is available.
+display-name: '<#55ff99>Low Roller</#55ff99>'
+
+# hybrid allows both money and item entries.
+mode: hybrid
+
+currency:
+  # Enables money entries for this room.
+  enabled: true
+
+  # Lowest money amount a player can deposit in one entry.
+  min-entry: 50.0
+
+  # Highest money amount a player can deposit in one entry.
+  max-entry: 5000.0
+
+  # Default amount used by quick join and no-amount command joins.
+  default-entry: 250.0
+
+  # Quick amount buttons shown in the money GUI for this room.
+  quick-amounts: [50.0, 100.0, 250.0, 500.0, 1000.0]
+
+  # Percent removed from money prize before payout.
+  tax-percent: 0.0
+
+items:
+  # Enables item deposits in this room.
+  enabled: true
+
+  # Minimum total value required for selected items.
+  min-value: 10.0
+
+  # Minimum item stacks required per item entry.
+  min-items-per-entry: 1
+
+  # Maximum item stacks accepted per item entry.
+  max-items-per-entry: 5
+
+  # Adds extra confirmation for special-looking items.
+  special-protection: true
+
+  # Allows enchanted item deposits.
+  accept-enchanted-items: true
+
+  # Allows custom model data item deposits.
+  accept-custom-model-data: true
+
+  # Item value map for this room. Keep values low for a low-risk room.
+  material-values:
+    IRON_INGOT: 25.0
+    GOLD_INGOT: 75.0
+
+round:
+  # Round length after countdown starts.
+  duration-seconds: 180
+
+  # Minimum unique players required before countdown can start.
+  min-players: 2
+
+  # Minimum total pot value required before draw.
+  min-total-value: 50.0
+
+  # Maximum entries per player in one round.
+  max-entries-per-player: 15
+
+  # Delay between entries for the same player.
+  cooldown-seconds: 5
+
+  # Automatically draw when requirements are met and time ends.
+  auto-draw: true
+
+  # Delay before countdown begins after enough players join.
+  start-delay-seconds: 10
+
+odds:
+  luck-streak-dampener:
+    # Reduces repeated wins by lowering recent winner weight.
+    enabled: true
+
+    # Time window used to detect recent winners.
+    recent-win-window-hours: 24
+
+    # Weight multiplier for recent winners.
+    multiplier-after-win: 0.75
+
+engagement:
+  combo:
+    # Small participation bonus for repeated entries.
+    enabled: true
+
+    # Bonus percent added per combo step.
+    step-percent: 1.0
+
+    # Maximum combo bonus percent.
+    max-percent: 5.0
+
+season:
+  # Season id used by this room.
+  id: low-season
+
+  # Console commands executed by /ucjackpot season reward.
+  reward-commands:
+    - 'say %player% received low season %season% reward. Rank #%rank%'
+
+tickets:
+  # Enables ticket entries for this room.
+  enabled: true
+
+  # Material used when admins give tickets.
+  material: PAPER
+
+  # Display-name text required for valid ticket items.
+  name-contains: Jackpot Ticket
+
+  # Weight added by one ticket entry.
+  entry-value: 250.0
+
+rewards:
+  # Item deposits are paid to the winner as actual items.
+  winner-takes-items: true
+
+  consolation:
+    # Enables consolation rewards.
+    enabled: true
+
+    # Minimum entries required before consolation can run.
+    min-entries: 4
+
+    # Money percent used for consolation calculation.
+    money-percent: 1.0
+
+    # Optional consolation commands.
+    commands: []
+
+  rare-bonus:
+    # Enables rare post-draw bonus commands.
+    enabled: true
+
+    # Chance percent for rare bonus.
+    chance-percent: 1.0
+
+    # Optional rare bonus commands.
+    commands: []
+
+broadcasts:
+  # Pot values that trigger milestone broadcasts.
+  milestone-values: [1000.0, 2500.0, 5000.0]
+
+  # Remaining seconds that trigger countdown broadcasts.
+  countdown-seconds: [60, 30, 10, 5, 4, 3, 2, 1]

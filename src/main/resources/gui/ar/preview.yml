@@ -1,0 +1,37 @@
+title: '<#55ff99><bold>صندوق الجوائز</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 54
+filler:
+  material: GREEN_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: ENDER_CHEST
+    name: '<#55ff99><bold>معاينة الجائزة</bold>'
+    lore:
+      - '<dark_gray>نظرة على الرصيد'
+      - ''
+      - '<#55ff99>المال <dark_gray>| <white>%money_pot%</white>'
+      - '<#33ccff>العناصر <dark_gray>| <white>%item_pot% عناصر</white>'
+      - '<#ffaa00>دخول التذاكر <dark_gray>| <white>%ticket_entries%</white>'
+      - ''
+      - '<gray>العناصر تصل إلى الفائز كعناصر.'
+    action: none
+  back:
+    slot: 49
+    material: ARROW
+    name: '<#55ff99><bold>رجوع</bold>'
+    lore:
+      - '<gray>العودة إلى القائمة الرئيسية.'
+    action: open-main
+dynamic:
+  prize-summary-slot: [13]
+  item-slots: [19, 20, 21, 22, 23, 24, 25, 28, 29, 30, 31, 32, 33, 34, 37, 38, 39, 40, 41, 42, 43]
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

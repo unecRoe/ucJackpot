@@ -1,0 +1,35 @@
+title: '<#33ccff><bold>Yatırımlar</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 54
+filler:
+  material: CYAN_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: CHEST
+    name: '<#33ccff><bold>Tur Yatırımları</bold>'
+    lore:
+      - '<dark_gray>Katılımcı listesi'
+      - ''
+      - '<#ffaa00>Katılımcı <dark_gray>| <white>%players%</white>'
+      - '<#55ff99>Para havuzu <dark_gray>| <white>%money_pot%</white>'
+      - '<#33ccff>Eşya havuzu <dark_gray>| <white>%item_pot% eşya</white>'
+      - ''
+      - '<#55ff99>Oyuncuya tıkla ve detayları gör.'
+    action: none
+  back:
+    slot: 49
+    material: ARROW
+    name: '<#55ff99><bold>Geri</bold>'
+    lore:
+      - '<gray>Ana menüye dön.'
+    action: open-main
+dynamic:
+  depositor-slots: [10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25, 28, 29, 30, 31, 32, 33, 34, 37, 38, 39, 40, 41, 42, 43]
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+

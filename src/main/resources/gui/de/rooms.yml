@@ -1,0 +1,109 @@
+title: '<#ffcc33><bold>Jackpot-Räume</bold>'
+size: 54
+filler:
+  material: BLACK_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: COMPASS
+    name: '<#ffcc33><bold>Raumauswahl</bold>'
+    lore:
+      - '<dark_gray>Risiko- und Gewinnstufe'
+      - ''
+      - '<gray>Die Räume sind ausgewogen in der Mitte angeordnet.'
+      - '<gray>Für den gewählten Raum öffnet sich das Hauptmenü.'
+    action: none
+  back:
+    slot: 49
+    material: ARROW
+    name: '<#55ff99><bold>Zurück</bold>'
+    lore:
+      - '<gray>Zurück zum Hauptmenü.'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+rooms:
+  low:
+    slot: 20
+    material: EMERALD
+    display-name: '<#55ff99>Niedriger Raum</#55ff99>'
+    name: '<#55ff99><bold>Niedriger Raum</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>Einsteigerraum'
+      - ''
+      - '<#55ff99>Geld-Pool <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Gegenstands-Pool <dark_gray>| <white>%items% Gegenstände</white>'
+      - '<#ffaa00>Teilnehmer <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Zeit übrig <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Klicke, um diesen Raum zu öffnen.'
+  default:
+    slot: 22
+    material: NETHER_STAR
+    display-name: '<#ffcc33>Allgemeiner Raum</#ffcc33>'
+    name: '<#ffcc33><bold>Allgemeiner Raum</bold> <dark_gray>| <white>%mode%</white>'
+    glow: true
+    lore:
+      - '<dark_gray>Hauptraum des Jackpots'
+      - ''
+      - '<#55ff99>Geld-Pool <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Gegenstands-Pool <dark_gray>| <white>%items% Gegenstände</white>'
+      - '<#ffaa00>Teilnehmer <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Zeit übrig <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Klicke, um diesen Raum zu öffnen.'
+  high:
+    slot: 24
+    material: NETHERITE_INGOT
+    display-name: '<#ff5555>Hoher Raum</#ff5555>'
+    name: '<#ff5555><bold>Hoher Raum</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>Hohes Risiko, hoher Gewinn'
+      - ''
+      - '<#55ff99>Geld-Pool <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Gegenstands-Pool <dark_gray>| <white>%items% Gegenstände</white>'
+      - '<#ffaa00>Teilnehmer <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Zeit übrig <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Klicke, um diesen Raum zu öffnen.'
+  item:
+    slot: 30
+    material: DIAMOND
+    display-name: '<#33ccff>Gegenstandsraum</#33ccff>'
+    name: '<#33ccff><bold>Gegenstandsraum</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>Nur Gegenstände im Gewinnpool'
+      - ''
+      - '<#55ff99>Geld-Pool <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Gegenstands-Pool <dark_gray>| <white>%items% Gegenstände</white>'
+      - '<#ffaa00>Teilnehmer <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Zeit übrig <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Klicke, um diesen Raum zu öffnen.'
+  event:
+    slot: 32
+    material: AMETHYST_SHARD
+    display-name: '<#cc99ff>Eventraum</#cc99ff>'
+    name: '<#cc99ff><bold>Eventraum</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>Spezieller Event-Pool'
+      - ''
+      - '<#55ff99>Geld-Pool <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Gegenstands-Pool <dark_gray>| <white>%items% Gegenstände</white>'
+      - '<#ffaa00>Teilnehmer <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Zeit übrig <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Klicke, um diesen Raum zu öffnen.'
+dynamic:
+  fallback-room-slots: [11, 13, 15, 19, 25, 28, 34, 37, 39, 41, 43]
+
+
+
+

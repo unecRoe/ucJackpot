@@ -1,0 +1,108 @@
+title: '<#ffcc33><bold>Jackpot Rooms</bold>'
+size: 54
+filler:
+  material: BLACK_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: COMPASS
+    name: '<#ffcc33><bold>Room Selection</bold>'
+    lore:
+      - '<dark_gray>Risk and reward level'
+      - ''
+      - '<gray>Rooms are arranged in a balanced center layout.'
+      - '<gray>The main menu opens for that room.'
+    action: none
+  back:
+    slot: 49
+    material: ARROW
+    name: '<#55ff99><bold>Back</bold>'
+    lore:
+      - '<gray>Return to main menu.'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+rooms:
+  low:
+    slot: 20
+    material: EMERALD
+    display-name: '<#55ff99>Low Room</#55ff99>'
+    name: '<#55ff99><bold>Low Room</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>Entry level room'
+      - ''
+      - '<#55ff99>Money pot <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Item pot <dark_gray>| <white>%items% item(s)</white>'
+      - '<#ffaa00>Participants <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Time left <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Click to open this room.'
+  default:
+    slot: 22
+    material: NETHER_STAR
+    display-name: '<#ffcc33>General Room</#ffcc33>'
+    name: '<#ffcc33><bold>General Room</bold> <dark_gray>| <white>%mode%</white>'
+    glow: true
+    lore:
+      - '<dark_gray>Main jackpot room'
+      - ''
+      - '<#55ff99>Money pot <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Item pot <dark_gray>| <white>%items% item(s)</white>'
+      - '<#ffaa00>Participants <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Time left <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Click to open this room.'
+  high:
+    slot: 24
+    material: NETHERITE_INGOT
+    display-name: '<#ff5555>High Room</#ff5555>'
+    name: '<#ff5555><bold>High Room</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>High risk, high reward'
+      - ''
+      - '<#55ff99>Money pot <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Item pot <dark_gray>| <white>%items% item(s)</white>'
+      - '<#ffaa00>Participants <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Time left <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Click to open this room.'
+  item:
+    slot: 30
+    material: DIAMOND
+    display-name: '<#33ccff>Item Room</#33ccff>'
+    name: '<#33ccff><bold>Item Room</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>Item-only prize pool'
+      - ''
+      - '<#55ff99>Money pot <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Item pot <dark_gray>| <white>%items% item(s)</white>'
+      - '<#ffaa00>Participants <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Time left <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Click to open this room.'
+  event:
+    slot: 32
+    material: AMETHYST_SHARD
+    display-name: '<#cc99ff>Event Room</#cc99ff>'
+    name: '<#cc99ff><bold>Event Room</bold> <dark_gray>| <white>%mode%</white>'
+    glow: false
+    lore:
+      - '<dark_gray>Special event pool'
+      - ''
+      - '<#55ff99>Money pot <dark_gray>| <white>%money%</white>'
+      - '<#33ccff>Item pot <dark_gray>| <white>%items% item(s)</white>'
+      - '<#ffaa00>Participants <dark_gray>| <white>%players%</white>'
+      - '<#cc99ff>Time left <dark_gray>| <white>%time%</white>'
+      - ''
+      - '<#55ff99>Click to open this room.'
+dynamic:
+  fallback-room-slots: [11, 13, 15, 19, 25, 28, 34, 37, 39, 41, 43]
+
+
+

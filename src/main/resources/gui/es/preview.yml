@@ -1,0 +1,37 @@
+title: '<#55ff99><bold>Cofre de premios</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 54
+filler:
+  material: GREEN_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: ENDER_CHEST
+    name: '<#55ff99><bold>Vista del premio</bold>'
+    lore:
+      - '<dark_gray>Resumen del pozo'
+      - ''
+      - '<#55ff99>Dinero <dark_gray>| <white>%money_pot%</white>'
+      - '<#33ccff>Objetos <dark_gray>| <white>%item_pot% objetos</white>'
+      - '<#ffaa00>Entradas con boleto <dark_gray>| <white>%ticket_entries%</white>'
+      - ''
+      - '<gray>Los objetos se entregan al ganador como objetos.'
+    action: none
+  back:
+    slot: 49
+    material: ARROW
+    name: '<#55ff99><bold>Volver</bold>'
+    lore:
+      - '<gray>Volver al menú principal.'
+    action: open-main
+dynamic:
+  prize-summary-slot: [13]
+  item-slots: [19, 20, 21, 22, 23, 24, 25, 28, 29, 30, 31, 32, 33, 34, 37, 38, 39, 40, 41, 42, 43]
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

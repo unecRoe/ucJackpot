@@ -1,0 +1,106 @@
+title: '<#55ff99><bold>돈 넣기</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 45
+filler:
+  material: GREEN_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: GOLD_INGOT
+    name: '<#55ff99><bold>돈으로 참가</bold>'
+    lore:
+      - '<dark_gray>금액 범위'
+      - ''
+      - '<#ffcc33>최소 <dark_gray>| <white>%min_money%</white>'
+      - '<#ffcc33>최대 <dark_gray>| <white>%max_money%</white>'
+      - '<#55ff99>즐겨찾기 <dark_gray>| <white>%favorite_money%</white>'
+      - '<#cc99ff>내 확률 <dark_gray>| <white>%player_chance%%</white>'
+    action: none
+  quick-1:
+    slot: 11
+    material: SUNFLOWER
+    name: '<#ffcc33><bold>%quick_money_1%</bold>'
+    lore:
+      - '<dark_gray>빠른 투입'
+      - ''
+      - '<gray>이 금액으로 바로 참가합니다.'
+    action: money-quick-1
+  quick-2:
+    slot: 13
+    material: SUNFLOWER
+    name: '<#ffcc33><bold>%quick_money_2%</bold>'
+    lore:
+      - '<dark_gray>빠른 투입'
+      - ''
+      - '<gray>이 금액으로 바로 참가합니다.'
+    action: money-quick-2
+  quick-3:
+    slot: 15
+    material: SUNFLOWER
+    name: '<#ffcc33><bold>%quick_money_3%</bold>'
+    lore:
+      - '<dark_gray>빠른 투입'
+      - ''
+      - '<gray>이 금액으로 바로 참가합니다.'
+    action: money-quick-3
+  quick-4:
+    slot: 21
+    material: SUNFLOWER
+    name: '<#ffcc33><bold>%quick_money_4%</bold>'
+    lore:
+      - '<dark_gray>빠른 투입'
+      - ''
+      - '<gray>이 금액으로 바로 참가합니다.'
+    action: money-quick-4
+  quick-5:
+    slot: 23
+    material: SUNFLOWER
+    name: '<#ffcc33><bold>%quick_money_5%</bold>'
+    lore:
+      - '<dark_gray>빠른 투입'
+      - ''
+      - '<gray>이 금액으로 바로 참가합니다.'
+    action: money-quick-5
+  manual:
+    slot: 29
+    material: OAK_SIGN
+    name: '<#33ccff><bold>직접 입력</bold>'
+    lore:
+      - '<dark_gray>사용자 지정 금액'
+      - ''
+      - '<gray>클릭 후 채팅에 금액을 입력하세요.'
+    action: money-manual
+  favorite:
+    slot: 31
+    material: EMERALD
+    name: '<#55ff99><bold>즐겨찾기 사용</bold>'
+    lore:
+      - '<dark_gray>저장된 금액'
+      - ''
+      - '<#55ff99>즐겨찾기 <dark_gray>| <white>%favorite_money%</white>'
+      - '<gray>이 금액으로 바로 참가합니다.'
+    action: money-favorite
+  favorite-set:
+    slot: 33
+    material: WRITABLE_BOOK
+    name: '<#33ccff><bold>즐겨찾기 저장</bold>'
+    lore:
+      - '<dark_gray>빠른 금액'
+      - ''
+      - '<gray>클릭 후 새 즐겨찾기 금액을 입력하세요.'
+    action: money-favorite-set
+  back:
+    slot: 40
+    material: ARROW
+    name: '<#55ff99><bold>뒤로</bold>'
+    lore:
+      - '<gray>메인 메뉴로 돌아갑니다.'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+

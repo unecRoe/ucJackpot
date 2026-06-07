@@ -1,0 +1,33 @@
+title: '<#cc99ff><bold>İzleme Ekranı</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 54
+filler:
+  material: PURPLE_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: CLOCK
+    name: '<#cc99ff><bold>Canlı Akış</bold>'
+    lore:
+      - '<dark_gray>Tur izleme'
+      - ''
+      - '<#cc99ff>Kalan süre <dark_gray>| <white>%time_left%</white>'
+      - '<#ffaa00>Katılımcı <dark_gray>| <white>%players%</white>'
+      - '<gray>Katılımcılar ekranda akış halinde görünür.'
+    action: none
+  back:
+    slot: 49
+    material: ARROW
+    name: '<#55ff99><bold>Geri</bold>'
+    lore:
+      - '<gray>Ana menüye dön.'
+    action: open-main
+dynamic:
+  entry-slots: [10, 11, 12, 13, 14, 15, 16]
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+

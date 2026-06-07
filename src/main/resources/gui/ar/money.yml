@@ -1,0 +1,106 @@
+title: '<#55ff99><bold>إيداع المال</bold> <dark_gray>| <white>%jackpot_name%</white>'
+size: 45
+filler:
+  material: GREEN_STAINED_GLASS_PANE
+  name: ' '
+items:
+  info:
+    slot: 4
+    material: GOLD_INGOT
+    name: '<#55ff99><bold>دخول بالمال</bold>'
+    lore:
+      - '<dark_gray>نطاق المبلغ'
+      - ''
+      - '<#ffcc33>الحد الأدنى <dark_gray>| <white>%min_money%</white>'
+      - '<#ffcc33>الحد الأقصى <dark_gray>| <white>%max_money%</white>'
+      - '<#55ff99>المفضل <dark_gray>| <white>%favorite_money%</white>'
+      - '<#cc99ff>فرصتك <dark_gray>| <white>%player_chance%%</white>'
+    action: none
+  quick-1:
+    slot: 11
+    material: SUNFLOWER
+    name: '<#ffcc33><bold>%quick_money_1%</bold>'
+    lore:
+      - '<dark_gray>إيداع سريع'
+      - ''
+      - '<gray>ادخل فوراً بهذا المبلغ.'
+    action: money-quick-1
+  quick-2:
+    slot: 13
+    material: SUNFLOWER
+    name: '<#ffcc33><bold>%quick_money_2%</bold>'
+    lore:
+      - '<dark_gray>إيداع سريع'
+      - ''
+      - '<gray>ادخل فوراً بهذا المبلغ.'
+    action: money-quick-2
+  quick-3:
+    slot: 15
+    material: SUNFLOWER
+    name: '<#ffcc33><bold>%quick_money_3%</bold>'
+    lore:
+      - '<dark_gray>إيداع سريع'
+      - ''
+      - '<gray>ادخل فوراً بهذا المبلغ.'
+    action: money-quick-3
+  quick-4:
+    slot: 21
+    material: SUNFLOWER
+    name: '<#ffcc33><bold>%quick_money_4%</bold>'
+    lore:
+      - '<dark_gray>إيداع سريع'
+      - ''
+      - '<gray>ادخل فوراً بهذا المبلغ.'
+    action: money-quick-4
+  quick-5:
+    slot: 23
+    material: SUNFLOWER
+    name: '<#ffcc33><bold>%quick_money_5%</bold>'
+    lore:
+      - '<dark_gray>إيداع سريع'
+      - ''
+      - '<gray>ادخل فوراً بهذا المبلغ.'
+    action: money-quick-5
+  manual:
+    slot: 29
+    material: OAK_SIGN
+    name: '<#33ccff><bold>مبلغ يدوي</bold>'
+    lore:
+      - '<dark_gray>مبلغ مخصص'
+      - ''
+      - '<gray>انقر ثم اكتب المبلغ في الدردشة.'
+    action: money-manual
+  favorite:
+    slot: 31
+    material: EMERALD
+    name: '<#55ff99><bold>استخدام المفضل</bold>'
+    lore:
+      - '<dark_gray>مبلغ محفوظ'
+      - ''
+      - '<#55ff99>المفضل <dark_gray>| <white>%favorite_money%</white>'
+      - '<gray>ادخل فوراً بهذا المبلغ.'
+    action: money-favorite
+  favorite-set:
+    slot: 33
+    material: WRITABLE_BOOK
+    name: '<#33ccff><bold>حفظ المفضل</bold>'
+    lore:
+      - '<dark_gray>مبلغ سريع'
+      - ''
+      - '<gray>انقر ثم اكتب مبلغاً مفضلاً جديداً.'
+    action: money-favorite-set
+  back:
+    slot: 40
+    material: ARROW
+    name: '<#55ff99><bold>رجوع</bold>'
+    lore:
+      - '<gray>العودة إلى القائمة الرئيسية.'
+    action: open-main
+sounds:
+  open: BLOCK_NOTE_BLOCK_PLING
+  click: UI_BUTTON_CLICK
+  error: ENTITY_VILLAGER_NO
+
+
+
+
