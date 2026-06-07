@@ -116,9 +116,19 @@ Aliases are configurable in `config.yml`.
 | `lang/<locale>.yml` | Chat feedback only |
 | `gui/<locale>/<menu>.yml` | GUI titles, item names, lore, slots, materials, sounds |
 
-Default language is English. Supported locales:
+Default language is English. Supported languages:
 
-`en`, `tr`, `de`, `fr`, `es`, `pt`, `ru`, `ar`, `zh`, `ja`, `ko`
+- English (English) - `en`
+- Turkish (Türkçe) - `tr`
+- German (Deutsch) - `de`
+- French (Français) - `fr`
+- Spanish (Español) - `es`
+- Portuguese (Português) - `pt`
+- Russian (Русский) - `ru`
+- Arabic (العربية) - `ar`
+- Chinese (中文) - `zh`
+- Japanese (日本語) - `ja`
+- Korean (한국어) - `ko`
 
 The plugin extracts only the configured locale and fallback locale. Changing `settings.default-locale` and running `/ucjackpot reload` loads the new language files automatically.
 
